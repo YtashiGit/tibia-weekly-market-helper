@@ -126,7 +126,7 @@ async function enrichVisibleWeeklyRows() {
   let done = 0, failed = 0;
   $('loadWeeklyValuesBtn').disabled = true;
   $('stopWeeklyValuesBtn').disabled = false;
-  setStatus(`Loading avg value, drop %, and lowest monster HP for ${total} visible weekly row(s)…`, 'warn');
+  setStatus(`Loading avg value, drop %, and lowest monster HP for ${total} visible weekly row(s)… Using 8 workers + local cache`, 'warn');
 
   const queue = rows.filter(r => !r.enriched || r.enrichWorld !== ($('worldInput').value.trim() || 'Antica'));
   queue.forEach(r => { r.loading = true; });
@@ -142,12 +142,14 @@ async function enrichVisibleWeeklyRows() {
         row.loading = false; row.enrichError = e.message; failed++;
       } finally {
         done++;
-        if (done % 3 === 0 || done === total) renderWeeklyTable();
-        setStatus(`Weekly enrichment: ${done}/${total} processed${failed ? `, ${failed} failed` : ''}.`, failed ? 'warn' : 'ok');
+        if (done % 10 === 0 || done === total) renderWeeklyTable();
+        const cached = row.fromCache ? ' cached' : '';
+        setStatus(`Weekly enrichment: ${done}/${total} processed${cached}${failed ? `, ${failed} failed` : ''}. First full run is slow; cached reruns are much faster.`, failed ? 'warn' : 'ok');
       }
     }
   }
-  const workers = [worker(), worker(), worker()];
+  const workerCount = Math.min(8, Math.max(1, queue.length));
+  const workers = Array.from({length: workerCount}, () => worker());
   await Promise.all(workers);
   state.enriching = false;
   $('loadWeeklyValuesBtn').disabled = false;

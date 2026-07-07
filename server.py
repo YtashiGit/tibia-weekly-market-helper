@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / ".cache"
 CACHE.mkdir(exist_ok=True)
 PORT = int(os.environ.get("PORT", "8000"))
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) TibiaItemLocalServer/1.0"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) TibiaItemLocalServer/1.1"
 
 
 def slugify_item(name: str) -> str:
@@ -155,7 +155,7 @@ def get_price(world: str, item: str) -> dict:
         seen.add(ws)
         url = f"https://tibiaprices.com/world/{ws}/item/{item_slug}/"
         try:
-            page = fetch_text(url, cache_key=f"price_{ws}_{item_slug}.html", max_age=1800)
+            page = fetch_text(url, cache_key=f"price_{ws}_{item_slug}.html", max_age=12*3600)
             data = parse_tibiaprices_page(page, requested_world, item, url, ws)
             if data.get("avg_value_used") is not None:
                 data["tried_worlds"] = list(seen)
@@ -184,7 +184,8 @@ def get_price(world: str, item: str) -> dict:
 
 def fandom_parse(title: str) -> str:
     api = "https://tibia.fandom.com/api.php?action=parse&prop=text&format=json&page=" + quote(wiki_title(title), safe=":_")
-    raw = fetch_text(api, cache_key=f"wiki_{wiki_title(title)}.json", max_age=12*3600)
+    # Wiki loot/HP data changes rarely, so keep it cached longer.
+    raw = fetch_text(api, cache_key=f"wiki_{wiki_title(title)}.json", max_age=7*24*3600)
     obj = json.loads(raw)
     return obj.get("parse", {}).get("text", {}).get("*", "")
 
@@ -366,7 +367,21 @@ def get_loot_sources(item: str) -> list:
 
 
 def get_weekly_row(world: str, item: str) -> dict:
-    price = get_price(world, item)
+    # Whole weekly rows are cached because they require multiple remote page loads
+    # (price page + item page + creature page + loot statistics page). The first
+    # run can still take time, but repeats become near-instant.
+    requested_world = world or "Antica"
+    cache_key = "weeklyrow_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
+    cached = cache_get(cache_key, max_age=12*3600)
+    if cached:
+        try:
+            obj = json.loads(cached)
+            obj["fromCache"] = True
+            return obj
+        except Exception:
+            pass
+
+    price = get_price(requested_world, item)
     sources = get_loot_sources(item)
     best = sources[0] if sources else {}
     avg_value = price.get("avg_value_used") or price.get("global_average_price") or price.get("current_market_price")
@@ -374,7 +389,7 @@ def get_weekly_row(world: str, item: str) -> dict:
     efficiency = None
     if isinstance(avg_value, int) and isinstance(chance_pct, (int, float)):
         efficiency = round(avg_value * chance_pct / 100, 4)
-    return {
+    row = {
         "name": item,
         "avgValue": avg_value,
         "currentMarketPrice": price.get("current_market_price"),
@@ -388,7 +403,13 @@ def get_weekly_row(world: str, item: str) -> dict:
         "efficiency": efficiency,
         "sourceUrl": best.get("url") or wiki_url(item),
         "wikiUrl": wiki_url(item),
+        "fromCache": False,
     }
+    try:
+        cache_set(cache_key, json.dumps(row, ensure_ascii=False))
+    except Exception:
+        pass
+    return row
 
 
 def run_git_update() -> dict:

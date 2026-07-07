@@ -91,3 +91,15 @@ The app can update itself only from a real GitHub repo that contains newer code.
 - Lowest-HP source ignores NPCs/non-monsters by requiring a parsed HP value.
 - Market prices depend on public price pages being available and parseable.
 - Cached requests are stored in `.cache/` and are ignored by Git.
+
+
+## Performance notes
+
+`Load avg values + efficiency` is slow on the first full run because every weekly item may require multiple remote lookups: a market-price page, an item page, creature HP pages, and loot-statistics pages. This version adds:
+
+- 8 parallel workers in the browser.
+- 12-hour cached weekly efficiency rows in `.cache/`.
+- 12-hour cached price pages.
+- 7-day cached TibiaWiki pages for HP/drop data.
+
+The first full run can still take a while, but repeating it for the same world should be much faster. To force fresh data, delete the `.cache` folder while the server is stopped.
