@@ -9,7 +9,7 @@ It can:
 - show whether the item is in the weekly Delivery Task pool,
 - list up to 6 lowest-HP monster sources,
 - show HP and TibiaWiki/Fandom loot-stat drop chance when available,
-- enrich the weekly table with avg value, drop chance %, lowest monster HP, and expected gp/kill,
+- enrich the weekly table with avg value, drop chance %, two lowest-HP non-boss monster sources, and expected gp/kill,
 - export weekly results to CSV for Excel.
 
 ## Run on Windows
@@ -88,17 +88,17 @@ The app can update itself only from a real GitHub repo that contains newer code.
 ## Data notes
 
 - Drop chances are community loot-stat estimates from TibiaWiki/Fandom, not official CipSoft rates.
-- Lowest-HP source ignores NPCs/non-monsters by requiring a parsed HP value.
+- Weekly source selection ignores NPCs, bosses, and non-monsters by requiring real creature HP and rejecting boss categories.
 - Market prices depend on public price pages being available and parseable.
 - Cached requests are stored in `.cache/` and are ignored by Git.
 
 
 ## Performance notes
 
-`Load avg values + efficiency` is slow on the first full run because every weekly item may require multiple remote lookups: a market-price page, an item page, creature HP pages, and loot-statistics pages. This version adds:
+`Load avg values + sources` is slow on the first full run because every weekly item may require multiple remote lookups: a market-price page, an item page, creature HP pages, and loot-statistics pages. This version adds:
 
 - 8 parallel workers in the browser.
-- 12-hour cached weekly efficiency rows in `.cache/`.
+- 12-hour cached weekly source rows in `.cache/`.
 - 12-hour cached price pages.
 - 7-day cached TibiaWiki pages for HP/drop data.
 
@@ -106,22 +106,22 @@ The first full run can still take a while, but repeating it for the same world s
 
 ## NPC/source filtering fix
 
-This build ignores NPC/non-monster pages when calculating the lowest-HP source. HP is accepted only from creature-style infobox/table rows, and pages categorized as NPCs are excluded. Existing old cache entries are bypassed with a new weekly-row cache key.
+This build ignores NPC/non-monster pages when calculating the lowest-HP non-boss sources. HP is accepted only from creature-style infobox/table rows, and pages categorized as NPCs are excluded. Existing old cache entries are bypassed with a new weekly-row cache key.
 
 ## Notes in this build
 
 - The world selector is limited to **Bona**, **Celesta**, and **Dia**.
 - Price lookups only try those three worlds, which cuts useless fallback requests and should make failures finish faster.
-- The loot-source parser is stricter: it only reads the actual Dropped By row/section, rejects NPC/spell/rune pages, and blocks the bad `Invisibility` source row.
-- Weekly efficiency uses a new cache key so older cached bad rows are not reused.
+- The loot-source parser is stricter: it only reads the actual Dropped By row/section and rejects NPC/spell/rune/boss pages.
+- Weekly source rows use a new cache key so older cached bad rows are not reused.
 
 ## HP table fix
-This version uses a stricter HP parser. It only accepts HP from creature infobox/table fields and ignores NPC/spell/item pages. If you used an older version and still see weird HP values, click **Clear cache** once, then run **Load avg values + efficiency** again.
+This version uses a stricter HP parser. It only accepts HP from creature infobox/table fields and ignores NPC/spell/item pages. If you used an older version and still see weird HP values, click **Clear cache** once, then run **Load avg values + sources** again.
 
 
 ## Quick prices bar
 
-The top of the page shows small icon cards with prices for: Rope Belt, Piece of Dead Brain, Cultish Mask, Sabretooth, Bloody Pincers, Protective Charm, and Medicine Pouch. The cards use the selected world only: Bona, Celesta, or Dia. Click **Refresh quick prices** after changing world or if the price source was temporarily unavailable.
+Quick price cards were replaced by the Imbuingi tab. Imbuingi includes material prices and Gold Token comparison.
 
 ## New tabs
 
@@ -130,3 +130,25 @@ Shows all Grizzly Adams task rows split into Tibia level ranges: 6-49, 50-79, 80
 
 ### Imbuingi
 Lists all imbuement material items from TibiaWiki's imbuing tables. Use **Load imbuing avg prices** to fetch average prices for the selected world: Bona, Celesta or Dia. The table can be filtered, sorted, and exported to CSV.
+
+## Imbuingi: Gold Token comparison
+
+The Imbuingi tab now includes a manual/editable Gold Token price field. You can load the Gold Token price automatically when the price source has it, or type your own current market price.
+
+The comparison table groups imbuements only by level:
+
+- Basic = 2 Gold Tokens
+- Intricate = 4 Gold Tokens
+- Powerful = 6 Gold Tokens
+
+It compares the total market-material cost against the Gold Token cost and marks which option is cheaper.
+
+
+## Weekly table source rules
+
+The weekly table ignores NPCs, non-monsters, and boss pages when choosing farming sources. It displays up to two lowest-HP regular monsters as `Monster Name (HP)` and does not show separate HP or expected gp/kill columns.
+
+
+## Weekly table layout update
+
+The weekly table now shows up to two regular monsters per item in one column, formatted as `Monster Name (HP)`. It does not show separate HP or expected gp/kill columns, and bosses are excluded from weekly source suggestions.

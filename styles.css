@@ -67,3 +67,10 @@ code { background: var(--panel2); padding:.15rem .35rem; border-radius:6px; }
 .quickCard.error .qPrice { color: var(--bad); }
 .chip { display:inline-block; padding:.22rem .45rem; margin:.12rem .18rem .12rem 0; border:1px solid var(--border); background:var(--panel2); border-radius:999px; font-size:.9rem; white-space:nowrap; }
 .chip:hover { filter:brightness(1.12); }
+.tokenGrid { grid-template-columns: minmax(220px, 1fr) 220px; margin: .8rem 0 1rem; }
+.compactActions { margin-top: 0; }
+.subHead { margin-top: 1.15rem; }
+.mutedText { color: var(--muted); font-weight: 600; }
+#imbuingCompareTable .ok { color: var(--good); font-weight: 800; }
+#imbuingCompareTable .warn { color: var(--warn); font-weight: 800; }
+@media (max-width: 700px) { .tokenGrid { grid-template-columns: 1fr; } }

@@ -1,5 +1,6 @@
-const state = { weeklyItems: [], weeklyRows: [], sourceRows: [], grizzlyTasks: [], imbuingItems: [], imbuingRows: [], enriching: false, stopEnrich: false, loadingImbuing: false };
+const state = { weeklyItems: [], weeklyRows: [], sourceRows: [], grizzlyTasks: [], imbuingItems: [], imbuingRows: [], imbuingCompareRows: [], enriching: false, stopEnrich: false, loadingImbuing: false };
 const QUICK_ITEMS = [];
+const TOKEN_COUNTS = { Basic: 2, Intricate: 4, Powerful: 6 };
 const $ = (id) => document.getElementById(id);
 const statusEl = $('status');
 const summaryEl = $('summary');
@@ -11,6 +12,7 @@ const sourcesBody = document.querySelector('#sourcesTable tbody');
 const weeklyBody = document.querySelector('#weeklyTable tbody');
 const grizzlyBody = document.querySelector('#grizzlyTable tbody');
 const imbuingBody = document.querySelector('#imbuingTable tbody');
+const imbuingCompareBody = document.querySelector('#imbuingCompareTable tbody');
 
 function norm(s) { return String(s || '').toLowerCase().replace(/&amp;/g, '&').replace(/[^a-z0-9]+/g, ' ').trim(); }
 function fmtGp(v) { if (v === undefined || v === null || v === '' || Number.isNaN(Number(v))) return '—'; return Number(v).toLocaleString() + ' gp'; }
@@ -30,7 +32,7 @@ async function loadWeeklyItems() {
   const names = new Set(state.weeklyItems.map(x => x.name));
   state.imbuingItems.forEach(x => names.add(x.name));
   state.grizzlyTasks.forEach(t => { (t.valuables || []).forEach(x => names.add(x)); (t.mobs || []).forEach(x => names.add(x)); });
-  ['Tarantula Egg','Vampire Teeth','Spider Silk','Honeycomb','Broken Shamanic Staff','Dragon Ham','Demon Horn'].forEach(x => names.add(x));
+  ['Tarantula Egg','Vampire Teeth','Spider Silk','Honeycomb','Broken Shamanic Staff','Dragon Ham','Demon Horn','Gold Token'].forEach(x => names.add(x));
   $('itemSuggestions').innerHTML = [...names].filter(Boolean).sort((a,b)=>a.localeCompare(b)).map(n => `<option value="${escapeHtml(n)}"></option>`).join('');
 }
 
@@ -152,7 +154,6 @@ function getFilteredWeeklyRows() {
   const rows = [...state.weeklyItems].filter(r => !filter || norm(`${r.name} ${r.category} ${r.dropSources} ${r.lowestSource || ''}`).includes(filter));
   const sort = $('weeklySort').value;
   if (sort === 'avgValue') rows.sort((a,b)=> nval(b,'avgValue') - nval(a,'avgValue') || a.name.localeCompare(b.name));
-  else if (sort === 'efficiency') rows.sort((a,b)=> nval(b,'efficiency') - nval(a,'efficiency') || a.name.localeCompare(b.name));
   else if (sort === 'lowestHp') rows.sort((a,b)=> nval(a,'lowestHp', true) - nval(b,'lowestHp', true) || a.name.localeCompare(b.name));
   else if (sort === 'dropChancePercent') rows.sort((a,b)=> nval(b,'dropChancePercent') - nval(a,'dropChancePercent') || a.name.localeCompare(b.name));
   else rows.sort((a,b) => String(a[sort] || '').localeCompare(String(b[sort] || '')));
@@ -167,14 +168,12 @@ function renderWeeklyTable() {
     <td>${escapeHtml(r.category)}</td>
     <td data-num="${r.avgValue ?? ''}">${r.loading ? 'Loading…' : fmtGp(r.avgValue)}</td>
     <td data-num="${r.dropChancePercent ?? ''}">${r.loading ? 'Loading…' : (r.dropChanceText || fmtPct(r.dropChancePercent))}</td>
-    <td>${escapeHtml(r.lowestSource || '—')}</td>
-    <td data-num="${r.lowestHp ?? ''}">${fmtNum(r.lowestHp)}</td>
-    <td data-num="${r.efficiency ?? ''}">${fmtGp(r.efficiency)}</td>
+    <td>${escapeHtml(r.monsterSourcesText || r.lowestSource || '—')}</td>
     <td>${r.priceUrl ? `<a href="${escapeHtml(r.priceUrl)}" target="_blank" rel="noopener">Price</a>` : '—'}</td>
     <td><a href="${escapeHtml(r.wikiUrl || wikiPageLink(r.name))}" target="_blank" rel="noopener">Wiki</a></td>
   </tr>`).join('');
 }
-function showWeeklyProfit() { weeklyPanel.classList.remove('hidden'); renderWeeklyTable(); setStatus(`Loaded ${state.weeklyItems.length} weekly items. Click “Load avg values + efficiency” to fill price/drop/HP columns for the selected world.`, 'ok'); }
+function showWeeklyProfit() { weeklyPanel.classList.remove('hidden'); renderWeeklyTable(); setStatus(`Loaded ${state.weeklyItems.length} weekly items. Click “Load avg values + sources” to fill price, drop %, and 2 lowest-HP non-boss monster sources.`, 'ok'); }
 
 async function enrichVisibleWeeklyRows() {
   if (state.enriching) return;
@@ -184,7 +183,7 @@ async function enrichVisibleWeeklyRows() {
   let done = 0, failed = 0;
   $('loadWeeklyValuesBtn').disabled = true;
   $('stopWeeklyValuesBtn').disabled = false;
-  setStatus(`Loading avg value, drop %, and lowest monster HP for ${total} visible weekly row(s)… Using 8 workers + local cache; worlds limited to Bona/Celesta/Dia`, 'warn');
+  setStatus(`Loading avg value, drop %, and 2 lowest-HP monster sources for ${total} visible weekly row(s)… Using 8 workers + local cache; worlds limited to Bona/Celesta/Dia`, 'warn');
 
   const queue = rows.filter(r => !r.enriched || r.enrichWorld !== ($('worldInput').value.trim() || 'Bona'));
   queue.forEach(r => { r.loading = true; });
@@ -214,7 +213,7 @@ async function enrichVisibleWeeklyRows() {
   $('stopWeeklyValuesBtn').disabled = true;
   queue.forEach(r => { r.loading = false; });
   renderWeeklyTable();
-  setStatus(state.stopEnrich ? `Stopped after ${done}/${total} rows.` : `Finished weekly enrichment: ${done}/${total} rows. Sort by efficiency or avg value now.`, state.stopEnrich ? 'warn' : 'ok');
+  setStatus(state.stopEnrich ? `Stopped after ${done}/${total} rows.` : `Finished weekly enrichment: ${done}/${total} rows. Sort by avg value, drop chance, or monster HP now.`, state.stopEnrich ? 'warn' : 'ok');
 }
 
 
@@ -256,6 +255,122 @@ function showGrizzly() {
   setStatus(`Grizzly Adams: ${state.grizzlyTasks.length} task rows loaded.`, 'ok');
 }
 
+
+function parseManualGp(s) {
+  const cleaned = String(s || '').replace(/[^0-9.]/g, '');
+  const n = Number(cleaned);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+function imbuingBaseName(usedIn) {
+  return String(usedIn || '').replace(/^Powerful\s+/i, '').trim();
+}
+
+function imbuingMaterialIndex(row, groupRows) {
+  const base = imbuingBaseName(row.usedIn);
+  const same = groupRows.filter(x => imbuingBaseName(x.usedIn) === base);
+  return same.indexOf(row);
+}
+
+function getGoldTokenPrice() {
+  return parseManualGp($('goldTokenPrice')?.value);
+}
+
+function setGoldTokenPrice(v) {
+  if ($('goldTokenPrice') && Number.isFinite(Number(v)) && Number(v) > 0) $('goldTokenPrice').value = Math.round(Number(v));
+}
+
+function getImbuingGroups() {
+  const groups = new Map();
+  for (const row of state.imbuingItems) {
+    const base = imbuingBaseName(row.usedIn);
+    if (!groups.has(base)) groups.set(base, []);
+    groups.get(base).push(row);
+  }
+  return [...groups.entries()].map(([name, rows]) => ({name, rows}));
+}
+
+function rowCost(row) {
+  const price = Number(row.avgValue);
+  const qty = Number(row.maxQty);
+  return Number.isFinite(price) && Number.isFinite(qty) ? price * qty : null;
+}
+
+function buildImbuingCompareRows() {
+  const tokenPrice = getGoldTokenPrice();
+  const levelFilter = $('imbuingCompareLevel')?.value || 'all';
+  const out = [];
+  for (const group of getImbuingGroups()) {
+    const rows = group.rows;
+    const levels = [
+      {level:'Basic', count:1},
+      {level:'Intricate', count:2},
+      {level:'Powerful', count:3},
+    ];
+    for (const l of levels) {
+      if (levelFilter !== 'all' && levelFilter !== l.level) continue;
+      const needed = rows.slice(0, l.count);
+      if (!needed.length) continue;
+      const costs = needed.map(rowCost);
+      const known = costs.every(x => x !== null);
+      const marketTotal = known ? costs.reduce((a,b)=>a+b, 0) : null;
+      const tokenCount = TOKEN_COUNTS[l.level];
+      const tokenTotal = tokenPrice ? tokenPrice * tokenCount : null;
+      let better = '—', diff = null;
+      if (marketTotal !== null && tokenTotal !== null) {
+        diff = Math.abs(marketTotal - tokenTotal);
+        if (Math.round(marketTotal) === Math.round(tokenTotal)) better = 'Same';
+        else better = marketTotal < tokenTotal ? 'Market items' : 'Gold Token';
+      } else if (marketTotal !== null) better = 'Need token price';
+      else if (tokenTotal !== null) better = 'Need item prices';
+      out.push({level:l.level, imbuing:group.name, marketTotal, tokenCount, tokenTotal, better, diff});
+    }
+  }
+  const order = {Basic: 1, Intricate: 2, Powerful: 3};
+  out.sort((a,b) => order[a.level] - order[b.level] || a.imbuing.localeCompare(b.imbuing));
+  return out;
+}
+
+function renderImbuingCompareTable() {
+  if (!imbuingCompareBody) return;
+  const rows = buildImbuingCompareRows();
+  state.imbuingCompareRows = rows;
+  let marketWins = 0, tokenWins = 0, unknown = 0;
+  imbuingCompareBody.innerHTML = rows.map(r => {
+    if (r.better === 'Market items') marketWins++;
+    else if (r.better === 'Gold Token') tokenWins++;
+    else unknown++;
+    const cls = r.better === 'Gold Token' ? 'ok' : (r.better === 'Market items' ? 'warn' : '');
+    return `<tr>
+      <td>${escapeHtml(r.level)}</td>
+      <td>${escapeHtml(r.imbuing)}</td>
+      <td data-num="${r.marketTotal ?? ''}">${fmtGp(r.marketTotal)}</td>
+      <td data-num="${r.tokenCount}">${fmtNum(r.tokenCount)}</td>
+      <td data-num="${r.tokenTotal ?? ''}">${fmtGp(r.tokenTotal)}</td>
+      <td class="${cls}">${escapeHtml(r.better)}</td>
+      <td data-num="${r.diff ?? ''}">${fmtGp(r.diff)}</td>
+    </tr>`;
+  }).join('');
+  const el = $('imbuingCompareSummary');
+  if (el) el.textContent = `Market cheaper: ${marketWins}; Gold Token cheaper: ${tokenWins}; incomplete: ${unknown}.`;
+}
+
+async function loadGoldTokenPrice() {
+  const btn = $('loadGoldTokenBtn');
+  if (btn) btn.disabled = true;
+  try {
+    const p = await loadPrice('Gold Token');
+    const value = p.avg_value_used ?? p.current_market_price ?? p.global_average_price ?? null;
+    if (value) setGoldTokenPrice(value);
+    renderImbuingCompareTable();
+    setStatus(value ? `Gold Token price loaded: ${fmtGp(value)}.` : 'Gold Token price not found. Type it manually in the Imbuingi tab.', value ? 'ok' : 'warn');
+  } catch (e) {
+    setStatus(`Gold Token price lookup failed: ${escapeHtml(e.message)}. Type it manually.`, 'warn');
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
 function getFilteredImbuingRows() {
   const filter = norm($('imbuingFilter')?.value || '');
   const rows = state.imbuingItems.filter(r => !filter || norm(`${r.name} ${r.usedIn}`).includes(filter));
@@ -282,6 +397,7 @@ function renderImbuingTable() {
       <td><a href="${escapeHtml(wikiPageLink(r.name))}" target="_blank" rel="noopener">Wiki</a></td>
     </tr>`;
   }).join('');
+  renderImbuingCompareTable();
 }
 
 function showImbuing() {
@@ -353,13 +469,17 @@ $('grizzlyFilter')?.addEventListener('input', renderGrizzlyTable);
 $('imbuingFilter')?.addEventListener('input', renderImbuingTable);
 $('imbuingSort')?.addEventListener('change', renderImbuingTable);
 $('loadImbuingPricesBtn')?.addEventListener('click', loadImbuingPrices);
+$('loadGoldTokenBtn')?.addEventListener('click', loadGoldTokenPrice);
+$('goldTokenPrice')?.addEventListener('input', renderImbuingCompareTable);
+$('imbuingCompareLevel')?.addEventListener('change', renderImbuingCompareTable);
 $('themeBtn').addEventListener('click', () => document.documentElement.classList.toggle('light'));
 $('loadWeeklyValuesBtn').addEventListener('click', enrichVisibleWeeklyRows);
 $('stopWeeklyValuesBtn').addEventListener('click', () => { state.stopEnrich = true; setStatus('Stopping after current requests finish…', 'warn'); });
 $('exportSourcesBtn').addEventListener('click', () => downloadCsv('tibia_item_sources.csv', [['Creature / source','HP','Drop chance','Drop chance %','Avg / kill','Sample count','Source URL'], ...state.sourceRows.map(r => [r.source, r.hp ?? '', r.chance, r.chancePercent ?? '', r.average, r.sample, r.url])]))
-$('exportWeeklyBtn').addEventListener('click', () => downloadCsv('tibia_weekly_items_enriched.csv', [['Item','Category','Avg value gp','Drop chance %','Drop chance text','Lowest monster source','Lowest monster HP','Expected gp/kill','Price URL','Wiki URL'], ...state.weeklyRows.map(r => [r.name, r.category, r.avgValue ?? '', r.dropChancePercent ?? '', r.dropChanceText ?? '', r.lowestSource ?? '', r.lowestHp ?? '', r.efficiency ?? '', r.priceUrl ?? '', r.wikiUrl ?? wikiPageLink(r.name)])]));
+$('exportWeeklyBtn').addEventListener('click', () => downloadCsv('tibia_weekly_items_enriched.csv', [['Item','Category','Avg value gp','Drop chance %','Drop chance text','Monster sources','Price URL','Wiki URL'], ...state.weeklyRows.map(r => [r.name, r.category, r.avgValue ?? '', r.dropChancePercent ?? '', r.dropChanceText ?? '', r.monsterSourcesText || r.lowestSource || '', r.priceUrl ?? '', r.wikiUrl ?? wikiPageLink(r.name)])]));
 $('exportGrizzlyBtn')?.addEventListener('click', () => downloadCsv('tibia_grizzly_adams_tasks.csv', [['Level range','Task','Kills','Mobs counted','Valuable items'], ...getFilteredGrizzlyRows().map(r => [r.levelRange, r.task, r.count, (r.mobs||[]).join('; '), (r.valuables||[]).join('; ')])]));
 $('exportImbuingBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_items_prices.csv', [['Item','Used in','Required qty','Avg price gp','Total max qty gp','Price URL','Wiki URL'], ...state.imbuingRows.map(r => [r.name, r.usedIn, r.maxQty ?? '', r.avgValue ?? '', (Number(r.avgValue)||0) * (Number(r.maxQty)||0) || '', r.priceUrl ?? '', wikiPageLink(r.name)])]));
+$('exportImbuingCompareBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_gold_token_comparison.csv', [['Level','Imbuing','Market materials total gp','Gold Tokens','Gold Token total gp','Better option','Difference gp'], ...state.imbuingCompareRows.map(r => [r.level, r.imbuing, r.marketTotal ?? '', r.tokenCount, r.tokenTotal ?? '', r.better, r.diff ?? ''])]));
 
 
 const refreshQuickBtn = $('refreshQuickBtn');
@@ -400,11 +520,11 @@ async function clearCache() {
     const res = await fetchJson('/api/clear_cache');
     state.weeklyItems.forEach(r => {
       delete r.enriched; delete r.enrichWorld; delete r.avgValue; delete r.dropChancePercent;
-      delete r.dropChanceText; delete r.lowestSource; delete r.lowestHp; delete r.efficiency;
+      delete r.dropChanceText; delete r.lowestSource; delete r.lowestHp; delete r.monsterSources; delete r.monsterSourcesText;
       delete r.priceUrl; delete r.loading;
     });
     renderWeeklyTable();
-    setStatus(res.message || 'Cache cleared. Run Load avg values + efficiency again.', 'ok');
+    setStatus(res.message || 'Cache cleared. Run Load avg values + sources again.', 'ok');
   } catch (e) {
     setStatus(`Could not clear cache: ${escapeHtml(e.message)}`, 'bad');
   } finally {

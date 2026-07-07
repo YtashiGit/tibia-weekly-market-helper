@@ -305,32 +305,78 @@ def page_looks_like_npc(page_html: str) -> bool:
     return any(m in txt for m in npc_markers) and not page_has_category(page_html, "Creatures")
 
 
-def parse_hp_from_html(page_html: str):
-    # Do NOT parse arbitrary "HP" text from the whole page. NPC/item pages can contain stray HP
-    # numbers in unrelated text. Only accept values from a table row/infobox label.
-    row_patterns = [
-        r"<tr[^>]*>[\s\S]{0,800}?(?:Hit Points|Hitpoints|Health|HP)[\s\S]{0,800}?</tr>",
-        r"<(?:th|td)[^>]*>\s*(?:Hit Points|Hitpoints|Health|HP)\s*</(?:th|td)>[\s\S]{0,500}?<(?:td|th)[^>]*>([\s\S]{0,200}?)</(?:td|th)>",
-    ]
-    for pat in row_patterns:
-        for m in re.finditer(pat, page_html, flags=re.I):
-            chunk = m.group(1) if m.lastindex else m.group(0)
-            txt = strip_tags(chunk).replace(",", "")
-            # Prefer number appearing after the label.
-            m2 = re.search(r"(?:Hit Points|Hitpoints|Health|HP)\s*[:\-]?\s*(\d{1,9})\b", txt, flags=re.I)
-            if not m2:
-                nums = re.findall(r"\b\d{1,9}\b", txt)
-                if nums:
-                    return int(nums[-1])
-            else:
-                return int(m2.group(1))
-    return None
+def page_looks_like_boss(page_html: str, name: str = "") -> bool:
+    """Reject bosses for weekly efficiency sources.
 
+    TibiaWiki/Fandom boss pages normally carry categories containing Boss/Bosses.
+    We also keep a small name-based guard for common boss-only page names that
+    sometimes appear in loot lists but are not useful for farming comparisons.
+    """
+    if re.search(r"Category:[^\"'<]*Boss", page_html, flags=re.I):
+        return True
+    key = re.sub(r"[^a-z0-9]+", " ", str(name or "").lower()).strip()
+    boss_name_markers = [
+        "boss", "the count of", "the duke of", "the pale count", "gaz haragoth", "ghazbaran",
+        "orshabaal", "morgaroth", "ferumbras", "mawhawk", "drume", "oberon", "scarlett",
+        "timira", "leiden", "jaul", "obujos", "tanjis", "zushuka", "omrafir", "world devourer"
+    ]
+    return any(m in key for m in boss_name_markers)
+
+
+def parse_hp_from_html(page_html: str):
+    """Return creature HP, but only from real creature infobox/table fields.
+
+    The previous parser could read any number from a row that merely contained
+    the letters "HP" somewhere. Fandom pages contain lots of unrelated numbers
+    (image sizes, sell prices, NPC text, spell values), so that caused random
+    HP values in the weekly table. This parser only accepts:
+      1) PortableInfobox fields with data-source hitpoints/health/hp, or
+      2) a table row where the first cell label is exactly HP/Health/Hit Points.
+    """
+    def clean_num(value_html: str):
+        txt = strip_tags(value_html).replace(',', '')
+        # Avoid ranges and explanatory text. Take the first standalone integer.
+        m = re.search(r"\b(\d{1,9})\b", txt)
+        if not m:
+            return None
+        n = int(m.group(1))
+        if n <= 0 or n > 10000000:
+            return None
+        return n
+
+    # PortableInfobox, e.g. data-source="hitpoints" ... pi-data-value ... 70
+    for src in ["hitpoints", "hit_points", "health", "hp"]:
+        pat = rf'<[^>]+data-source=["\']{src}["\'][\s\S]{{0,1800}}?<div[^>]*class=["\'][^"\']*pi-data-value[^"\']*["\'][^>]*>([\s\S]*?)</div>'
+        for m in re.finditer(pat, page_html, flags=re.I):
+            n = clean_num(m.group(1))
+            if n is not None:
+                return n
+
+    # PortableInfobox label/value pair fallback.
+    pat = r'<h3[^>]*class=["\'][^"\']*pi-data-label[^"\']*["\'][^>]*>\s*(?:Hit Points|Hitpoints|Health|HP)\s*</h3>\s*<div[^>]*class=["\'][^"\']*pi-data-value[^"\']*["\'][^>]*>([\s\S]*?)</div>'
+    for m in re.finditer(pat, page_html, flags=re.I):
+        n = clean_num(m.group(1))
+        if n is not None:
+            return n
+
+    # Old-style wikitable/infobox rows. Only parse the value cell, not the whole row.
+    for row in re.findall(r"<tr[^>]*>[\s\S]*?</tr>", page_html, flags=re.I):
+        cells = re.findall(r"<t[hd][^>]*>([\s\S]*?)</t[hd]>", row, flags=re.I)
+        if len(cells) < 2:
+            continue
+        label = strip_tags(cells[0]).strip().lower().rstrip(':')
+        label = re.sub(r"\s+", " ", label)
+        if label in {"hp", "health", "hit points", "hitpoints"}:
+            n = clean_num(cells[1])
+            if n is not None:
+                return n
+
+    return None
 
 def creature_hp(creature: str):
     try:
         h = fandom_parse(creature)
-        if page_looks_like_npc(h) or page_has_category(h, "Spells") or page_has_category(h, "Runes"):
+        if page_looks_like_npc(h) or page_looks_like_boss(h, creature) or page_has_category(h, "Spells") or page_has_category(h, "Runes"):
             return None
         hp = parse_hp_from_html(h)
         if not isinstance(hp, int) or hp <= 0:
@@ -437,7 +483,7 @@ def get_weekly_row(world: str, item: str) -> dict:
     # (price page + item page + creature page + loot statistics page). The first
     # run can still take time, but repeats become near-instant.
     requested_world = normalize_world(world)
-    cache_key = "weeklyrow_v3_bona_celesta_dia_nonspell_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
+    cache_key = "weeklyrow_v5_twosources_no_bosses_no_eff_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
     cached = cache_get(cache_key, max_age=12*3600)
     if cached:
         try:
@@ -449,12 +495,16 @@ def get_weekly_row(world: str, item: str) -> dict:
 
     price = get_price(requested_world, item)
     sources = get_loot_sources(item)
-    best = sources[0] if sources else {}
+    monster_sources = [s for s in sources if s.get("source") and isinstance(s.get("hp"), int)]
+    top_sources = monster_sources[:2]
+    best = top_sources[0] if top_sources else {}
     avg_value = price.get("avg_value_used") or price.get("global_average_price") or price.get("current_market_price")
     chance_pct = best.get("chancePercent")
-    efficiency = None
-    if isinstance(avg_value, int) and isinstance(chance_pct, (int, float)):
-        efficiency = round(avg_value * chance_pct / 100, 4)
+    source_labels = [f"{s.get('source')} ({s.get('hp'):,} HP)" for s in top_sources]
+    chance_labels = []
+    for s in top_sources:
+        ch = s.get("chance") or "—"
+        chance_labels.append(f"{s.get('source')}: {ch}")
     row = {
         "name": item,
         "avgValue": avg_value,
@@ -462,11 +512,12 @@ def get_weekly_row(world: str, item: str) -> dict:
         "globalAveragePrice": price.get("global_average_price"),
         "priceUrl": price.get("url"),
         "priceError": price.get("error"),
-        "lowestSource": best.get("source") if best and best.get("hp") else "",
+        "monsterSources": source_labels,
+        "monsterSourcesText": "; ".join(source_labels),
+        "lowestSource": "; ".join(source_labels),
         "lowestHp": best.get("hp") if best and best.get("hp") else None,
-        "dropChanceText": best.get("chance") or "",
+        "dropChanceText": "; ".join(chance_labels),
         "dropChancePercent": chance_pct,
-        "efficiency": efficiency,
         "sourceUrl": best.get("url") or wiki_url(item),
         "wikiUrl": wiki_url(item),
         "fromCache": False,
@@ -510,6 +561,18 @@ def run_git_update() -> dict:
         return {"ok": False, "error": str(e)}
 
 
+def clear_cache() -> dict:
+    removed = 0
+    for p in CACHE.glob("*"):
+        try:
+            if p.is_file():
+                p.unlink()
+                removed += 1
+        except Exception:
+            pass
+    return {"ok": True, "removed": removed, "message": f"Cleared {removed} cached file(s)."}
+
+
 class Handler(SimpleHTTPRequestHandler):
     def end_json(self, obj, status=200):
         raw = json.dumps(obj, ensure_ascii=False).encode("utf-8")
@@ -543,6 +606,8 @@ class Handler(SimpleHTTPRequestHandler):
                 return self.end_json(get_weekly_row(world, item))
             if parsed.path == "/api/update":
                 return self.end_json(run_git_update())
+            if parsed.path == "/api/clear_cache":
+                return self.end_json(clear_cache())
         except Exception as e:
             return self.end_json({"error": str(e)}, 500)
         return super().do_GET()
