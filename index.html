@@ -10,7 +10,7 @@
   <header>
     <div>
       <h1>Tibia Item Market + Loot Finder</h1>
-      <p>Local Python version: search an item, load market price for Bona/Celesta/Dia, and show up to 6 lowest-HP monster loot sources with drop chance.</p>
+      <p>Local Python version: weekly items, Tibia prices for Bona/Celesta/Dia, Grizzly Adams tasks, and imbuing material prices.</p>
     </div>
     <button id="themeBtn" type="button">Toggle theme</button>
   </header>
@@ -36,10 +36,13 @@
       <div class="actions">
         <button id="searchBtn">Search item</button>
         <button id="weeklyBtn" type="button">Show weekly item table</button>
+        <button id="grizzlyBtn" type="button">Grizzly Adams</button>
+        <button id="imbuingBtn" type="button">Imbuingi</button>
         <button id="loadWeeklyValuesBtn" type="button">Load avg values + efficiency</button>
         <button id="stopWeeklyValuesBtn" type="button" disabled>Stop loading</button>
         <button id="clearBtn" type="button">Clear</button>
         <button id="updateBtn" type="button">Update app from GitHub</button>
+        <button id="clearCacheBtn" type="button">Clear cache</button>
       </div>
       <p class="hint">Run this version with <code>py server.py</code>. The local server does the internet requests, so browser CORS/API-base problems are avoided. If you installed it with GitHub, the update button runs <code>git pull --ff-only</code> for you.</p>
     </section>
@@ -109,7 +112,88 @@
           <tbody></tbody>
         </table>
       </div>
-      <p class="hint">Set your world, then click <b>Load avg values + efficiency</b>. The table adds avg value, drop chance %, lowest monster HP, and expected gp/kill. NPCs/non-monsters are ignored when picking the lowest-HP source. Loading all 477 rows may take several minutes the first time; cached repeats are faster.</p>
+      <p class="hint">Set your world, then click <b>Load avg values + efficiency</b>. The table adds avg value, drop chance %, lowest monster HP, and expected gp/kill. NPCs/non-monsters are ignored when picking the lowest-HP source. If HP values look wrong after an update, click Clear cache once. Loading all 477 rows may take several minutes the first time; cached repeats are faster.</p>
+    </section>
+
+
+
+    <section class="panel hidden" id="grizzlyPanel">
+      <div class="sectionHead">
+        <h2>Grizzly Adams tasks</h2>
+        <button id="exportGrizzlyBtn" type="button">Export Grizzly CSV</button>
+      </div>
+      <div class="grid smallGrid">
+        <label>
+          Level range
+          <select id="grizzlyRange">
+            <option value="">All ranges</option>
+            <option value="6-49">6-49</option>
+            <option value="50-79">50-79</option>
+            <option value="80-129">80-129</option>
+            <option value="130+">130+</option>
+          </select>
+        </label>
+        <label>
+          Filter mob/item
+          <input id="grizzlyFilter" placeholder="e.g. Tarantula, Sabretooth..." />
+        </label>
+      </div>
+      <div class="tableWrap">
+        <table id="grizzlyTable">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>Task</th>
+              <th>Kills</th>
+              <th>Mobs counted</th>
+              <th>Valuable items</th>
+              <th>Wiki</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">Lista jest podzielona według przedziałów Grizzly Adams z TibiaWiki. “Valuable items” to praktyczna lista rzeczy, które warto sprawdzać/sprzedawać; ceny możesz sprawdzić w wyszukiwarce albo w zakładce Imbuingi, jeśli item jest imbuement materialem.</p>
+    </section>
+
+    <section class="panel hidden" id="imbuingPanel">
+      <div class="sectionHead">
+        <h2>Imbuingi — materiały i avg cena</h2>
+        <button id="loadImbuingPricesBtn" type="button">Load imbuing avg prices</button>
+        <button id="exportImbuingBtn" type="button">Export imbuing CSV</button>
+      </div>
+      <div class="grid smallGrid">
+        <label>
+          Filter
+          <input id="imbuingFilter" placeholder="item or imbuement type..." />
+        </label>
+        <label>
+          Sort by
+          <select id="imbuingSort">
+            <option value="avgValue">Avg price, high to low</option>
+            <option value="name">Item name</option>
+            <option value="usedIn">Used in</option>
+            <option value="maxQty">Required qty, high to low</option>
+          </select>
+        </label>
+      </div>
+      <div class="tableWrap">
+        <table id="imbuingTable">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Used in</th>
+              <th>Required qty</th>
+              <th>Avg price</th>
+              <th>Total for max qty</th>
+              <th>Market</th>
+              <th>Wiki</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">Ceny ładują się dla wybranego świata: Bona / Celesta / Dia. Jeśli cena jest pusta, źródło cenowe nie miało wartości dla tego itemu.</p>
     </section>
 
     <section class="panel">
