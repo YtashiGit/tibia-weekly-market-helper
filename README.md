@@ -152,3 +152,8 @@ The weekly table ignores NPCs, non-monsters, and boss pages when choosing farmin
 ## Weekly table layout update
 
 The weekly table now shows up to two regular monsters per item in one column, formatted as `Monster Name (HP)`. It does not show separate HP or expected gp/kill columns, and bosses are excluded from weekly source suggestions.
+
+
+## Imbuingi: ręczna cena itemu
+
+W tabeli Imbuingi kolumna `Manual price` działa tak: `0` oznacza użyj ceny `Avg price`, a każda wartość większa od zera nadpisuje cenę avg. Kolumny `Used price`, `Total for max qty` oraz porównanie z Gold Token przeliczają się na podstawie tej wartości. Ręczne ceny są zapisywane lokalnie w przeglądarce.

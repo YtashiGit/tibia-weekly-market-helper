@@ -262,6 +262,54 @@ function parseManualGp(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
+
+function manualKey(itemName) {
+  return 'imbuingManualPrice:' + String(itemName || '').trim().toLowerCase();
+}
+
+function getManualItemPrice(row) {
+  const direct = parseManualGp(row.manualPrice);
+  if (direct) return direct;
+  try {
+    const saved = localStorage.getItem(manualKey(row.name));
+    const v = parseManualGp(saved);
+    if (v) {
+      row.manualPrice = v;
+      return v;
+    }
+  } catch (_) {}
+  return null;
+}
+
+function effectiveImbuingUnitPrice(row) {
+  const manual = getManualItemPrice(row);
+  if (manual && manual > 0) return manual;
+  const avg = Number(row.avgValue);
+  return Number.isFinite(avg) && avg > 0 ? avg : null;
+}
+
+function effectiveImbuingTotal(row) {
+  const price = effectiveImbuingUnitPrice(row);
+  const qty = Number(row.maxQty);
+  return Number.isFinite(price) && Number.isFinite(qty) ? price * qty : null;
+}
+
+function setManualImbuingPrice(itemName, value) {
+  const row = state.imbuingItems.find(x => x.name === itemName);
+  if (!row) return;
+  const n = parseManualGp(value);
+  row.manualPrice = n || 0;
+  try {
+    if (n && n > 0) localStorage.setItem(manualKey(itemName), String(Math.round(n)));
+    else localStorage.removeItem(manualKey(itemName));
+  } catch (_) {}
+  renderImbuingTable();
+}
+
+function loadSavedManualImbuingPrices() {
+  for (const row of state.imbuingItems) getManualItemPrice(row);
+}
+
 function imbuingBaseName(usedIn) {
   return String(usedIn || '').replace(/^Powerful\s+/i, '').trim();
 }
@@ -291,9 +339,7 @@ function getImbuingGroups() {
 }
 
 function rowCost(row) {
-  const price = Number(row.avgValue);
-  const qty = Number(row.maxQty);
-  return Number.isFinite(price) && Number.isFinite(qty) ? price * qty : null;
+  return effectiveImbuingTotal(row);
 }
 
 function buildImbuingCompareRows() {
@@ -386,12 +432,16 @@ function renderImbuingTable() {
   const rows = getFilteredImbuingRows();
   state.imbuingRows = rows;
   imbuingBody.innerHTML = rows.map(r => {
-    const total = (Number.isFinite(Number(r.avgValue)) && Number.isFinite(Number(r.maxQty))) ? Number(r.avgValue) * Number(r.maxQty) : null;
+    const manual = getManualItemPrice(r) || 0;
+    const effective = effectiveImbuingUnitPrice(r);
+    const total = effectiveImbuingTotal(r);
     return `<tr>
       <td>${escapeHtml(r.name)}</td>
       <td>${escapeHtml(r.usedIn)}</td>
       <td data-num="${r.maxQty ?? ''}">${fmtNum(r.maxQty)}</td>
       <td data-num="${r.avgValue ?? ''}">${r.loading ? 'Loading…' : fmtGp(r.avgValue)}</td>
+      <td data-num="${manual || ''}"><input class="manualPriceInput" inputmode="numeric" data-manual-price-item="${escapeHtml(r.name)}" value="${manual ? Math.round(manual) : 0}" title="0 = use avg price; any other value overrides avg price" /></td>
+      <td data-num="${effective ?? ''}">${fmtGp(effective)}</td>
       <td data-num="${total ?? ''}">${fmtGp(total)}</td>
       <td>${r.priceUrl ? `<a href="${escapeHtml(r.priceUrl)}" target="_blank" rel="noopener">Price</a>` : '—'}</td>
       <td><a href="${escapeHtml(wikiPageLink(r.name))}" target="_blank" rel="noopener">Wiki</a></td>
@@ -403,6 +453,7 @@ function renderImbuingTable() {
 function showImbuing() {
   hideDataPanelsExcept(imbuingPanel);
   imbuingPanel.classList.remove('hidden');
+  loadSavedManualImbuingPrices();
   renderImbuingTable();
   setStatus(`Imbuingi: ${state.imbuingItems.length} material rows loaded. Click “Load imbuing avg prices” to fill prices for ${escapeHtml($('worldInput').value)}.`, 'ok');
 }
@@ -456,6 +507,18 @@ document.addEventListener('click', (e) => {
   searchClickedItem(a.getAttribute('data-search-item'));
 });
 
+
+document.addEventListener('change', (e) => {
+  const input = e.target.closest('[data-manual-price-item]');
+  if (!input) return;
+  setManualImbuingPrice(input.getAttribute('data-manual-price-item'), input.value);
+});
+
+document.addEventListener('keydown', (e) => {
+  const input = e.target.closest('[data-manual-price-item]');
+  if (input && e.key === 'Enter') input.blur();
+});
+
 $('searchBtn').addEventListener('click', searchItem);
 $('itemInput').addEventListener('keydown', e => { if (e.key === 'Enter') searchItem(); });
 $('weeklyBtn').addEventListener('click', () => { hideDataPanelsExcept(weeklyPanel); showWeeklyProfit(); });
@@ -478,7 +541,7 @@ $('stopWeeklyValuesBtn').addEventListener('click', () => { state.stopEnrich = tr
 $('exportSourcesBtn').addEventListener('click', () => downloadCsv('tibia_item_sources.csv', [['Creature / source','HP','Drop chance','Drop chance %','Avg / kill','Sample count','Source URL'], ...state.sourceRows.map(r => [r.source, r.hp ?? '', r.chance, r.chancePercent ?? '', r.average, r.sample, r.url])]))
 $('exportWeeklyBtn').addEventListener('click', () => downloadCsv('tibia_weekly_items_enriched.csv', [['Item','Category','Avg value gp','Drop chance %','Drop chance text','Monster sources','Price URL','Wiki URL'], ...state.weeklyRows.map(r => [r.name, r.category, r.avgValue ?? '', r.dropChancePercent ?? '', r.dropChanceText ?? '', r.monsterSourcesText || r.lowestSource || '', r.priceUrl ?? '', r.wikiUrl ?? wikiPageLink(r.name)])]));
 $('exportGrizzlyBtn')?.addEventListener('click', () => downloadCsv('tibia_grizzly_adams_tasks.csv', [['Level range','Task','Kills','Mobs counted','Valuable items'], ...getFilteredGrizzlyRows().map(r => [r.levelRange, r.task, r.count, (r.mobs||[]).join('; '), (r.valuables||[]).join('; ')])]));
-$('exportImbuingBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_items_prices.csv', [['Item','Used in','Required qty','Avg price gp','Total max qty gp','Price URL','Wiki URL'], ...state.imbuingRows.map(r => [r.name, r.usedIn, r.maxQty ?? '', r.avgValue ?? '', (Number(r.avgValue)||0) * (Number(r.maxQty)||0) || '', r.priceUrl ?? '', wikiPageLink(r.name)])]));
+$('exportImbuingBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_items_prices.csv', [['Item','Used in','Required qty','Avg price gp','Manual price gp','Used unit price gp','Total max qty gp','Price URL','Wiki URL'], ...state.imbuingRows.map(r => [r.name, r.usedIn, r.maxQty ?? '', r.avgValue ?? '', getManualItemPrice(r) || 0, effectiveImbuingUnitPrice(r) ?? '', effectiveImbuingTotal(r) ?? '', r.priceUrl ?? '', wikiPageLink(r.name)])]));
 $('exportImbuingCompareBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_gold_token_comparison.csv', [['Level','Imbuing','Market materials total gp','Gold Tokens','Gold Token total gp','Better option','Difference gp'], ...state.imbuingCompareRows.map(r => [r.level, r.imbuing, r.marketTotal ?? '', r.tokenCount, r.tokenTotal ?? '', r.better, r.diff ?? ''])]));
 
 

@@ -74,3 +74,18 @@ code { background: var(--panel2); padding:.15rem .35rem; border-radius:6px; }
 #imbuingCompareTable .ok { color: var(--good); font-weight: 800; }
 #imbuingCompareTable .warn { color: var(--warn); font-weight: 800; }
 @media (max-width: 700px) { .tokenGrid { grid-template-columns: 1fr; } }
+
+.manualPriceInput {
+  width: 105px;
+  max-width: 100%;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--input-bg, rgba(255,255,255,0.06));
+  color: inherit;
+  font: inherit;
+}
+.manualPriceInput:focus {
+  outline: 2px solid var(--accent, #6ec7ef);
+  outline-offset: 1px;
+}
