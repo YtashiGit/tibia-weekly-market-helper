@@ -1,0 +1,3341 @@
+[
+  {
+    "category": "Armors",
+    "name": "Buckle",
+    "dropSources": "Lost Basher; Lost Exile; Lost Husher; Lost Thrower; Spiky Carnivor",
+    "dropChance": "Lost Basher 1.1%; Lost Husher 0.75%; see other source creature pages",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Buckle"
+  },
+  {
+    "category": "Armors",
+    "name": "Crystalline Armor",
+    "dropSources": "Animated Feather; Armadile; Blight Mariner; Crystal Wolf; Darklight Source; Diamond Servant; Diamond Servant Replica; Eradicator; Ghazbaran; Haunted Hunter; Ice Overlord; Icecold Book; Leviathan; Melting Frozen Horror; Omrafir; Orewalker; Prince Drazzak; Quara Raider; Ravenous Hunger; Realityquake; Roaming Dread; Rupture; Sea Serpent; Squid Warden; The Count of the Core; The Duke of the Depths; The Winter Bloom; Tunnel Tyrant; Turbulent Elemental; World Devourer; Zamulosh",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystalline_Armor"
+  },
+  {
+    "category": "Armors",
+    "name": "Focus Cape",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Focus_Cape"
+  },
+  {
+    "category": "Armors",
+    "name": "Fur Armor",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Fur_Armor"
+  },
+  {
+    "category": "Armors",
+    "name": "Glacier Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glacier_Robe"
+  },
+  {
+    "category": "Armors",
+    "name": "Glooth Cape",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glooth_Cape"
+  },
+  {
+    "category": "Armors",
+    "name": "Hibiscus Dress",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Hibiscus_Dress"
+  },
+  {
+    "category": "Armors",
+    "name": "Lightning Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lightning_Robe"
+  },
+  {
+    "category": "Armors",
+    "name": "Magma Coat",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Magma_Coat"
+  },
+  {
+    "category": "Armors",
+    "name": "Skullcracker Armor",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Skullcracker_Armor"
+  },
+  {
+    "category": "Armors",
+    "name": "Spellweaver's Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spellweaver's_Robe"
+  },
+  {
+    "category": "Armors",
+    "name": "Terra Mantle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Terra_Mantle"
+  },
+  {
+    "category": "Armors",
+    "name": "Zaoan Armor",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Zaoan_Armor"
+  },
+  {
+    "category": "Armors",
+    "name": "Zaoan Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Zaoan_Robe"
+  },
+  {
+    "category": "Boots",
+    "name": "Badger Boots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Badger_Boots"
+  },
+  {
+    "category": "Boots",
+    "name": "Glacier Shoes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glacier_Shoes"
+  },
+  {
+    "category": "Boots",
+    "name": "Lightning Boots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lightning_Boots"
+  },
+  {
+    "category": "Boots",
+    "name": "Magma Boots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Magma_Boots"
+  },
+  {
+    "category": "Boots",
+    "name": "Metal Spats",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Metal_Spats"
+  },
+  {
+    "category": "Boots",
+    "name": "Terra Boots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Terra_Boots"
+  },
+  {
+    "category": "Boots",
+    "name": "Zaoan Shoes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Zaoan_Shoes"
+  },
+  {
+    "category": "Helmets",
+    "name": "Glacier Mask",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glacier_Mask"
+  },
+  {
+    "category": "Helmets",
+    "name": "Lightning Headband",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lightning_Headband"
+  },
+  {
+    "category": "Helmets",
+    "name": "Magma Monocle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Magma_Monocle"
+  },
+  {
+    "category": "Helmets",
+    "name": "Rubber Cap",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Rubber_Cap"
+  },
+  {
+    "category": "Helmets",
+    "name": "Strange Helmet",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Strange_Helmet"
+  },
+  {
+    "category": "Helmets",
+    "name": "Terra Hood",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Terra_Hood"
+  },
+  {
+    "category": "Helmets",
+    "name": "Wood Cape",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wood_Cape"
+  },
+  {
+    "category": "Legs",
+    "name": "Alloy Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Alloy_Legs"
+  },
+  {
+    "category": "Legs",
+    "name": "Golden Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Golden_Legs"
+  },
+  {
+    "category": "Legs",
+    "name": "Knight Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Knight_Legs"
+  },
+  {
+    "category": "Legs",
+    "name": "Plate Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Plate_Legs"
+  },
+  {
+    "category": "Legs",
+    "name": "Wereboar Loincloth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wereboar_Loincloth"
+  },
+  {
+    "category": "Shields",
+    "name": "Battle Shield",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Battle_Shield"
+  },
+  {
+    "category": "Shields",
+    "name": "Black Shield",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Black_Shield"
+  },
+  {
+    "category": "Shields",
+    "name": "Dark Shield",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dark_Shield"
+  },
+  {
+    "category": "Shields",
+    "name": "Guardian Shield",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Guardian_Shield"
+  },
+  {
+    "category": "Shields",
+    "name": "Mino Shield",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mino_Shield"
+  },
+  {
+    "category": "Shields",
+    "name": "Spellbook of Mind Control",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spellbook_of_Mind_Control"
+  },
+  {
+    "category": "Shields",
+    "name": "Wooden Spellbook",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wooden_Spellbook"
+  },
+  {
+    "category": "Weapons",
+    "name": "Angelic Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Angelic_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Bone Club",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bone_Club"
+  },
+  {
+    "category": "Weapons",
+    "name": "Bonebreaker",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bonebreaker"
+  },
+  {
+    "category": "Weapons",
+    "name": "Broadsword",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broadsword"
+  },
+  {
+    "category": "Weapons",
+    "name": "Chaos Mace",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Chaos_Mace"
+  },
+  {
+    "category": "Weapons",
+    "name": "Combat Knife",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Combat_Knife"
+  },
+  {
+    "category": "Weapons",
+    "name": "Crystal Crossbow",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystal_Crossbow"
+  },
+  {
+    "category": "Weapons",
+    "name": "Crystal Mace",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystal_Mace"
+  },
+  {
+    "category": "Weapons",
+    "name": "Crystal Sword",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystal_Sword"
+  },
+  {
+    "category": "Weapons",
+    "name": "Crystalline Sword",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystalline_Sword"
+  },
+  {
+    "category": "Weapons",
+    "name": "Diamond Sceptre",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Diamond_Sceptre"
+  },
+  {
+    "category": "Weapons",
+    "name": "Double Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Double_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Dragon Hammer",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dragon_Hammer"
+  },
+  {
+    "category": "Weapons",
+    "name": "Dragon Slayer",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dragon_Slayer"
+  },
+  {
+    "category": "Weapons",
+    "name": "Fire Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Fire_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Glooth Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glooth_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Glooth Blade",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glooth_Blade"
+  },
+  {
+    "category": "Weapons",
+    "name": "Glooth Club",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glooth_Club"
+  },
+  {
+    "category": "Weapons",
+    "name": "Glorious Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glorious_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Golden Sickle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Golden_Sickle"
+  },
+  {
+    "category": "Weapons",
+    "name": "Halberd",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Halberd"
+  },
+  {
+    "category": "Weapons",
+    "name": "Heavy Machete",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Heavy_Machete"
+  },
+  {
+    "category": "Weapons",
+    "name": "Heavy Trident",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Heavy_Trident"
+  },
+  {
+    "category": "Weapons",
+    "name": "Knife",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Knife"
+  },
+  {
+    "category": "Weapons",
+    "name": "Knight Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Knight_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Mammoth Whopper",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mammoth_Whopper"
+  },
+  {
+    "category": "Weapons",
+    "name": "Mercenary Sword",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mercenary_Sword"
+  },
+  {
+    "category": "Weapons",
+    "name": "Metal Bat",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Metal_Bat"
+  },
+  {
+    "category": "Weapons",
+    "name": "Mino Lance",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mino_Lance"
+  },
+  {
+    "category": "Weapons",
+    "name": "Orcish Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Orcish_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Ornate Crossbow",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ornate_Crossbow"
+  },
+  {
+    "category": "Weapons",
+    "name": "Ratana",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ratana"
+  },
+  {
+    "category": "Weapons",
+    "name": "Relic Sword",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Relic_Sword"
+  },
+  {
+    "category": "Weapons",
+    "name": "Ripper Lance",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ripper_Lance"
+  },
+  {
+    "category": "Weapons",
+    "name": "Scimitar",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Scimitar"
+  },
+  {
+    "category": "Weapons",
+    "name": "Spiky Club",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spiky_Club"
+  },
+  {
+    "category": "Weapons",
+    "name": "Swampling Club",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Swampling_Club"
+  },
+  {
+    "category": "Weapons",
+    "name": "Taurus Mace",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Taurus_Mace"
+  },
+  {
+    "category": "Weapons",
+    "name": "Titan Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Titan_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "Vile Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Vile_Axe"
+  },
+  {
+    "category": "Weapons",
+    "name": "War Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/War_Axe"
+  },
+  {
+    "category": "Other",
+    "name": "Exalted Core",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Exalted_Core"
+  },
+  {
+    "category": "Other",
+    "name": "Sliver",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sliver"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Afflicted Strider Head",
+    "dropSources": "Afflicted Strider",
+    "dropChance": "Per source; see Afflicted Strider loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Afflicted_Strider_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Afflicted Strider Worms",
+    "dropSources": "Afflicted Strider",
+    "dropChance": "Per source; see Afflicted Strider loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Afflicted_Strider_Worms"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Amber Souvenir",
+    "dropSources": "Quara Looter; Quara Plunderer; Quara Raider",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Amber_Souvenir"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ancient Belt Buckle",
+    "dropSources": "Broken Shaper; Twisted Shaper",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ancient_Belt_Buckle"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ancient Stone",
+    "dropSources": "Ancient Spawn of Morgathla; Eternal Guardian; Ogre Brute; Stone Devourer; Stone Golem; The Last Lore Keeper; The Source of Corruption",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ancient_Stone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Apron",
+    "dropSources": "Many Faces",
+    "dropChance": "Per source; see Many Faces loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Apron"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Banana Sash",
+    "dropSources": "Merlkin; Sibang",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Banana_Sash"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Basalt Core",
+    "dropSources": "Wandering Pillar",
+    "dropChance": "Per source; see Wandering Pillar loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Basalt_Core"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Basalt Crumbs",
+    "dropSources": "Darklight Emitter; Wandering Pillar",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Basalt_Crumbs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Basalt Fetish",
+    "dropSources": "Lost Basher; Lost Exile; Lost Husher; Lost Thrower",
+    "dropChance": "Lost Basher 8.3%; Lost Husher 5.9%; see other source creature pages",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Basalt_Fetish"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Basalt Figurine",
+    "dropSources": "Lost Basher; Lost Exile; Lost Husher; Lost Thrower",
+    "dropChance": "Lost Basher 10.3%; Lost Husher 7.7%; see other source creature pages",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Basalt_Figurine"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bashmu Fang",
+    "dropSources": "Bashmu; Juvenile Bashmu",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bashmu_Fang"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bashmu Feather",
+    "dropSources": "Bashmu; Juvenile Bashmu",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bashmu_Feather"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bashmu Tongue",
+    "dropSources": "Bashmu; Juvenile Bashmu",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bashmu_Tongue"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blemished Spawn Abdomen",
+    "dropSources": "Blemished Spawn",
+    "dropChance": "Per source; see Blemished Spawn loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blemished_Spawn_Abdomen"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blemished Spawn Head",
+    "dropSources": "Blemished Spawn",
+    "dropChance": "Per source; see Blemished Spawn loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blemished_Spawn_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blemished Spawn Tail",
+    "dropSources": "Blemished Spawn",
+    "dropChance": "Per source; see Blemished Spawn loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blemished_Spawn_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bloated Maggot",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bloated_Maggot"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blood Amulet",
+    "dropSources": "Dworc Shadowstalker",
+    "dropChance": "Per source; see Dworc Shadowstalker loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blood_Amulet"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blood Hood",
+    "dropSources": "Norcferatu Nightweaver",
+    "dropChance": "Per source; see Norcferatu Nightweaver loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blood_Hood"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blood Preservation",
+    "dropSources": "Arachir the Ancient One; Arthei; Boreth; Diblis the Fair; Lersatio; Nightfiend; The Pale Count; Vampire; Vampire Bride; Vampire Viscount; Vicious Manbat",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blood_Preservation"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blood Tincture in a Vial",
+    "dropSources": "Blood Hand; Blood Priest",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blood_Tincture_in_a_Vial"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blooded Worm",
+    "dropSources": "Rotten Man-Maggot",
+    "dropChance": "Per source; see Rotten Man-Maggot loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blooded_Worm"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bloodshot Giant Eye",
+    "dropSources": "Orclops Bloodbreaker",
+    "dropChance": "Per source; see Orclops Bloodbreaker loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bloodshot_Giant_Eye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Blue Goanna Scale",
+    "dropSources": "Yirkas Blue Scales; Young Goanna",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Blue_Goanna_Scale"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Boar Man Hoof",
+    "dropSources": "Boar Man",
+    "dropChance": "Per source; see Boar Man loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Boar_Man_Hoof"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Boggy Dreads",
+    "dropSources": "Bog Raider; Weakened Shlorg",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Boggy_Dreads"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bola",
+    "dropSources": "Corym Charlatan; Corym Skirmisher; Corym Vanguard",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bola"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bone Fetish",
+    "dropSources": "Animated Ogre Shaman; Lost Basher; Lost Exile; Lost Husher; Ogre Sage; Ogre Shaman",
+    "dropChance": "Lost Basher 7.5%; Lost Husher 7.5%; see other source creature pages",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bone_Fetish"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bone Fibula",
+    "dropSources": "Orclops Bloodbreaker",
+    "dropChance": "Per source; see Orclops Bloodbreaker loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bone_Fibula"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bone Rattle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bone_Rattle"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bone Shoulderplate",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bone_Shoulderplate"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bone Toothpick",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bone_Toothpick"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bonecarving Knife",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bonecarving_Knife"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bony Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bony_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Book of Necromantic Rituals",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Book_of_Necromantic_Rituals"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Book Page",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Book_Page"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Book with a Dragon",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Book_with_a_Dragon"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Book with an Hourglass",
+    "dropSources": "Headwalker",
+    "dropChance": "Per source; see Headwalker loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Book_with_an_Hourglass"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bowl of Terror Sweat",
+    "dropSources": "Feversleep; Terrorsleep",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bowl_of_Terror_Sweat"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Brigadeiro",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Brigadeiro"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Brinebrute Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Brinebrute_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Broken Draken Mail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broken_Draken_Mail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Broken Gladiator Shield",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broken_Gladiator_Shield"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Broken Halberd",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broken_Halberd"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Broken Mitmah Necklace",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broken_Mitmah_Necklace"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Broken Slicer",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broken_Slicer"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Broken Throwing Axe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broken_Throwing_Axe"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Broodrider Saddle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Broodrider_Saddle"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bulltaur Armor Scrap",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bulltaur_Armor_Scrap"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bulltaur Hoof",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bulltaur_Hoof"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bulltaur Horn",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bulltaur_Horn"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Bundle of Cursed Straw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Bundle_of_Cursed_Straw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Capricious Heart",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Capricious_Heart"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Capricious Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Capricious_Robe"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Carnisylvan Bark",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Carnisylvan_Bark"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Carnisylvan Finger",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Carnisylvan_Finger"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Carnivostrich Feather",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Carnivostrich_Feather"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cat's Paw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cat's_Paw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cave Chimera Head",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cave_Chimera_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cave Chimera Leg",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cave_Chimera_Leg"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cave Devourer Eyes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cave_Devourer_Eyes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cave Devourer Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cave_Devourer_Legs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cave Devourer Maw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cave_Devourer_Maw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Centipede Leg",
+    "dropSources": "Centipede",
+    "dropChance": "Per source; see Centipede loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Centipede_Leg"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Chain Leash",
+    "dropSources": "Gloom Maw",
+    "dropChance": "Per source; see Gloom Maw loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Chain_Leash"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Chasm Spawn Abdomen",
+    "dropSources": "Chasm Spawn",
+    "dropChance": "Per source; see Chasm Spawn loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Chasm_Spawn_Abdomen"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Chasm Spawn Head",
+    "dropSources": "Chasm Spawn",
+    "dropChance": "Per source; see Chasm Spawn loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Chasm_Spawn_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Chasm Spawn Tail",
+    "dropSources": "Chasm Spawn",
+    "dropChance": "Per source; see Chasm Spawn loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Chasm_Spawn_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cheese Cutter",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cheese_Cutter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cheesy Figurine",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cheesy_Figurine"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cluster of Crystallized Death",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cluster_of_Crystallized_Death"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cobra Crest",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cobra_Crest"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Colourful Feather",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Colourful_Feather"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Colourful Snail Shell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Colourful_Snail_Shell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Compound Eye",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Compound_Eye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cookbook",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cookbook"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Coral Branch",
+    "dropSources": "Foam Stalker; Venerable Foam Stalker",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Coral_Branch"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cowbell",
+    "dropSources": "Minotaur Amazon; Minotaur Cult Follower; Minotaur Cult Prophet",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cowbell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Crab Man Claws",
+    "dropSources": "Crape Man",
+    "dropChance": "Per source; see Crape Man loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crab_Man_Claws"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cracked Alabaster Vase",
+    "dropSources": "Broken Shaper; Shaper Matriarch; Twisted Shaper",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cracked_Alabaster_Vase"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Crawler's Essence",
+    "dropSources": "Branchy Crawler",
+    "dropChance": "Per source; see Branchy Crawler loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crawler's_Essence"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Crown",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crown"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cry-Stal",
+    "dropSources": "Shrieking Cry-Stal",
+    "dropChance": "Per source; see Shrieking Cry-Stal loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cry-Stal"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Crystal Bone",
+    "dropSources": "Instable Breach Brood",
+    "dropChance": "Per source; see Instable Breach Brood loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystal_Bone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Crystal of the Mitmah",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystal_of_the_Mitmah"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Crystalline Spikes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystalline_Spikes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Crystallized Death",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Crystallized_Death"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cuirass Plate",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cuirass_Plate"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Curious Matter",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Curious_Matter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Cursed Shoulder Spikes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Cursed_Shoulder_Spikes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Damaged Armor Plates",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Damaged_Armor_Plates"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Damselfly Eye",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Damselfly_Eye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dandelion Seeds",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dandelion_Seeds"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dangerous Proto Matter",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dangerous_Proto_Matter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dark Obsidian Splinter",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dark_Obsidian_Splinter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dark Rosary",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dark_Rosary"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Darklight Basalt Chunk",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Darklight_Basalt_Chunk"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Darklight Core",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Darklight_Core"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Darklight Matter",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Darklight_Matter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dead Weight",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dead_Weight"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deadly Fangs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deadly_Fangs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Decayed Finger Bone",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Decayed_Finger_Bone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepling Breaktime Snack",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepling_Breaktime_Snack"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepling Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepling_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepling Guard Belt Buckle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepling_Guard_Belt_Buckle"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepling Ridge",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepling_Ridge"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepling Scales",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepling_Scales"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deeptags",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deeptags"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepworm Jaws",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepworm_Jaws"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepworm Spike Roots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepworm_Spike_Roots"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Deepworm Spikes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Deepworm_Spikes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Demon Root",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Demon_Root"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Demonic Matter",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Demonic_Matter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Diremaw Brainpan",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Diremaw_Brainpan"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Diremaw Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Diremaw_Legs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dirty Turban",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dirty_Turban"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Distorted Heart",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Distorted_Heart"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Distorted Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Distorted_Robe"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dowser",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dowser"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dragolisk Eye",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dragolisk_Eye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dragolisk Poison Gland",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dragolisk_Poison_Gland"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dragon Priest's Wandtip",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dragon_Priest's_Wandtip"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dragon Tongue",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dragon_Tongue"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dragon's Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dragon's_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Draken Wristbands",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Draken_Wristbands"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dream Essence Egg",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dream_Essence_Egg"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Dung Ball",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Dung_Ball"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Earflap",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Earflap"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Elder Bonelord Tentacle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Elder_Bonelord_Tentacle"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Elven Astral Observer",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Elven_Astral_Observer"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Emerald Tortoise Shell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Emerald_Tortoise_Shell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Empty Honey Glass",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Empty_Honey_Glass"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Encrypted Notes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Encrypted_Notes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Energy Ball",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Energy_Ball"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ensouled Essence",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ensouled_Essence"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Essence of a Bad Dream",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Essence_of_a_Bad_Dream"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Execowtioner Mask",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Execowtioner_Mask"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Eye of a Deepling",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Eye_of_a_Deepling"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Eye of a Weeper",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Eye_of_a_Weeper"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Eye of Corruption",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Eye_of_Corruption"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Eyeless Devourer Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Eyeless_Devourer_Legs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Eyeless Devourer Maw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Eyeless_Devourer_Maw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Eyeless Devourer Tongue",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Eyeless_Devourer_Tongue"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Fafnar Symbol",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Fafnar_Symbol"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Falcon Crest",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Falcon_Crest"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Fig Leaf",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Fig_Leaf"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Fir Cone",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Fir_Cone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Flask of Demonic Blood",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Flask_of_Demonic_Blood"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Flotsam",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Flotsam"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Fox Paw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Fox_Paw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Frazzle Tongue",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Frazzle_Tongue"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Frozen Lightning",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Frozen_Lightning"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Gauze Bandage",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Gauze_Bandage"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ghastly Dragon Head",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ghastly_Dragon_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Giant Pacifier",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Giant_Pacifier"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Giant Tusk",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Giant_Tusk"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Girlish Hair Decoration",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Girlish_Hair_Decoration"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Girtablilu Warrior Carapace",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Girtablilu_Warrior_Carapace"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Glob of Acid Slime",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glob_of_Acid_Slime"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Glob of Glooth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glob_of_Glooth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Glob of Tar",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glob_of_Tar"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Glooth Injection Tube",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glooth_Injection_Tube"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Glowing Rune",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Glowing_Rune"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Goanna Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Goanna_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Goanna Meat",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Goanna_Meat"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Gold Tooth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Gold_Tooth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Golden Lotus Brooch",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Golden_Lotus_Brooch"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Golden Sun Coin",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Golden_Sun_Coin"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Gore Horn",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Gore_Horn"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Gorerilla Mane",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Gorerilla_Mane"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Gorerilla Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Gorerilla_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Gorger Antlers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Gorger_Antlers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Grappling Hook",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Grappling_Hook"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Green Bandage",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Green_Bandage"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Half-Digested Stones",
+    "dropSources": "Stonerefiner",
+    "dropChance": "Per source; see Stonerefiner loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Half-Digested_Stones"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Half-Eaten Brain",
+    "dropSources": "Zombie",
+    "dropChance": "Per source; see Zombie loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Half-Eaten_Brain"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Hand",
+    "dropSources": "Brachiodemon",
+    "dropChance": "Per source; see Brachiodemon loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Hand"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Harpy Feathers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Harpy_Feathers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Head",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Headpecker Beak",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Headpecker_Beak"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Headpecker Feather",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Headpecker_Feather"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Heart Amphora",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Heart_Amphora"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Hellhound Slobber",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Hellhound_Slobber"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Hemp Rope",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Hemp_Rope"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Hideous Chunk",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Hideous_Chunk"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "High Guard Flag",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/High_Guard_Flag"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "High Guard Shoulderplates",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/High_Guard_Shoulderplates"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Holy Ash",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Holy_Ash"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Horoscope",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Horoscope"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Human Teeth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Human_Teeth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Humongous Chunk",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Humongous_Chunk"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Hydra Head",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Hydra_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Hydrophytes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Hydrophytes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ice Flower",
+    "dropSources": "Crazed Winter Rearguard; Crazed Winter Vanguard; Soul-Broken Harbinger",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ice_Flower"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Idol of the Forge",
+    "dropSources": "Bulltaur Forgepriest",
+    "dropChance": "Per source; see Bulltaur Forgepriest loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Idol_of_the_Forge"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Infernal Heart",
+    "dropSources": "Infernal Phantom",
+    "dropChance": "Per source; see Infernal Phantom loot table",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Infernal_Heart"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Infernal Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Infernal_Robe"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Infernoid Ember",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Infernoid_Ember"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Inkwell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Inkwell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Instable Proto Matter",
+    "dropSources": "Brain Squid; Dread Intruder; Outburst",
+    "dropChance": "Per source; see creature pages / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Instable_Proto_Matter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ivory Carving",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ivory_Carving"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Jaws",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Jaws"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Key to the Drowned Library",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Key_to_the_Drowned_Library"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Kongra's Shoulderpad",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Kongra's_Shoulderpad"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lamassu Hoof",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lamassu_Hoof"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lamassu Horn",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lamassu_Horn"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lancer Beetle Shell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lancer_Beetle_Shell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lancet",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lancet"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lavafungus Head",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lavafungus_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lavafungus Ring",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lavafungus_Ring"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lavaworm Jaws",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lavaworm_Jaws"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lavaworm Spike Roots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lavaworm_Spike_Roots"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lavaworm Spikes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lavaworm_Spikes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lime Tart",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lime_Tart"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Liodile Fang",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Liodile_Fang"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lion Cloak Patch",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lion_Cloak_Patch"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lion Crest",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lion_Crest"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lizard Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lizard_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lost Basher's Spike",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lost_Basher's_Spike"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lost Bracers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lost_Bracers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Luminous Orb",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Luminous_Orb"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Lump of Earth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Lump_of_Earth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mad Froth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mad_Froth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Magma Clump",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Magma_Clump"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Makara Fin",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Makara_Fin"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Makara Tongue",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Makara_Tongue"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mammoth Tusk",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mammoth_Tusk"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Manticore Ear",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Manticore_Ear"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Manticore Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Manticore_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mantosaurus Jaw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mantosaurus_Jaw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mega Dragon Heart",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mega_Dragon_Heart"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mercurial Wing",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mercurial_Wing"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Metal Jaw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Metal_Jaw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Molten Dragon Essence",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Molten_Dragon_Essence"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mould Heart",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mould_Heart"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mould Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mould_Robe"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mouldy Powder",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mouldy_Powder"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mummified Demon Finger",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mummified_Demon_Finger"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mutated Bat Ear",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mutated_Bat_Ear"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mutated Flesh",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mutated_Flesh"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Mutated Rat Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Mutated_Rat_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Naga Archer Scales",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Naga_Archer_Scales"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Naga Armring",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Naga_Armring"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Naga Earring",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Naga_Earring"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Naga Warrior Scales",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Naga_Warrior_Scales"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Necromantic Core",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Necromantic_Core"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Necromantic Rust",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Necromantic_Rust"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Night Harpy Feathers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Night_Harpy_Feathers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Nighthunter Wing",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Nighthunter_Wing"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Nimmersatt's Seal",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Nimmersatt's_Seal"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Odd Organ",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Odd_Organ"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ogre Ear Stud",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ogre_Ear_Stud"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Old Girtablilu Carapace",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Old_Girtablilu_Carapace"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Orcish Gear",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Orcish_Gear"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Orcish Toothbrush",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Orcish_Toothbrush"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Pair of Hellflayer Horns",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Pair_of_Hellflayer_Horns"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Paper Boat",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Paper_Boat"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Paper Plane",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Paper_Plane"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Piece of Draconian Steel",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Piece_of_Draconian_Steel"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Piece of Frozen Night",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Piece_of_Frozen_Night"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Piece of Hell Steel",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Piece_of_Hell_Steel"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Piece of Warrior Armor",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Piece_of_Warrior_Armor"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Pirat's Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Pirat's_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Pirate Coin",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Pirate_Coin"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Plasma Pearls",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Plasma_Pearls"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Plasmatic Lightning",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Plasmatic_Lightning"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Poisoned Fang",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Poisoned_Fang"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Pool of Chitinous Glue",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Pool_of_Chitinous_Glue"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Pot of Orcish Warpaint",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Pot_of_Orcish_Warpaint"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Prehemoth Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Prehemoth_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Prehemoth Horns",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Prehemoth_Horns"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Pressed Flower",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Pressed_Flower"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Pulverized Ore",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Pulverized_Ore"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Quara Bone",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Quara_Bone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Quara Eye",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Quara_Eye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Quara Pincers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Quara_Pincers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Quara Tentacle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Quara_Tentacle"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Raw Meat",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Raw_Meat"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Red Goanna Scale",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Red_Goanna_Scale"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Red Hair Dye",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Red_Hair_Dye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Resin Parasite",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Resin_Parasite"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Resinous Fish Fin",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Resinous_Fish_Fin"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Rhindeer Antlers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Rhindeer_Antlers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ripptor Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ripptor_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ripptor Scales",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ripptor_Scales"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ritual Bone Knife",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ritual_Bone_Knife"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Ritual Tooth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Ritual_Tooth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Rod",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Rod"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Roots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Roots"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Rotten Feather",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Rotten_Feather"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Rotten Piece of Cloth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Rotten_Piece_of_Cloth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Rotten Roots",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Rotten_Roots"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Rotten Vermin Ichor",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Rotten_Vermin_Ichor"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sabretooth Fur",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sabretooth_Fur"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sandcrawler Shell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sandcrawler_Shell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Scale of Corruption",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Scale_of_Corruption"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Scarab Pincers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Scarab_Pincers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Scorpion Charm",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Scorpion_Charm"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Scroll of Heroic Deeds",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Scroll_of_Heroic_Deeds"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Scythe Leg",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Scythe_Leg"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sealing Wax",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sealing_Wax"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Shaggy Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Shaggy_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Shamanic Talisman",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Shamanic_Talisman"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Shark Fins",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Shark_Fins"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Shimmering Beetles",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Shimmering_Beetles"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Shiny Stone",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Shiny_Stone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Silencer Resonating Chamber",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Silencer_Resonating_Chamber"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Silken Bookmark",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Silken_Bookmark"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Silver Moon Coin",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Silver_Moon_Coin"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Silver Poniard",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Silver_Poniard"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sineater Wing",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sineater_Wing"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Single Human Eye",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Single_Human_Eye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Skull Fetish",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Skull_Fetish"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Slimy Leaf Tentacle",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Slimy_Leaf_Tentacle"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Small Flask of Eyedrops",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Small_Flask_of_Eyedrops"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Small Notebook",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Small_Notebook"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Small Treasure Chest",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Small_Treasure_Chest"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Small Tropical Fish",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Small_Tropical_Fish"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Spark Sphere",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spark_Sphere"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sparkion Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sparkion_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sparkion Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sparkion_Legs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sparkion Stings",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sparkion_Stings"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sparkion Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sparkion_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Spellsinger's Seal",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spellsinger's_Seal"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sphinx Tiara",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sphinx_Tiara"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Spiked Bracers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spiked_Bracers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Spiked Gorget",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spiked_Gorget"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Spiked Iron Ball",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spiked_Iron_Ball"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Spitter Nose",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Spitter_Nose"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Staff Piece",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Staff_Piece"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Stag Parchment",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Stag_Parchment"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Stalking Seeds",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Stalking_Seeds"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Stampor Talons",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Stampor_Talons"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Star Ink",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Star_Ink"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Stone Wing",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Stone_Wing"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Stonerefiner's Skull",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Stonerefiner's_Skull"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Strange Substance",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Strange_Substance"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Streaked Devourer Eyes",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Streaked_Devourer_Eyes"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Streaked Devourer Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Streaked_Devourer_Legs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Streaked Devourer Maw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Streaked_Devourer_Maw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Striped Fur",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Striped_Fur"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sulphider Shell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sulphider_Shell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sulphur Powder",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sulphur_Powder"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Sulphurous Stone",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Sulphurous_Stone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Swarmer Antenna",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Swarmer_Antenna"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Tail of Corruption",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Tail_of_Corruption"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Telescope Eye",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Telescope_Eye"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Terramite Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Terramite_Legs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Thorn",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Thorn"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Toe Nails",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Toe_Nails"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Tooth File",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Tooth_File"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Torn Page",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Torn_Page"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Trapped Bad Dream Monster",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Trapped_Bad_Dream_Monster"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Tremendous Tyrant Head",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Tremendous_Tyrant_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Tremendous Tyrant Shell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Tremendous_Tyrant_Shell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Tunnel Tyrant Head",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Tunnel_Tyrant_Head"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Tunnel Tyrant Shell",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Tunnel_Tyrant_Shell"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Two-Headed Turtle Heads",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Two-Headed_Turtle_Heads"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Undertaker Fangs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Undertaker_Fangs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Unholy Bone",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Unholy_Bone"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Vampire's Cape Chain",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Vampire's_Cape_Chain"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Varnished Diremaw Brainpan",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Varnished_Diremaw_Brainpan"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Varnished Diremaw Legs",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Varnished_Diremaw_Legs"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Vein of Ore",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Vein_of_Ore"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Venison",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Venison"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Vibrant Heart",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Vibrant_Heart"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Vibrant Robe",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Vibrant_Robe"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Volatile Proto Matter",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Volatile_Proto_Matter"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Wardragon Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wardragon_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Wardragon Tooth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wardragon_Tooth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Waspoid Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Waspoid_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Weaver's Wandtip",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Weaver's_Wandtip"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werebadger Claws",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werebadger_Claws"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werebadger Skull",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werebadger_Skull"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werebear Fur",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werebear_Fur"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werebear Skull",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werebear_Skull"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Wereboar Tusks",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wereboar_Tusks"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werecrocodile Tongue",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werecrocodile_Tongue"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werefox Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werefox_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werehyaena Nose",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werehyaena_Nose"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werehyaena Talisman",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werehyaena_Talisman"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werepanther Claw",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werepanther_Claw"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Weretiger Tooth",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Weretiger_Tooth"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Werewolf Fur",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Werewolf_Fur"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Widow's Mandibles",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Widow's_Mandibles"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Wild Flowers",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wild_Flowers"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Wimp Tooth Chain",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Wimp_Tooth_Chain"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Winged Tail",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Winged_Tail"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Witch Broom",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Witch_Broom"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Worm Sponge",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Worm_Sponge"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Yapunac Dagger",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Yapunac_Dagger"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Zaogun Flag",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Zaogun_Flag"
+  },
+  {
+    "category": "Creature Products / Loot",
+    "name": "Zaogun Shoulderplates",
+    "dropSources": "Not batch-extracted; open item page / Creature Products page for Dropped By list",
+    "dropChance": "Source-specific; see creature page Loot table / Loot Statistics",
+    "wikiUrl": "https://tibia.fandom.com/wiki/Zaogun_Shoulderplates"
+  }
+]

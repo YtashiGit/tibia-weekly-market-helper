@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tibia Item Market + Loot Finder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Tibia Item Market + Loot Finder</h1>
+      <p>Local Python version: search an item, load market price, and show up to 6 lowest-HP loot sources with drop chance.</p>
+    </div>
+    <button id="themeBtn" type="button">Toggle theme</button>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Search</h2>
+      <div class="grid">
+        <label>
+          Item name
+          <input id="itemInput" list="itemSuggestions" placeholder="e.g. Tarantula Egg" autocomplete="off" />
+          <datalist id="itemSuggestions"></datalist>
+        </label>
+        <label>
+          World
+          <input id="worldInput" placeholder="e.g. Antica" value="Antica" />
+        </label>
+      </div>
+      <div class="actions">
+        <button id="searchBtn">Search item</button>
+        <button id="weeklyBtn" type="button">Show weekly item table</button>
+        <button id="loadWeeklyValuesBtn" type="button">Load avg values + efficiency</button>
+        <button id="stopWeeklyValuesBtn" type="button" disabled>Stop loading</button>
+        <button id="clearBtn" type="button">Clear</button>
+        <button id="updateBtn" type="button">Update app from GitHub</button>
+      </div>
+      <p class="hint">Run this version with <code>py server.py</code>. The local server does the internet requests, so browser CORS/API-base problems are avoided. If you installed it with GitHub, the update button runs <code>git pull --ff-only</code> for you.</p>
+    </section>
+
+    <section id="status" class="status" aria-live="polite"></section>
+    <section id="summary" class="summary hidden"></section>
+
+    <section class="panel hidden" id="sourcesPanel">
+      <div class="sectionHead">
+        <h2>Loot sources — lowest HP first</h2>
+        <button id="exportSourcesBtn" type="button">Export sources CSV</button>
+      </div>
+      <div class="tableWrap">
+        <table id="sourcesTable">
+          <thead>
+            <tr>
+              <th>Creature / source</th>
+              <th>HP</th>
+              <th>Drop chance</th>
+              <th>Avg / kill</th>
+              <th>Sample count</th>
+              <th>Source page</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="weeklyPanel">
+      <div class="sectionHead">
+        <h2>Weekly item table</h2>
+        <button id="exportWeeklyBtn" type="button">Export weekly CSV</button>
+      </div>
+      <div class="grid smallGrid">
+        <label>
+          Filter
+          <input id="weeklyFilter" placeholder="name, category, source..." />
+        </label>
+        <label>
+          Sort by
+          <select id="weeklySort">
+            <option value="efficiency">Expected gp/kill, high to low</option>
+            <option value="avgValue">Avg value, high to low</option>
+            <option value="dropChancePercent">Drop chance %, high to low</option>
+            <option value="lowestHp">Lowest monster HP, low to high</option>
+            <option value="name">Name</option>
+            <option value="category">Category</option>
+          </select>
+        </label>
+      </div>
+      <div class="tableWrap">
+        <table id="weeklyTable">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Category</th>
+              <th>Avg value</th>
+              <th>Drop chance</th>
+              <th>Lowest monster</th>
+              <th>HP</th>
+              <th>Expected gp/kill</th>
+              <th>Market</th>
+              <th>Wiki</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">Set your world, then click <b>Load avg values + efficiency</b>. The table adds avg value, drop chance %, lowest monster HP, and expected gp/kill. NPCs/non-monsters are ignored when picking the lowest-HP source. Loading all 477 rows may take several minutes the first time; cached repeats are faster.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Notes</h2>
+      <ul>
+        <li>Market prices are scraped by the local server from the configured public price page source.</li>
+        <li>Drop chances are community statistics from TibiaWiki/Fandom loot sample pages, so treat them as estimates.</li>
+        <li>If an item drops from many monsters, this shows up to 6 sources with the lowest parsed HP first.</li>
+        <li>If a page layout changes, the tool links the relevant source page instead of guessing.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
