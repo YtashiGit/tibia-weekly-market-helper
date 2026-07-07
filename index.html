@@ -10,7 +10,7 @@
   <header>
     <div>
       <h1>Tibia Item Market + Loot Finder</h1>
-      <p>Local Python version: search an item, load market price, and show up to 6 lowest-HP loot sources with drop chance.</p>
+      <p>Local Python version: search an item, load market price for Bona/Celesta/Dia, and show up to 6 lowest-HP monster loot sources with drop chance.</p>
     </div>
     <button id="themeBtn" type="button">Toggle theme</button>
   </header>
@@ -26,7 +26,11 @@
         </label>
         <label>
           World
-          <input id="worldInput" placeholder="e.g. Antica" value="Antica" />
+          <select id="worldInput">
+            <option value="Bona" selected>Bona</option>
+            <option value="Celesta">Celesta</option>
+            <option value="Dia">Dia</option>
+          </select>
         </label>
       </div>
       <div class="actions">

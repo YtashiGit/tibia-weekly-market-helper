@@ -16,7 +16,18 @@ ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / ".cache"
 CACHE.mkdir(exist_ok=True)
 PORT = int(os.environ.get("PORT", "8000"))
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) TibiaItemLocalServer/1.1"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) TibiaItemLocalServer/1.2"
+ALLOWED_WORLDS = ["Bona", "Celesta", "Dia"]
+DEFAULT_WORLD = "Bona"
+
+
+def normalize_world(world: str) -> str:
+    w = (world or DEFAULT_WORLD).strip().lower()
+    for allowed in ALLOWED_WORLDS:
+        if w == allowed.lower():
+            return allowed
+    return DEFAULT_WORLD
+
 
 
 def slugify_item(name: str) -> str:
@@ -96,7 +107,7 @@ def parse_tibiaprices_page(page: str, requested_world: str, item: str, url: str,
     try to extract requested_world from the monthly world table.
     """
     text = strip_tags(page)
-    data = {"item": item, "world": requested_world or "Antica", "url": url, "source": "TibiaPrices"}
+    data = {"item": item, "world": normalize_world(requested_world), "url": url, "source": "TibiaPrices"}
 
     if "Page Not Found" in text or "404" in text[:300]:
         data["error"] = "Price page not found"
@@ -139,14 +150,13 @@ def parse_tibiaprices_page(page: str, requested_world: str, item: str, url: str,
 
 
 def get_price(world: str, item: str) -> dict:
-    requested_world = world or "Antica"
+    requested_world = normalize_world(world)
     world_slug = slugify_item(requested_world)
     item_slug = slugify_item(item)
 
-    # First try the exact requested world. If that page does not exist, try a few
-    # common worlds that often have an item page and then parse the requested
-    # world's price from the cross-world monthly table on that page.
-    fallback_worlds = [world_slug, "antica", "secura", "vunira", "ombra", "bona", "nefera", "celesta", "belobra", "refugia", "pacera", "monza"]
+    # Only check the worlds the user cares about. This avoids wasting time on
+    # pages/worlds that will not be used for decision making.
+    fallback_worlds = [world_slug] + [slugify_item(w) for w in ALLOWED_WORLDS if slugify_item(w) != world_slug]
     seen = set()
     last_error = None
     for ws in fallback_worlds:
@@ -229,16 +239,33 @@ def extract_drop_sources(item: str) -> list:
     sources = []
     try:
         h = fandom_parse(item)
-        # Fandom often has a table row where the first cell is "Dropped By". Take a wide slice.
-        for label in ["Dropped By", "Dropped from", "Dropped From", "Loot from", "Loot From"]:
-            idx = h.lower().find(label.lower())
-            if idx >= 0:
-                snippet = h[idx: idx + 12000]
-                sources.extend(extract_links(snippet))
+        labels = ["Dropped By", "Dropped from", "Dropped From", "Loot from", "Loot From"]
+
+        # Best case: capture only the table row that contains the label. The old
+        # parser grabbed a large slice after "Dropped By", which sometimes swept
+        # unrelated links such as spells/effects into the source list.
+        for row in re.findall(r"<tr[\s\S]*?</tr>", h, flags=re.I):
+            row_text = strip_tags(row).lower()
+            if any(label.lower() in row_text for label in labels):
+                sources.extend(extract_links(row))
                 break
-        # Also try section heading fallback.
+
+        # Fallback: use a short bounded slice, not the whole page.
         if not sources:
-            sec = re.search(r"<span[^>]*id=\"(?:Dropped_By|Dropped_from|Loot_from)[^\"]*\"[\s\S]{0,12000}", h, flags=re.I)
+            low = h.lower()
+            for label in labels:
+                idx = low.find(label.lower())
+                if idx >= 0:
+                    snippet = h[idx: idx + 2500]
+                    stop = re.search(r"<tr\b|<h2\b|<h3\b|<table\b", snippet[100:], flags=re.I)
+                    if stop:
+                        snippet = snippet[:100 + stop.start()]
+                    sources.extend(extract_links(snippet))
+                    break
+
+        # Also try section heading fallback, but keep it bounded.
+        if not sources:
+            sec = re.search(r"<span[^>]*id=\"(?:Dropped_By|Dropped_from|Loot_from)[^\"]*\"[\s\S]{0,3000}", h, flags=re.I)
             if sec:
                 sources.extend(extract_links(sec.group(0)))
     except Exception:
@@ -247,7 +274,7 @@ def extract_drop_sources(item: str) -> list:
     if not sources:
         sources = load_weekly_sources(item)
 
-    bad = {"loot", "creatures", "items", "market", "tibiawiki", item.lower()}
+    bad = {"loot", "creatures", "items", "market", "tibiawiki", item.lower(), "invisibility"}
     clean, seen = [], set()
     for s in sources:
         s = html.unescape(s).replace("/Creature", "").strip()
@@ -260,24 +287,61 @@ def extract_drop_sources(item: str) -> list:
         seen.add(key); clean.append(s)
     return clean[:50]
 
+def page_has_category(page_html: str, category: str) -> bool:
+    # Fandom parse HTML usually contains category links like /wiki/Category:Creatures or /wiki/Category:NPCs.
+    cat = re.escape(category)
+    return bool(re.search(rf"Category:{cat}(?:[\"/#?<]|$)", page_html, flags=re.I))
+
+
+def page_looks_like_npc(page_html: str) -> bool:
+    if page_has_category(page_html, "NPCs"):
+        return True
+    txt = strip_tags(page_html[:6000]).lower()
+    npc_markers = [
+        "this npc", "is an npc", "this is a npc", "buying from npc", "selling from npc",
+        "job:", "job ", "gender:", "city:", "location:", "sells", "buys"
+    ]
+    # Use category as the strongest signal. Text markers are intentionally only checked near the start.
+    return any(m in txt for m in npc_markers) and not page_has_category(page_html, "Creatures")
+
 
 def parse_hp_from_html(page_html: str):
-    text = strip_tags(page_html).replace(",", "")
-    patterns = [
-        r"(?:Hit Points|Hitpoints|Health|HP)\s*[:\-]?\s*(\d{1,9})\b",
-        r"\b(\d{1,9})\s*(?:hit points|hitpoints|health|hp)\b",
+    # Do NOT parse arbitrary "HP" text from the whole page. NPC/item pages can contain stray HP
+    # numbers in unrelated text. Only accept values from a table row/infobox label.
+    row_patterns = [
+        r"<tr[^>]*>[\s\S]{0,800}?(?:Hit Points|Hitpoints|Health|HP)[\s\S]{0,800}?</tr>",
+        r"<(?:th|td)[^>]*>\s*(?:Hit Points|Hitpoints|Health|HP)\s*</(?:th|td)>[\s\S]{0,500}?<(?:td|th)[^>]*>([\s\S]{0,200}?)</(?:td|th)>",
     ]
-    for pat in patterns:
-        m = re.search(pat, text, flags=re.I)
-        if m:
-            return int(m.group(1))
+    for pat in row_patterns:
+        for m in re.finditer(pat, page_html, flags=re.I):
+            chunk = m.group(1) if m.lastindex else m.group(0)
+            txt = strip_tags(chunk).replace(",", "")
+            # Prefer number appearing after the label.
+            m2 = re.search(r"(?:Hit Points|Hitpoints|Health|HP)\s*[:\-]?\s*(\d{1,9})\b", txt, flags=re.I)
+            if not m2:
+                nums = re.findall(r"\b\d{1,9}\b", txt)
+                if nums:
+                    return int(nums[-1])
+            else:
+                return int(m2.group(1))
     return None
 
 
 def creature_hp(creature: str):
     try:
         h = fandom_parse(creature)
-        return parse_hp_from_html(h)
+        if page_looks_like_npc(h) or page_has_category(h, "Spells") or page_has_category(h, "Runes"):
+            return None
+        hp = parse_hp_from_html(h)
+        if not isinstance(hp, int) or hp <= 0:
+            return None
+        # Extra guard: if there is no creature-ish category and the page looks like an item/NPC/quest, reject it.
+        if not page_has_category(h, "Creatures"):
+            txt = strip_tags(h[:8000]).lower()
+            creatureish = any(x in txt for x in ["hit points", "bestiary", "experience points", "summon", "convince"])
+            if not creatureish:
+                return None
+        return hp
     except Exception:
         return None
 
@@ -320,7 +384,9 @@ def looks_non_monster_source(name: str) -> bool:
         return True
     non_monster_words = [
         "npc", "rashid", "yasir", "hireling", "quest", "box", "chest", "crate", "bag", "reward", "market",
-        "creature products", "outfit", "achievement", "book", "item", "depot", "store", "tibia coins"
+        "creature products", "outfit", "achievement", "book", "item", "depot", "store", "tibia coins",
+        "king", "queen", "emperor", "empress", "captain", "guide", "banker", "merchant", "trader", "shopkeeper",
+        "invisibility", "invisible", "spell", "rune", "magic", "blessing", "imbuement", "charm"
     ]
     return any(w in key for w in non_monster_words)
 
@@ -370,8 +436,8 @@ def get_weekly_row(world: str, item: str) -> dict:
     # Whole weekly rows are cached because they require multiple remote page loads
     # (price page + item page + creature page + loot statistics page). The first
     # run can still take time, but repeats become near-instant.
-    requested_world = world or "Antica"
-    cache_key = "weeklyrow_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
+    requested_world = normalize_world(world)
+    cache_key = "weeklyrow_v3_bona_celesta_dia_nonspell_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
     cached = cache_get(cache_key, max_age=12*3600)
     if cached:
         try:
@@ -460,7 +526,7 @@ class Handler(SimpleHTTPRequestHandler):
         try:
             if parsed.path == "/api/price":
                 item = qs.get("item", [""])[0].strip()
-                world = qs.get("world", ["Antica"])[0].strip() or "Antica"
+                world = normalize_world(qs.get("world", [DEFAULT_WORLD])[0])
                 if not item:
                     return self.end_json({"error":"Missing item"}, 400)
                 return self.end_json(get_price(world, item))
@@ -471,7 +537,7 @@ class Handler(SimpleHTTPRequestHandler):
                 return self.end_json(get_loot_sources(item))
             if parsed.path == "/api/weekly_row":
                 item = qs.get("item", [""])[0].strip()
-                world = qs.get("world", ["Antica"])[0].strip() or "Antica"
+                world = normalize_world(qs.get("world", [DEFAULT_WORLD])[0])
                 if not item:
                     return self.end_json({"error":"Missing item"}, 400)
                 return self.end_json(get_weekly_row(world, item))

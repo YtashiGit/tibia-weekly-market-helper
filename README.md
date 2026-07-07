@@ -103,3 +103,14 @@ The app can update itself only from a real GitHub repo that contains newer code.
 - 7-day cached TibiaWiki pages for HP/drop data.
 
 The first full run can still take a while, but repeating it for the same world should be much faster. To force fresh data, delete the `.cache` folder while the server is stopped.
+
+## NPC/source filtering fix
+
+This build ignores NPC/non-monster pages when calculating the lowest-HP source. HP is accepted only from creature-style infobox/table rows, and pages categorized as NPCs are excluded. Existing old cache entries are bypassed with a new weekly-row cache key.
+
+## Notes in this build
+
+- The world selector is limited to **Bona**, **Celesta**, and **Dia**.
+- Price lookups only try those three worlds, which cuts useless fallback requests and should make failures finish faster.
+- The loot-source parser is stricter: it only reads the actual Dropped By row/section, rejects NPC/spell/rune pages, and blocks the bad `Invisibility` source row.
+- Weekly efficiency uses a new cache key so older cached bad rows are not reused.

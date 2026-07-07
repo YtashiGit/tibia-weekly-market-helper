@@ -27,12 +27,12 @@ async function loadWeeklyItems() {
 }
 
 async function loadPrice(itemName) {
-  const world = $('worldInput').value.trim() || 'Antica';
+  const world = $('worldInput').value.trim() || 'Bona';
   return fetchJson(`/api/price?world=${encodeURIComponent(world)}&item=${encodeURIComponent(itemName)}`);
 }
 async function loadLootSources(itemName) { return fetchJson(`/api/loot_sources?item=${encodeURIComponent(itemName)}`); }
 async function loadWeeklyRow(itemName) {
-  const world = $('worldInput').value.trim() || 'Antica';
+  const world = $('worldInput').value.trim() || 'Bona';
   return fetchJson(`/api/weekly_row?world=${encodeURIComponent(world)}&item=${encodeURIComponent(itemName)}`);
 }
 
@@ -40,7 +40,7 @@ function renderSummary(itemName, price, weekly) {
   summaryEl.classList.remove('hidden');
   const cards = [
     ['Item', itemName],
-    ['World', $('worldInput').value.trim() || 'Antica'],
+    ['World', $('worldInput').value.trim() || 'Bona'],
     ['Current market price', fmtGp(price.current_market_price)],
     ['Global average', fmtGp(price.global_average_price)],
     ['Avg value used', fmtGp(price.avg_value_used)],
@@ -126,9 +126,9 @@ async function enrichVisibleWeeklyRows() {
   let done = 0, failed = 0;
   $('loadWeeklyValuesBtn').disabled = true;
   $('stopWeeklyValuesBtn').disabled = false;
-  setStatus(`Loading avg value, drop %, and lowest monster HP for ${total} visible weekly row(s)… Using 8 workers + local cache`, 'warn');
+  setStatus(`Loading avg value, drop %, and lowest monster HP for ${total} visible weekly row(s)… Using 8 workers + local cache; worlds limited to Bona/Celesta/Dia`, 'warn');
 
-  const queue = rows.filter(r => !r.enriched || r.enrichWorld !== ($('worldInput').value.trim() || 'Antica'));
+  const queue = rows.filter(r => !r.enriched || r.enrichWorld !== ($('worldInput').value.trim() || 'Bona'));
   queue.forEach(r => { r.loading = true; });
   renderWeeklyTable();
 
@@ -137,7 +137,7 @@ async function enrichVisibleWeeklyRows() {
       const row = queue.shift();
       try {
         const data = await loadWeeklyRow(row.name);
-        Object.assign(row, data, { enriched: true, loading: false, enrichWorld: ($('worldInput').value.trim() || 'Antica') });
+        Object.assign(row, data, { enriched: true, loading: false, enrichWorld: ($('worldInput').value.trim() || 'Bona') });
       } catch (e) {
         row.loading = false; row.enrichError = e.message; failed++;
       } finally {
