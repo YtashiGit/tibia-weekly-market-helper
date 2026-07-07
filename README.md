@@ -114,3 +114,19 @@ This build ignores NPC/non-monster pages when calculating the lowest-HP source. 
 - Price lookups only try those three worlds, which cuts useless fallback requests and should make failures finish faster.
 - The loot-source parser is stricter: it only reads the actual Dropped By row/section, rejects NPC/spell/rune pages, and blocks the bad `Invisibility` source row.
 - Weekly efficiency uses a new cache key so older cached bad rows are not reused.
+
+## HP table fix
+This version uses a stricter HP parser. It only accepts HP from creature infobox/table fields and ignores NPC/spell/item pages. If you used an older version and still see weird HP values, click **Clear cache** once, then run **Load avg values + efficiency** again.
+
+
+## Quick prices bar
+
+The top of the page shows small icon cards with prices for: Rope Belt, Piece of Dead Brain, Cultish Mask, Sabretooth, Bloody Pincers, Protective Charm, and Medicine Pouch. The cards use the selected world only: Bona, Celesta, or Dia. Click **Refresh quick prices** after changing world or if the price source was temporarily unavailable.
+
+## New tabs
+
+### Grizzly Adams
+Shows all Grizzly Adams task rows split into Tibia level ranges: 6-49, 50-79, 80-129 and 130+. Each row lists counted mobs and a practical set of valuable loot items to watch. Click an item chip to search it in the main item lookup.
+
+### Imbuingi
+Lists all imbuement material items from TibiaWiki's imbuing tables. Use **Load imbuing avg prices** to fetch average prices for the selected world: Bona, Celesta or Dia. The table can be filtered, sorted, and exported to CSV.

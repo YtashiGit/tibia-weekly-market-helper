@@ -56,3 +56,14 @@ tr:hover td { background: rgba(127, 180, 220, .08); }
 a { color: var(--accent); text-decoration:none; }
 code { background: var(--panel2); padding:.15rem .35rem; border-radius:6px; }
 @media (max-width: 700px) { header { flex-direction:column; padding:1.2rem; } main{padding:1rem;} .smallGrid { grid-template-columns:1fr; } }
+
+.quickItems { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:.65rem; }
+.quickCard { display:flex; align-items:center; gap:.55rem; background: var(--panel2); border:1px solid var(--border); border-radius:12px; padding:.65rem; min-height:58px; }
+.quickCard img { width:32px; height:32px; object-fit:contain; image-rendering:auto; flex:0 0 auto; }
+.quickCard .qName { font-weight:800; font-size:.92rem; line-height:1.15; }
+.quickCard .qPrice { color: var(--good); font-weight:800; font-size:.9rem; margin-top:.15rem; }
+.quickCard .qSub { color: var(--muted); font-size:.75rem; margin-top:.1rem; }
+.quickCard.loading .qPrice { color: var(--warn); }
+.quickCard.error .qPrice { color: var(--bad); }
+.chip { display:inline-block; padding:.22rem .45rem; margin:.12rem .18rem .12rem 0; border:1px solid var(--border); background:var(--panel2); border-radius:999px; font-size:.9rem; white-space:nowrap; }
+.chip:hover { filter:brightness(1.12); }

@@ -1,0 +1,362 @@
+[
+  {
+    "name": "Fiery Heart",
+    "usedIn": "Scorch / Fire Damage",
+    "maxQty": 25
+  },
+  {
+    "name": "Green Dragon Scale",
+    "usedIn": "Scorch / Fire Damage",
+    "maxQty": 5
+  },
+  {
+    "name": "Demon Horn",
+    "usedIn": "Powerful Scorch / Fire Damage",
+    "maxQty": 5
+  },
+  {
+    "name": "Swamp Grass",
+    "usedIn": "Venom / Earth Damage",
+    "maxQty": 25
+  },
+  {
+    "name": "Poisonous Slime",
+    "usedIn": "Venom / Earth Damage",
+    "maxQty": 20
+  },
+  {
+    "name": "Slime Heart",
+    "usedIn": "Powerful Venom / Earth Damage",
+    "maxQty": 2
+  },
+  {
+    "name": "Frosty Heart",
+    "usedIn": "Frost / Ice Damage",
+    "maxQty": 25
+  },
+  {
+    "name": "Seacrest Hair",
+    "usedIn": "Frost / Ice Damage",
+    "maxQty": 10
+  },
+  {
+    "name": "Polar Bear Paw",
+    "usedIn": "Powerful Frost / Ice Damage",
+    "maxQty": 5
+  },
+  {
+    "name": "Rorc Feather",
+    "usedIn": "Electrify / Energy Damage",
+    "maxQty": 25
+  },
+  {
+    "name": "Peacock Feather Fan",
+    "usedIn": "Electrify / Energy Damage",
+    "maxQty": 5
+  },
+  {
+    "name": "Energy Vein",
+    "usedIn": "Powerful Electrify / Energy Damage",
+    "maxQty": 1
+  },
+  {
+    "name": "Pile of Grave Earth",
+    "usedIn": "Reap / Death Damage",
+    "maxQty": 25
+  },
+  {
+    "name": "Demonic Skeletal Hand",
+    "usedIn": "Reap / Death Damage",
+    "maxQty": 20
+  },
+  {
+    "name": "Petrified Scream",
+    "usedIn": "Powerful Reap / Death Damage",
+    "maxQty": 5
+  },
+  {
+    "name": "Vampire Teeth",
+    "usedIn": "Vampirism / Life Leech",
+    "maxQty": 25
+  },
+  {
+    "name": "Bloody Pincers",
+    "usedIn": "Vampirism / Life Leech",
+    "maxQty": 15
+  },
+  {
+    "name": "Piece of Dead Brain",
+    "usedIn": "Powerful Vampirism / Life Leech",
+    "maxQty": 5
+  },
+  {
+    "name": "Rope Belt",
+    "usedIn": "Void / Mana Leech",
+    "maxQty": 25
+  },
+  {
+    "name": "Silencer Claws",
+    "usedIn": "Void / Mana Leech",
+    "maxQty": 25
+  },
+  {
+    "name": "Some Grimeleech Wings",
+    "usedIn": "Powerful Void / Mana Leech",
+    "maxQty": 5
+  },
+  {
+    "name": "Protective Charm",
+    "usedIn": "Strike / Critical Hit",
+    "maxQty": 20
+  },
+  {
+    "name": "Sabretooth",
+    "usedIn": "Strike / Critical Hit",
+    "maxQty": 25
+  },
+  {
+    "name": "Vexclaw Talon",
+    "usedIn": "Powerful Strike / Critical Hit",
+    "maxQty": 5
+  },
+  {
+    "name": "Flask of Embalming Fluid",
+    "usedIn": "Lich Shroud / Death Protection",
+    "maxQty": 25
+  },
+  {
+    "name": "Gloom Wolf Fur",
+    "usedIn": "Lich Shroud / Death Protection",
+    "maxQty": 20
+  },
+  {
+    "name": "Mystical Hourglass",
+    "usedIn": "Powerful Lich Shroud / Death Protection",
+    "maxQty": 5
+  },
+  {
+    "name": "Piece of Swampling Wood",
+    "usedIn": "Snake Skin / Earth Protection",
+    "maxQty": 25
+  },
+  {
+    "name": "Snake Skin",
+    "usedIn": "Snake Skin / Earth Protection",
+    "maxQty": 20
+  },
+  {
+    "name": "Brimstone Fangs",
+    "usedIn": "Powerful Snake Skin / Earth Protection",
+    "maxQty": 10
+  },
+  {
+    "name": "Green Dragon Leather",
+    "usedIn": "Dragon Hide / Fire Protection",
+    "maxQty": 20
+  },
+  {
+    "name": "Blazing Bone",
+    "usedIn": "Dragon Hide / Fire Protection",
+    "maxQty": 10
+  },
+  {
+    "name": "Draken Sulphur",
+    "usedIn": "Powerful Dragon Hide / Fire Protection",
+    "maxQty": 5
+  },
+  {
+    "name": "Winter Wolf Fur",
+    "usedIn": "Quara Scale / Ice Protection",
+    "maxQty": 25
+  },
+  {
+    "name": "Thick Fur",
+    "usedIn": "Quara Scale / Ice Protection",
+    "maxQty": 15
+  },
+  {
+    "name": "Deepling Warts",
+    "usedIn": "Powerful Quara Scale / Ice Protection",
+    "maxQty": 10
+  },
+  {
+    "name": "Wyvern Talisman",
+    "usedIn": "Cloud Fabric / Energy Protection",
+    "maxQty": 20
+  },
+  {
+    "name": "Crawler Head Plating",
+    "usedIn": "Cloud Fabric / Energy Protection",
+    "maxQty": 15
+  },
+  {
+    "name": "Wyrm Scale",
+    "usedIn": "Powerful Cloud Fabric / Energy Protection",
+    "maxQty": 10
+  },
+  {
+    "name": "Cultish Robe",
+    "usedIn": "Demon Presence / Holy Protection",
+    "maxQty": 25
+  },
+  {
+    "name": "Cultish Mask",
+    "usedIn": "Demon Presence / Holy Protection",
+    "maxQty": 25
+  },
+  {
+    "name": "Hellspawn Tail",
+    "usedIn": "Powerful Demon Presence / Holy Protection",
+    "maxQty": 20
+  },
+  {
+    "name": "Wereboar Hooves",
+    "usedIn": "Vibrancy / Paralysis Deflection",
+    "maxQty": 20
+  },
+  {
+    "name": "Crystallized Anger",
+    "usedIn": "Vibrancy / Paralysis Deflection",
+    "maxQty": 15
+  },
+  {
+    "name": "Quill",
+    "usedIn": "Powerful Vibrancy / Paralysis Deflection",
+    "maxQty": 5
+  },
+  {
+    "name": "Damselfly Wing",
+    "usedIn": "Swiftness / Walking Speed",
+    "maxQty": 15
+  },
+  {
+    "name": "Compass",
+    "usedIn": "Swiftness / Walking Speed",
+    "maxQty": 25
+  },
+  {
+    "name": "Waspoid Wing",
+    "usedIn": "Powerful Swiftness / Walking Speed",
+    "maxQty": 20
+  },
+  {
+    "name": "Fairy Wings",
+    "usedIn": "Featherweight / Capacity",
+    "maxQty": 20
+  },
+  {
+    "name": "Little Bowl of Myrrh",
+    "usedIn": "Featherweight / Capacity",
+    "maxQty": 10
+  },
+  {
+    "name": "Goosebump Leather",
+    "usedIn": "Powerful Featherweight / Capacity",
+    "maxQty": 5
+  },
+  {
+    "name": "Elvish Talisman",
+    "usedIn": "Epiphany / Magic Level",
+    "maxQty": 25
+  },
+  {
+    "name": "Broken Shamanic Staff",
+    "usedIn": "Epiphany / Magic Level",
+    "maxQty": 15
+  },
+  {
+    "name": "Strand of Medusa Hair",
+    "usedIn": "Powerful Epiphany / Magic Level",
+    "maxQty": 15
+  },
+  {
+    "name": "Tarantula Egg",
+    "usedIn": "Punch / Fist Fighting",
+    "maxQty": 25
+  },
+  {
+    "name": "Mantassin Tail",
+    "usedIn": "Punch / Fist Fighting",
+    "maxQty": 20
+  },
+  {
+    "name": "Gold-Brocaded Cloth",
+    "usedIn": "Powerful Punch / Fist Fighting",
+    "maxQty": 15
+  },
+  {
+    "name": "Cyclops Toe",
+    "usedIn": "Bash / Club Fighting",
+    "maxQty": 20
+  },
+  {
+    "name": "Ogre Nose Ring",
+    "usedIn": "Bash / Club Fighting",
+    "maxQty": 15
+  },
+  {
+    "name": "Warmaster's Wristguards",
+    "usedIn": "Powerful Bash / Club Fighting",
+    "maxQty": 10
+  },
+  {
+    "name": "Lion's Mane",
+    "usedIn": "Slash / Sword Fighting",
+    "maxQty": 25
+  },
+  {
+    "name": "Mooh'tah Shell",
+    "usedIn": "Slash / Sword Fighting",
+    "maxQty": 25
+  },
+  {
+    "name": "War Crystal",
+    "usedIn": "Powerful Slash / Sword Fighting",
+    "maxQty": 5
+  },
+  {
+    "name": "Orc Tooth",
+    "usedIn": "Chop / Axe Fighting",
+    "maxQty": 20
+  },
+  {
+    "name": "Battle Stone",
+    "usedIn": "Chop / Axe Fighting",
+    "maxQty": 25
+  },
+  {
+    "name": "Moohtant Horn",
+    "usedIn": "Powerful Chop / Axe Fighting",
+    "maxQty": 20
+  },
+  {
+    "name": "Elven Scouting Glass",
+    "usedIn": "Precision / Distance Fighting",
+    "maxQty": 25
+  },
+  {
+    "name": "Elven Hoof",
+    "usedIn": "Precision / Distance Fighting",
+    "maxQty": 20
+  },
+  {
+    "name": "Metal Spike",
+    "usedIn": "Powerful Precision / Distance Fighting",
+    "maxQty": 10
+  },
+  {
+    "name": "Piece of Scarab Shell",
+    "usedIn": "Blockade / Shielding",
+    "maxQty": 20
+  },
+  {
+    "name": "Brimstone Shell",
+    "usedIn": "Blockade / Shielding",
+    "maxQty": 25
+  },
+  {
+    "name": "Frazzle Skin",
+    "usedIn": "Powerful Blockade / Shielding",
+    "maxQty": 25
+  }
+]

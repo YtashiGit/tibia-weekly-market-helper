@@ -1,0 +1,556 @@
+[
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Crocodiles",
+    "mobs": [
+      "Crocodile"
+    ],
+    "valuables": [
+      "Crocodile Boots",
+      "Crocodile Leather"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Badgers",
+    "mobs": [
+      "Badger"
+    ],
+    "valuables": [
+      "Badger Fur"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Tarantulas",
+    "mobs": [
+      "Tarantula"
+    ],
+    "valuables": [
+      "Tarantula Egg",
+      "Spider Silk",
+      "Steel Helmet"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 150,
+    "task": "Carniphilas",
+    "mobs": [
+      "Carniphila"
+    ],
+    "valuables": [
+      "Dark Mushroom",
+      "Mandrake",
+      "Sweet Smelling Bait"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 200,
+    "task": "Stone Golems",
+    "mobs": [
+      "Stone Golem"
+    ],
+    "valuables": [
+      "Iron Ore",
+      "Small Stone"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Mammoths",
+    "mobs": [
+      "Mammoth"
+    ],
+    "valuables": [
+      "Mammoth Tusk",
+      "Thick Fur"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Gnarlhounds",
+    "mobs": [
+      "Gnarlhound"
+    ],
+    "valuables": [
+      "Gnarlhound Tail"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Terramites",
+    "mobs": [
+      "Terramite"
+    ],
+    "valuables": [
+      "Terramite Legs",
+      "Lump of Earth"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Apes",
+    "mobs": [
+      "Kongra",
+      "Sibang",
+      "Merlkin"
+    ],
+    "valuables": [
+      "Ape Fur",
+      "Kongra's Shoulderpad",
+      "Small Amethyst"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 300,
+    "task": "Thornback Tortoises",
+    "mobs": [
+      "Thornback Tortoise"
+    ],
+    "valuables": [
+      "Tortoise Shield",
+      "Turtle Shell",
+      "War Hammer"
+    ]
+  },
+  {
+    "levelRange": "6-49",
+    "count": 200,
+    "task": "Gargoyles",
+    "mobs": [
+      "Gargoyle"
+    ],
+    "valuables": [
+      "Small Diamond",
+      "Iron Ore"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 300,
+    "task": "Ice Golems",
+    "mobs": [
+      "Ice Golem"
+    ],
+    "valuables": [
+      "Ice Cube",
+      "Crystal Sword"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 400,
+    "task": "Quara Scouts",
+    "mobs": [
+      "Quara Constrictor Scout",
+      "Quara Hydromancer Scout",
+      "Quara Mantassin Scout",
+      "Quara Pincher Scout",
+      "Quara Predator Scout"
+    ],
+    "valuables": [
+      "Quara Tentacle",
+      "Quara Eye",
+      "Quara Pincers",
+      "Quara Bone"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 400,
+    "task": "Mutated Rats",
+    "mobs": [
+      "Mutated Rat"
+    ],
+    "valuables": [
+      "Mutated Rat Tail",
+      "Life Ring"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 250,
+    "task": "Ancient Scarabs",
+    "mobs": [
+      "Ancient Scarab"
+    ],
+    "valuables": [
+      "Scarab Pincers",
+      "Ancient Stone",
+      "Small Amethyst"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 300,
+    "task": "Wyverns",
+    "mobs": [
+      "Wyvern"
+    ],
+    "valuables": [
+      "Wyvern Talisman",
+      "Wand of Inferno"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 300,
+    "task": "Lancer Beetles",
+    "mobs": [
+      "Lancer Beetle"
+    ],
+    "valuables": [
+      "Lancer Beetle Shell"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 400,
+    "task": "Wailing Widows",
+    "mobs": [
+      "Wailing Widow"
+    ],
+    "valuables": [
+      "Spider Silk",
+      "Wailing Widow's Necklace"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 250,
+    "task": "Killer Caimans",
+    "mobs": [
+      "Killer Caiman"
+    ],
+    "valuables": [
+      "Small Emerald",
+      "Giant Shimmering Pearl",
+      "Obsidian Lance"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 300,
+    "task": "Bonebeasts",
+    "mobs": [
+      "Bonebeast"
+    ],
+    "valuables": [
+      "Hardened Bone",
+      "Bone Shield",
+      "Bonebreaker"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 300,
+    "task": "Crystal Spiders",
+    "mobs": [
+      "Crystal Spider"
+    ],
+    "valuables": [
+      "Spider Silk",
+      "Crystal Spider Leg"
+    ]
+  },
+  {
+    "levelRange": "50-79",
+    "count": 250,
+    "task": "Mutated Tigers",
+    "mobs": [
+      "Mutated Tiger"
+    ],
+    "valuables": [
+      "Sabretooth",
+      "Mutated Flesh",
+      "Tiger Eye"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 600,
+    "task": "Underwater Quara",
+    "mobs": [
+      "Quara Constrictor",
+      "Quara Hydromancer",
+      "Quara Mantassin",
+      "Quara Pincher",
+      "Quara Predator"
+    ],
+    "valuables": [
+      "Quara Tentacle",
+      "Quara Eye",
+      "Quara Pincers",
+      "Quara Bone"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 500,
+    "task": "Giant Spiders",
+    "mobs": [
+      "Giant Spider"
+    ],
+    "valuables": [
+      "Spider Silk",
+      "Time Ring",
+      "Knight Armor"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 300,
+    "task": "Werewolves",
+    "mobs": [
+      "Werewolf"
+    ],
+    "valuables": [
+      "Werewolf Fur",
+      "Werewolf Amulet"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 400,
+    "task": "Nightmares",
+    "mobs": [
+      "Nightmare",
+      "Nightmare Scion"
+    ],
+    "valuables": [
+      "Demonic Essence",
+      "Nightmare Blade",
+      "Skull Helmet"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 600,
+    "task": "Hellspawns",
+    "mobs": [
+      "Hellspawn"
+    ],
+    "valuables": [
+      "Hellspawn Tail",
+      "Soul Orb",
+      "Demonic Essence"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 800,
+    "task": "High Class Lizards",
+    "mobs": [
+      "Lizard Chosen",
+      "Lizard Dragon Priest",
+      "Lizard High Guard",
+      "Lizard Legionnaire",
+      "Lizard Zaogun"
+    ],
+    "valuables": [
+      "Zaoan Armor",
+      "Zaoan Legs",
+      "Broken Draken Mail",
+      "Zaogun Shoulderplates"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 600,
+    "task": "Stampors",
+    "mobs": [
+      "Stampor"
+    ],
+    "valuables": [
+      "Stampor Talons",
+      "Stampor Horn",
+      "Stampor Talisman"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 500,
+    "task": "Brimstone Bugs",
+    "mobs": [
+      "Brimstone Bug"
+    ],
+    "valuables": [
+      "Magic Sulphur",
+      "Brimstone Fangs",
+      "Brimstone Shell"
+    ]
+  },
+  {
+    "levelRange": "80-129",
+    "count": 400,
+    "task": "Mutated Bats",
+    "mobs": [
+      "Mutated Bat"
+    ],
+    "valuables": [
+      "Mutated Bat Ear",
+      "Batwing Hat"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 650,
+    "task": "Hydras",
+    "mobs": [
+      "Hydra"
+    ],
+    "valuables": [
+      "Hydra Head",
+      "Royal Helmet",
+      "Warrior Helmet"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 800,
+    "task": "Serpent Spawns",
+    "mobs": [
+      "Serpent Spawn"
+    ],
+    "valuables": [
+      "Small Sapphire",
+      "Wand of Voodoo",
+      "Serpent Sword"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 500,
+    "task": "Medusae",
+    "mobs": [
+      "Medusa"
+    ],
+    "valuables": [
+      "Strand of Medusa Hair",
+      "Medusa Shield",
+      "Wand of Voodoo"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 700,
+    "task": "Behemoths",
+    "mobs": [
+      "Behemoth"
+    ],
+    "valuables": [
+      "Behemoth Claw",
+      "Giant Sword",
+      "Crown Armor",
+      "Platinum Amulet"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 900,
+    "task": "Sea Serpents",
+    "mobs": [
+      "Sea Serpent",
+      "Young Sea Serpent"
+    ],
+    "valuables": [
+      "Seacrest Hair",
+      "Sea Serpent Scale",
+      "Northwind Rod"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 250,
+    "task": "Hellhounds",
+    "mobs": [
+      "Hellhound"
+    ],
+    "valuables": [
+      "Hellhound Slobber",
+      "Demonbone Amulet"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 500,
+    "task": "Ghastly Dragons",
+    "mobs": [
+      "Ghastly Dragon"
+    ],
+    "valuables": [
+      "Ghastly Dragon Head",
+      "Undead Heart",
+      "Wand of Voodoo"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 900,
+    "task": "Drakens",
+    "mobs": [
+      "Draken Abomination",
+      "Draken Elite",
+      "Draken Spellweaver",
+      "Draken Warmaster"
+    ],
+    "valuables": [
+      "Draken Sulphur",
+      "Draken Boots",
+      "Zaoan Helmet",
+      "Zaoan Legs"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 650,
+    "task": "Destroyers",
+    "mobs": [
+      "Destroyer"
+    ],
+    "valuables": [
+      "Great Axe",
+      "Piece of Warrior Armor",
+      "Demonic Essence"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 400,
+    "task": "Undead Dragons",
+    "mobs": [
+      "Undead Dragon"
+    ],
+    "valuables": [
+      "Undead Heart",
+      "Dragon Scale Mail",
+      "Golden Mug"
+    ]
+  },
+  {
+    "levelRange": "130+",
+    "count": 6666,
+    "task": "Demons",
+    "mobs": [
+      "Demon",
+      "Infernal Demon"
+    ],
+    "valuables": [
+      "Demon Horn",
+      "Demon Shield",
+      "Giant Sword",
+      "Devil Helmet",
+      "Magic Plate Armor"
+    ]
+  }
+]
