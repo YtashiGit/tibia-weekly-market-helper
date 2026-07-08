@@ -165,3 +165,7 @@ W tabeli Imbuingi kolumna `Manual price` działa tak: `0` oznacza użyj ceny `Av
 - It now shows Buy offer and Sell offer.
 - Use the **Download current market prices** button to cache current market data from `https://www.tibiamarket.top/` via the local Python server.
 - If TibiaMarket.top has no usable row for an item, the app falls back to TibiaPrices where possible.
+
+
+## Fix note
+Current buy/sell offers are downloaded from `https://api.tibiamarket.top/market_values?server=<WORLD>&limit=5000`. The app no longer uses TibiaPrices' stale `Last market check` card in the item summary.

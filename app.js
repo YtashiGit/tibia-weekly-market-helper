@@ -104,7 +104,6 @@ function renderSummary(itemName, price, weekly) {
     ['Buy offer', fmtGp(price.buy_offer)],
     ['Sell offer', fmtGp(price.sell_offer ?? price.current_market_price)],
     ['Global / monthly avg', fmtGp(price.global_average_price ?? price.month_average_sell)],
-    ['Last market check', price.last_market_check || '—'],
     ['Weekly Delivery Task', weekly ? 'Yes' : 'No / not in bundled weekly list'],
     ['Price source', price.url ? `<a href="${escapeHtml(price.url)}" target="_blank" rel="noopener">Open</a>` : (price.source || '—')]
   ];

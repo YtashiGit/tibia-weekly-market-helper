@@ -203,24 +203,30 @@ def fetch_market_top_bundle(world: str = "") -> dict:
     values = None
     tried = []
     errors = []
+    # The API endpoint requires `server`, not `world`. Also the default limit is
+    # only 100, which made many items fall back to TibiaPrices. That is why you
+    # saw Lizard Tail as Sell=1000 and Buy=— while TibiaMarket.top showed
+    # Sell=2993 / Buy=402. Download a large page for the selected server.
     value_urls = [
-        f"{TIBIA_MARKET_TOP_API}/market_values?world={quote(requested_world)}",
-        f"{TIBIA_MARKET_TOP_API}/market_values?server={quote(requested_world)}",
-        f"{TIBIA_MARKET_TOP_API}/market_values?world_name={quote(requested_world)}",
-        f"{TIBIA_MARKET_TOP_API}/market_values",
+        f"{TIBIA_MARKET_TOP_API}/market_values?server={quote(requested_world)}&skip=0&limit=5000",
+        f"{TIBIA_MARKET_TOP_API}/market_values?server={quote(requested_world)}&limit=10000",
     ]
     for url in value_urls:
         try:
             tried.append(url)
-            values = fetch_json_url(url, cache_key="tmt_market_values_" + slugify_item(url) + ".json", max_age=30*60)
-            # Accept only if it contains some records.
-            if list(deep_iter_records(values)):
+            values = fetch_json_url(url, cache_key="tmt_market_values_v3_" + slugify_item(url) + ".json", max_age=30*60)
+            records = list(deep_iter_records(values))
+            # Accept only if it contains enough records to cover the whole market.
+            if len(records) > 500:
                 break
+            if records:
+                # Keep it as a fallback, but still try the next URL.
+                values = records
         except Exception as e:
             errors.append(f"{url}: {e}")
             values = None
 
-    if values is None:
+    if values is None or not list(deep_iter_records(values)):
         raise RuntimeError("Could not download TibiaMarket.top market values. " + " | ".join(errors[-3:]))
 
     bundle = {
@@ -278,10 +284,22 @@ def strip_tags(s: str) -> str:
 def parse_int(text):
     if text is None:
         return None
-    m = re.search(r"\d[\d,\.]*", str(text))
+    # Market Tracker uses -1 for "missing". The old parser stripped the
+    # minus sign and turned -1 into 1 gp, which could corrupt buy/sell offers.
+    if isinstance(text, (int, float)):
+        try:
+            n = int(text)
+        except Exception:
+            return None
+        return n if n >= 0 else None
+    raw = str(text).strip()
+    if re.fullmatch(r"-+\s*1(?:\.0+)?", raw) or raw.startswith("-"):
+        return None
+    m = re.search(r"\d[\d,\.]*", raw)
     if not m:
         return None
-    return int(re.sub(r"[^0-9]", "", m.group(0)))
+    n = int(re.sub(r"[^0-9]", "", m.group(0)))
+    return n if n >= 0 else None
 
 
 def after_label(text, label, stop_labels):
