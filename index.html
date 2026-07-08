@@ -10,7 +10,7 @@
   <header>
     <div>
       <h1>Tibia Item Market + Loot Finder</h1>
-      <p>Local Python version: weekly items, Tibia prices for Bona/Celesta/Dia, Grizzly Adams tasks, and imbuing material prices.</p>
+      <p>Local Python version: weekly items, TibiaMarket.top buy/sell offers for Bona/Celesta/Dia, Grizzly Adams tasks, and imbuing material prices.</p>
     </div>
     <button id="themeBtn" type="button">Toggle theme</button>
   </header>
@@ -39,6 +39,7 @@
         <button id="grizzlyBtn" type="button">Grizzly Adams</button>
         <button id="imbuingBtn" type="button">Imbuingi</button>
         <button id="loadWeeklyValuesBtn" type="button">Load avg values + sources</button>
+        <button id="downloadMarketTopBtn" type="button">Download current market prices</button>
         <button id="stopWeeklyValuesBtn" type="button" disabled>Stop loading</button>
         <button id="clearBtn" type="button">Clear</button>
         <button id="updateBtn" type="button">Update app from GitHub</button>
@@ -243,7 +244,7 @@
     <section class="panel">
       <h2>Notes</h2>
       <ul>
-        <li>Market prices are scraped by the local server from the configured public price page source.</li>
+        <li>Market prices are loaded by the local server. Click “Download current market prices” to cache current buy/sell offers from TibiaMarket.top; TibiaPrices is used as fallback when needed.</li>
         <li>Drop chances are community statistics from TibiaWiki/Fandom loot sample pages, so treat them as estimates.</li>
         <li>If an item drops from many monsters, this shows up to 6 sources with the lowest parsed HP first.</li>
         <li>If a page layout changes, the tool links the relevant source page instead of guessing.</li>

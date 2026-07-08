@@ -19,6 +19,8 @@ PORT = int(os.environ.get("PORT", "8000"))
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) TibiaItemLocalServer/1.2"
 ALLOWED_WORLDS = ["Bona", "Celesta", "Dia"]
 DEFAULT_WORLD = "Bona"
+TIBIA_MARKET_TOP_API = "https://api.tibiamarket.top"
+MARKET_TOP_CACHE = CACHE / "tibiamarket_top_prices.json"
 
 
 def normalize_world(world: str) -> str:
@@ -70,6 +72,200 @@ def fetch_text(url: str, cache_key=None, max_age=6*3600) -> str:
     if cache_key:
         cache_set(cache_key, text)
     return text
+
+
+def fetch_json_url(url: str, cache_key=None, max_age=1800):
+    text = fetch_text(url, cache_key=cache_key, max_age=max_age)
+    text_strip = text.lstrip()
+    if text_strip.startswith("<"):
+        raise ValueError(f"Expected JSON but got HTML from {url}")
+    return json.loads(text)
+
+
+def deep_iter_records(obj):
+    """Yield dict records from a nested API response."""
+    if isinstance(obj, list):
+        for x in obj:
+            yield from deep_iter_records(x)
+    elif isinstance(obj, dict):
+        # If this dict itself looks like a market/metadata record, yield it.
+        keys = {str(k).lower() for k in obj.keys()}
+        if keys & {"name", "item", "item_name", "itemid", "item_id", "world", "server", "buy_offer", "sell_offer", "month_sell_offer", "month_average_sell"}:
+            yield obj
+        # Also inspect common containers.
+        for k in ("data", "results", "items", "values", "market_values", "marketValues"):
+            if k in obj:
+                yield from deep_iter_records(obj[k])
+
+
+def first_int_field(d: dict, names):
+    for name in names:
+        for k, v in d.items():
+            if str(k).lower() == name.lower():
+                n = parse_int(v)
+                if n is not None:
+                    return n
+    return None
+
+
+def first_str_field(d: dict, names):
+    for name in names:
+        for k, v in d.items():
+            if str(k).lower() == name.lower() and v is not None:
+                val = str(v).strip()
+                if val:
+                    return val
+    return ""
+
+
+def build_metadata_maps(metadata_obj):
+    id_to_name, name_to_id = {}, {}
+    for rec in deep_iter_records(metadata_obj):
+        name = first_str_field(rec, ["name", "item_name", "itemName", "market_name", "item"])
+        item_id = first_str_field(rec, ["item_id", "itemId", "itemid", "id"])
+        if name:
+            name_to_id[re.sub(r"[^a-z0-9]+", " ", name.lower()).strip()] = item_id
+        if item_id and name:
+            id_to_name[str(item_id)] = name
+    return id_to_name, name_to_id
+
+
+def tmt_entry_world(rec: dict) -> str:
+    return first_str_field(rec, ["world", "world_name", "worldName", "server", "server_name", "serverName"])
+
+
+def tmt_entry_name(rec: dict, id_to_name: dict) -> str:
+    name = first_str_field(rec, ["name", "item", "item_name", "itemName", "market_name"])
+    if name:
+        return name
+    item_id = first_str_field(rec, ["item_id", "itemId", "itemid", "id"])
+    return id_to_name.get(str(item_id), "") if item_id else ""
+
+
+def tmt_normalize_price_record(rec: dict, id_to_name: dict, requested_world: str, requested_item: str) -> dict:
+    name = tmt_entry_name(rec, id_to_name) or requested_item
+    world = tmt_entry_world(rec) or requested_world
+    buy_offer = first_int_field(rec, ["buy_offer", "buyOffer", "current_buy_offer", "currentBuyOffer", "highest_buy_offer", "highestBuyOffer", "highest_buy", "highestBuy", "month_buy_offer", "monthBuyOffer"])
+    sell_offer = first_int_field(rec, ["sell_offer", "sellOffer", "current_sell_offer", "currentSellOffer", "lowest_sell_offer", "lowestSellOffer", "lowest_sell", "lowestSell", "month_sell_offer", "monthSellOffer"])
+    month_avg_sell = first_int_field(rec, ["month_average_sell", "monthAverageSell", "month_avg_sell", "monthAvgSell", "avg_sell", "average_sell", "averageSell", "day_average_sell", "dayAverageSell"])
+    month_avg_buy = first_int_field(rec, ["month_average_buy", "monthAverageBuy", "month_avg_buy", "monthAvgBuy", "avg_buy", "average_buy", "averageBuy", "day_average_buy", "dayAverageBuy"])
+    sold = first_int_field(rec, ["month_sold", "monthSold", "sold", "day_sold", "daySold"])
+    bought = first_int_field(rec, ["month_bought", "monthBought", "bought", "day_bought", "dayBought"])
+    timestamp = first_str_field(rec, ["time", "timestamp", "date", "last_update", "lastUpdate", "last_seen", "lastSeen"])
+    avg_used = sell_offer or month_avg_sell or buy_offer or month_avg_buy
+    return {
+        "item": name,
+        "world": normalize_world(world),
+        "url": "https://www.tibiamarket.top/",
+        "source": "TibiaMarket.top API",
+        "buy_offer": buy_offer,
+        "sell_offer": sell_offer,
+        "month_average_sell": month_avg_sell,
+        "month_average_buy": month_avg_buy,
+        "month_sold": sold,
+        "month_bought": bought,
+        "current_market_price": sell_offer,
+        "global_average_price": month_avg_sell,
+        "avg_value_used": avg_used,
+        "last_market_check": timestamp[:80] if timestamp else "",
+    }
+
+
+def load_market_top_cache():
+    if not MARKET_TOP_CACHE.exists():
+        return None
+    try:
+        return json.loads(MARKET_TOP_CACHE.read_text(encoding="utf-8", errors="ignore"))
+    except Exception:
+        return None
+
+
+def write_market_top_cache(obj):
+    MARKET_TOP_CACHE.write_text(json.dumps(obj, ensure_ascii=False), encoding="utf-8")
+
+
+def fetch_market_top_bundle(world: str = "") -> dict:
+    """Download current TibiaMarket.top API data and store it locally.
+
+    The API is documented through FastAPI/Swagger. Different deployments have
+    used slightly different query parameter names, so the downloader tries a
+    small set of safe variants and stores whichever JSON response works.
+    """
+    requested_world = normalize_world(world or DEFAULT_WORLD)
+    metadata = None
+    metadata_error = ""
+    try:
+        metadata = fetch_json_url(f"{TIBIA_MARKET_TOP_API}/item_metadata", cache_key="tmt_item_metadata.json", max_age=12*3600)
+    except Exception as e:
+        metadata_error = str(e)
+        metadata = []
+
+    values = None
+    tried = []
+    errors = []
+    value_urls = [
+        f"{TIBIA_MARKET_TOP_API}/market_values?world={quote(requested_world)}",
+        f"{TIBIA_MARKET_TOP_API}/market_values?server={quote(requested_world)}",
+        f"{TIBIA_MARKET_TOP_API}/market_values?world_name={quote(requested_world)}",
+        f"{TIBIA_MARKET_TOP_API}/market_values",
+    ]
+    for url in value_urls:
+        try:
+            tried.append(url)
+            values = fetch_json_url(url, cache_key="tmt_market_values_" + slugify_item(url) + ".json", max_age=30*60)
+            # Accept only if it contains some records.
+            if list(deep_iter_records(values)):
+                break
+        except Exception as e:
+            errors.append(f"{url}: {e}")
+            values = None
+
+    if values is None:
+        raise RuntimeError("Could not download TibiaMarket.top market values. " + " | ".join(errors[-3:]))
+
+    bundle = {
+        "source": "https://www.tibiamarket.top/",
+        "api": TIBIA_MARKET_TOP_API,
+        "world": requested_world,
+        "downloaded_at": int(time.time()),
+        "metadata_error": metadata_error,
+        "tried": tried,
+        "metadata": metadata,
+        "values": values,
+    }
+    write_market_top_cache(bundle)
+    record_count = len(list(deep_iter_records(values)))
+    return {"ok": True, "world": requested_world, "record_count": record_count, "metadata_error": metadata_error, "tried": tried, "message": f"Downloaded {record_count} market record(s) from TibiaMarket.top."}
+
+
+def find_market_top_price(world: str, item: str, allow_download: bool = False) -> dict | None:
+    requested_world = normalize_world(world)
+    bundle = load_market_top_cache()
+    if bundle is None and allow_download:
+        fetch_market_top_bundle(requested_world)
+        bundle = load_market_top_cache()
+    if not bundle:
+        return None
+    id_to_name, name_to_id = build_metadata_maps(bundle.get("metadata") or [])
+    item_key = re.sub(r"[^a-z0-9]+", " ", str(item or "").lower()).strip()
+    item_id = name_to_id.get(item_key, "")
+    best = None
+    for rec in deep_iter_records(bundle.get("values") or []):
+        rec_world = tmt_entry_world(rec)
+        if rec_world and rec_world.lower() != requested_world.lower():
+            continue
+        rec_name = tmt_entry_name(rec, id_to_name)
+        rec_key = re.sub(r"[^a-z0-9]+", " ", rec_name.lower()).strip() if rec_name else ""
+        rec_id = first_str_field(rec, ["item_id", "itemId", "itemid", "id"])
+        if rec_key == item_key or (item_id and rec_id and str(rec_id) == str(item_id)):
+            best = rec
+            break
+    if not best:
+        return None
+    data = tmt_normalize_price_record(best, id_to_name, requested_world, item)
+    data["url"] = "https://www.tibiamarket.top/"
+    data["from_market_top_cache"] = True
+    return data
 
 
 def strip_tags(s: str) -> str:
@@ -139,6 +335,8 @@ def parse_tibiaprices_page(page: str, requested_world: str, item: str, url: str,
         else:
             data["note"] = f"Exact {requested_world} page was unavailable; using global average from another TibiaPrices item page."
 
+    data["buy_offer"] = None
+    data["sell_offer"] = current_value
     data["current_market_price"] = current_value
     data["global_average_price"] = global_value
     # For farming efficiency we want world-specific value if available; otherwise global average; otherwise page current.
@@ -151,6 +349,14 @@ def parse_tibiaprices_page(page: str, requested_world: str, item: str, url: str,
 
 def get_price(world: str, item: str) -> dict:
     requested_world = normalize_world(world)
+    # Prefer TibiaMarket.top current buy/sell data if the user downloaded it.
+    try:
+        tmt = find_market_top_price(requested_world, item, allow_download=False)
+        if tmt and (tmt.get("buy_offer") is not None or tmt.get("sell_offer") is not None or tmt.get("avg_value_used") is not None):
+            return tmt
+    except Exception:
+        pass
+
     world_slug = slugify_item(requested_world)
     item_slug = slugify_item(item)
 
@@ -184,6 +390,8 @@ def get_price(world: str, item: str) -> dict:
         "world": requested_world,
         "url": f"https://tibiaprices.com/world/{world_slug}/item/{item_slug}/",
         "source": "TibiaPrices",
+        "buy_offer": None,
+        "sell_offer": None,
         "current_market_price": None,
         "global_average_price": None,
         "avg_value_used": None,
@@ -608,6 +816,9 @@ class Handler(SimpleHTTPRequestHandler):
                 return self.end_json(run_git_update())
             if parsed.path == "/api/clear_cache":
                 return self.end_json(clear_cache())
+            if parsed.path == "/api/download_market_top":
+                world = normalize_world(qs.get("world", [DEFAULT_WORLD])[0])
+                return self.end_json(fetch_market_top_bundle(world))
         except Exception as e:
             return self.end_json({"error": str(e)}, 500)
         return super().do_GET()

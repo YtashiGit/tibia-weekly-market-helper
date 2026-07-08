@@ -157,3 +157,11 @@ The weekly table now shows up to two regular monsters per item in one column, fo
 ## Imbuingi: ręczna cena itemu
 
 W tabeli Imbuingi kolumna `Manual price` działa tak: `0` oznacza użyj ceny `Avg price`, a każda wartość większa od zera nadpisuje cenę avg. Kolumny `Used price`, `Total for max qty` oraz porównanie z Gold Token przeliczają się na podstawie tej wartości. Ręczne ceny są zapisywane lokalnie w przeglądarce.
+
+
+## Update: TibiaMarket.top buy/sell offers
+
+- Search summary no longer shows Demand/Availability/Current market price/Avg value used cards.
+- It now shows Buy offer and Sell offer.
+- Use the **Download current market prices** button to cache current market data from `https://www.tibiamarket.top/` via the local Python server.
+- If TibiaMarket.top has no usable row for an item, the app falls back to TibiaPrices where possible.

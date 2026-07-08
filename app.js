@@ -101,12 +101,10 @@ function renderSummary(itemName, price, weekly) {
   const cards = [
     ['Item', itemName],
     ['World', $('worldInput').value.trim() || 'Bona'],
-    ['Current market price', fmtGp(price.current_market_price)],
-    ['Global average', fmtGp(price.global_average_price)],
-    ['Avg value used', fmtGp(price.avg_value_used)],
+    ['Buy offer', fmtGp(price.buy_offer)],
+    ['Sell offer', fmtGp(price.sell_offer ?? price.current_market_price)],
+    ['Global / monthly avg', fmtGp(price.global_average_price ?? price.month_average_sell)],
     ['Last market check', price.last_market_check || '—'],
-    ['Availability', price.availability || '—'],
-    ['Demand', price.demand || '—'],
     ['Weekly Delivery Task', weekly ? 'Yes' : 'No / not in bundled weekly list'],
     ['Price source', price.url ? `<a href="${escapeHtml(price.url)}" target="_blank" rel="noopener">Open</a>` : (price.source || '—')]
   ];
@@ -550,6 +548,36 @@ if (refreshQuickBtn) refreshQuickBtn.addEventListener('click', loadQuickPrices);
 if ($('worldInput')) $('worldInput').addEventListener('change', () => { loadQuickPrices(); renderWeeklyTable(); });
 
 loadWeeklyItems().then(() => { setStatus('Ready. Type an item, for example Tarantula Egg.'); loadQuickPrices(); }).catch(e => setStatus(`Could not load weekly_items.json: ${escapeHtml(e.message)}. Run via py server.py.`, 'bad'));
+
+
+async function downloadMarketTopPrices() {
+  const btn = $('downloadMarketTopBtn');
+  const world = $('worldInput').value || 'Bona';
+  if (btn) btn.disabled = true;
+  setStatus(`Downloading current market prices from TibiaMarket.top for ${escapeHtml(world)}…`, 'warn');
+  try {
+    const res = await fetchJson(`/api/download_market_top?world=${encodeURIComponent(world)}`);
+    if (res.ok) {
+      setStatus(`${escapeHtml(res.message || 'Market prices downloaded.')} New searches and tables will use TibiaMarket.top buy/sell offers when available.`, 'ok');
+      // Clear only in-memory price values so visible tables can be recalculated from the new cache.
+      state.weeklyItems.forEach(r => {
+        delete r.enriched; delete r.enrichWorld; delete r.avgValue; delete r.priceUrl; delete r.priceError; delete r.loading;
+      });
+      state.imbuingItems.forEach(r => { delete r.avgValue; delete r.priceUrl; delete r.priceWorld; delete r.priceError; });
+      renderWeeklyTable();
+      renderImbuingTable();
+    } else {
+      setStatus(`Download failed: ${escapeHtml(res.error || res.message || 'Unknown error')}`, 'bad');
+    }
+  } catch (e) {
+    setStatus(`Download failed: ${escapeHtml(e.message)}. The API may be down or blocked.`, 'bad');
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+const downloadMarketTopBtn = $('downloadMarketTopBtn');
+if (downloadMarketTopBtn) downloadMarketTopBtn.addEventListener('click', downloadMarketTopPrices);
 
 async function updateFromGithub() {
   const btn = $('updateBtn');
