@@ -1,4 +1,4 @@
-const state = { weeklyItems: [], weeklyRows: [], sourceRows: [], grizzlyTasks: [], imbuingItems: [], imbuingRows: [], imbuingCompareRows: [], enriching: false, stopEnrich: false, loadingImbuing: false };
+const state = { weeklyItems: [], weeklyRows: [], sourceRows: [], grizzlyTasks: [], imbuingItems: [], imbuingRows: [], imbuingCompareRows: [], greenDjinnItems: [], greenDjinnRows: [], enriching: false, stopEnrich: false, loadingImbuing: false, loadingGreenDjinn: false };
 const QUICK_ITEMS = [];
 const TOKEN_COUNTS = { Basic: 2, Intricate: 4, Powerful: 6 };
 const $ = (id) => document.getElementById(id);
@@ -8,11 +8,13 @@ const sourcesPanel = $('sourcesPanel');
 const weeklyPanel = $('weeklyPanel');
 const grizzlyPanel = $('grizzlyPanel');
 const imbuingPanel = $('imbuingPanel');
+const greenDjinnPanel = $('greenDjinnPanel');
 const sourcesBody = document.querySelector('#sourcesTable tbody');
 const weeklyBody = document.querySelector('#weeklyTable tbody');
 const grizzlyBody = document.querySelector('#grizzlyTable tbody');
 const imbuingBody = document.querySelector('#imbuingTable tbody');
 const imbuingCompareBody = document.querySelector('#imbuingCompareTable tbody');
+const greenDjinnBody = document.querySelector('#greenDjinnTable tbody');
 
 function norm(s) { return String(s || '').toLowerCase().replace(/&amp;/g, '&').replace(/[^a-z0-9]+/g, ' ').trim(); }
 function fmtGp(v) { if (v === undefined || v === null || v === '' || Number.isNaN(Number(v))) return '—'; return Number(v).toLocaleString() + ' gp'; }
@@ -31,15 +33,17 @@ async function loadWeeklyItems() {
   await loadReferenceData();
   const names = new Set(state.weeklyItems.map(x => x.name));
   state.imbuingItems.forEach(x => names.add(x.name));
+  state.greenDjinnItems.forEach(x => names.add(x.item));
   state.grizzlyTasks.forEach(t => { (t.valuables || []).forEach(x => names.add(x)); (t.mobs || []).forEach(x => names.add(x)); });
   ['Tarantula Egg','Vampire Teeth','Spider Silk','Honeycomb','Broken Shamanic Staff','Dragon Ham','Demon Horn','Gold Token'].forEach(x => names.add(x));
   $('itemSuggestions').innerHTML = [...names].filter(Boolean).sort((a,b)=>a.localeCompare(b)).map(n => `<option value="${escapeHtml(n)}"></option>`).join('');
 }
 
 async function loadReferenceData() {
-  const [g, i] = await Promise.all([fetchJson('grizzly_tasks.json'), fetchJson('imbuement_items.json')]);
+  const [g, i, gd] = await Promise.all([fetchJson('grizzly_tasks.json'), fetchJson('imbuement_items.json'), fetchJson('green_djinn_items.json')]);
   state.grizzlyTasks = g;
   state.imbuingItems = i.map(x => ({...x}));
+  state.greenDjinnItems = gd.map(x => ({...x}));
 }
 
 async function loadPrice(itemName) {
@@ -180,7 +184,7 @@ async function enrichVisibleWeeklyRows() {
   let done = 0, failed = 0;
   $('loadWeeklyValuesBtn').disabled = true;
   $('stopWeeklyValuesBtn').disabled = false;
-  setStatus(`Loading avg value, drop %, and 2 lowest-HP monster sources for ${total} visible weekly row(s)… Using 8 workers + local cache; worlds limited to Bona/Celesta/Dia`, 'warn');
+  setStatus(`Loading avg value, drop %, and 2 lowest-HP monster sources for ${total} visible weekly row(s)… Using 8 workers + local cache; worlds limited to Bona/Celesta/Dia/Kalanta`, 'warn');
 
   const queue = rows.filter(r => !r.enriched || r.enrichWorld !== ($('worldInput').value.trim() || 'Bona'));
   queue.forEach(r => { r.loading = true; });
@@ -215,7 +219,7 @@ async function enrichVisibleWeeklyRows() {
 
 
 function hideDataPanelsExcept(panel) {
-  [weeklyPanel, grizzlyPanel, imbuingPanel].forEach(p => { if (p && p !== panel) p.classList.add('hidden'); });
+  [weeklyPanel, grizzlyPanel, imbuingPanel, greenDjinnPanel].forEach(p => { if (p && p !== panel) p.classList.add('hidden'); });
 }
 
 function renderItemChips(items) {
@@ -250,6 +254,98 @@ function showGrizzly() {
   grizzlyPanel.classList.remove('hidden');
   renderGrizzlyTable();
   setStatus(`Grizzly Adams: ${state.grizzlyTasks.length} task rows loaded.`, 'ok');
+}
+
+
+function getGreenDjinnMarketPrice(row) {
+  return row.sellOffer ?? row.marketAvg ?? row.buyOffer ?? null;
+}
+function getGreenDjinnProfit(row) {
+  const market = getGreenDjinnMarketPrice(row);
+  if (market == null || row.npcPrice == null) return null;
+  return Number(row.npcPrice) - Number(market);
+}
+function getFilteredGreenDjinnRows() {
+  const filter = norm($('greenDjinnFilter')?.value || '');
+  const rows = state.greenDjinnItems.filter(r => !filter || norm(`${r.item} ${r.npc}`).includes(filter));
+  const sort = $('greenDjinnSort')?.value || 'profit';
+  if (sort === 'profit') rows.sort((a,b)=> (getGreenDjinnProfit(b) ?? -1e15) - (getGreenDjinnProfit(a) ?? -1e15) || a.item.localeCompare(b.item));
+  else if (sort === 'marketPrice') rows.sort((a,b)=> (getGreenDjinnMarketPrice(b) ?? -1e15) - (getGreenDjinnMarketPrice(a) ?? -1e15) || a.item.localeCompare(b.item));
+  else if (sort === 'npcPrice') rows.sort((a,b)=> Number(b.npcPrice||0) - Number(a.npcPrice||0) || a.item.localeCompare(b.item));
+  else rows.sort((a,b)=> String(a[sort]||'').localeCompare(String(b[sort]||'')) || a.item.localeCompare(b.item));
+  return rows;
+}
+function renderGreenDjinnTable() {
+  if (!greenDjinnBody) return;
+  const rows = getFilteredGreenDjinnRows();
+  state.greenDjinnRows = rows;
+  greenDjinnBody.innerHTML = rows.map(r => {
+    const marketUsed = getGreenDjinnMarketPrice(r);
+    const profit = getGreenDjinnProfit(r);
+    const cls = profit == null ? '' : (profit >= 0 ? 'good' : 'bad');
+    return `<tr>
+      <td>${escapeHtml(r.item)}</td>
+      <td>${escapeHtml(r.npc)}</td>
+      <td data-num="${r.npcPrice ?? ''}">${fmtGp(r.npcPrice)}</td>
+      <td data-num="${r.buyOffer ?? ''}">${r.loading ? 'Loading…' : fmtGp(r.buyOffer)}</td>
+      <td data-num="${r.sellOffer ?? ''}">${r.loading ? 'Loading…' : fmtGp(r.sellOffer)}</td>
+      <td data-num="${r.marketAvg ?? ''}">${r.loading ? 'Loading…' : fmtGp(r.marketAvg)}</td>
+      <td data-num="${marketUsed ?? ''}">${r.loading ? 'Loading…' : fmtGp(marketUsed)}</td>
+      <td class="${cls}" data-num="${profit ?? ''}">${profit == null ? '—' : fmtGp(profit)}</td>
+      <td>${r.priceUrl ? `<a href="${escapeHtml(r.priceUrl)}" target="_blank" rel="noopener">Price</a>` : '—'}</td>
+      <td><a href="${escapeHtml(wikiPageLink(r.item))}" target="_blank" rel="noopener">Wiki</a></td>
+    </tr>`;
+  }).join('');
+}
+function showGreenDjinn() {
+  hideDataPanelsExcept(greenDjinnPanel);
+  greenDjinnPanel.classList.remove('hidden');
+  renderGreenDjinnTable();
+  setStatus(`Green Djinn: ${state.greenDjinnItems.length} itemów. Kliknij “Download current prices + load Green Djinn”, żeby pobrać ceny dla ${escapeHtml($('worldInput').value)}.`, 'ok');
+}
+async function loadGreenDjinnPrices() {
+  if (state.loadingGreenDjinn) return;
+  state.loadingGreenDjinn = true;
+  const btn = $('loadGreenDjinnPricesBtn');
+  if (btn) btn.disabled = true;
+  const world = $('worldInput').value || 'Bona';
+  try {
+    const dl = await ensureMarketTopDownloaded(world, 'Green Djinn prices');
+    setStatus(`${escapeHtml(dl.message || 'Market prices downloaded.')} Loading Green Djinn items…`, 'ok');
+    state.greenDjinnItems.forEach(r => { if (r.priceWorld !== world) { delete r.buyOffer; delete r.sellOffer; delete r.marketAvg; delete r.priceUrl; delete r.priceWorld; delete r.priceError; } });
+  } catch (e) {
+    setStatus(`Could not download fresh TibiaMarket.top data: ${escapeHtml(e.message)}. Trying cached/fallback prices…`, 'warn');
+  }
+  const queue = state.greenDjinnItems.filter(r => !r.priceWorld || r.priceWorld !== world || (r.buyOffer === undefined && r.sellOffer === undefined && r.marketAvg === undefined));
+  queue.forEach(r => r.loading = true);
+  renderGreenDjinnTable();
+  let done = 0, failed = 0;
+  setStatus(`Loading Green Djinn market prices for ${queue.length} item(s) on ${world}…`, 'warn');
+  async function worker() {
+    while (queue.length) {
+      const row = queue.shift();
+      try {
+        const price = await loadPrice(row.item);
+        row.buyOffer = price.buy_offer ?? null;
+        row.sellOffer = price.sell_offer ?? price.current_market_price ?? null;
+        row.marketAvg = price.month_average_sell ?? price.global_average_price ?? null;
+        row.priceUrl = price.url || '';
+        row.priceWorld = world;
+        row.priceError = price.error || '';
+      } catch(e) {
+        row.buyOffer = null; row.sellOffer = null; row.marketAvg = null; row.priceError = e.message; failed++;
+      } finally {
+        row.loading = false; done++;
+        if (done % 6 === 0 || done === state.greenDjinnItems.length) renderGreenDjinnTable();
+        setStatus(`Green Djinn prices: ${done}/${state.greenDjinnItems.length}${failed ? `, ${failed} failed` : ''}.`, failed ? 'warn' : 'ok');
+      }
+    }
+  }
+  await Promise.all(Array.from({length: Math.min(8, Math.max(1, queue.length))}, () => worker()));
+  state.loadingGreenDjinn = false;
+  if (btn) btn.disabled = false;
+  renderGreenDjinnTable();
+  setStatus(`Finished Green Djinn prices for ${world}.`, failed ? 'warn' : 'ok');
 }
 
 
@@ -452,7 +548,14 @@ function showImbuing() {
   imbuingPanel.classList.remove('hidden');
   loadSavedManualImbuingPrices();
   renderImbuingTable();
-  setStatus(`Imbuingi: ${state.imbuingItems.length} material rows loaded. Click “Load imbuing avg prices” to fill prices for ${escapeHtml($('worldInput').value)}.`, 'ok');
+  setStatus(`Imbuingi: ${state.imbuingItems.length} material rows loaded. Click “Download current prices + load imbuingi” to fill prices for ${escapeHtml($('worldInput').value)}.`, 'ok');
+}
+
+async function ensureMarketTopDownloaded(world, reason='market prices') {
+  setStatus(`Downloading current ${escapeHtml(reason)} from TibiaMarket.top for ${escapeHtml(world)}…`, 'warn');
+  const res = await fetchJson(`/api/download_market_top?world=${encodeURIComponent(world)}`);
+  if (!res.ok) throw new Error(res.error || res.message || 'TibiaMarket.top download failed');
+  return res;
 }
 
 async function loadImbuingPrices() {
@@ -461,6 +564,13 @@ async function loadImbuingPrices() {
   const btn = $('loadImbuingPricesBtn');
   if (btn) btn.disabled = true;
   const world = $('worldInput').value || 'Bona';
+  try {
+    const dl = await ensureMarketTopDownloaded(world, 'imbuing prices');
+    setStatus(`${escapeHtml(dl.message || 'Market prices downloaded.')} Loading imbuing materials…`, 'ok');
+    state.imbuingItems.forEach(r => { if (r.priceWorld !== world) { delete r.avgValue; delete r.priceUrl; delete r.priceError; } });
+  } catch (e) {
+    setStatus(`Could not download fresh TibiaMarket.top data: ${escapeHtml(e.message)}. Trying cached/fallback prices…`, 'warn');
+  }
   const queue = state.imbuingItems.filter(r => !r.priceWorld || r.priceWorld !== world || r.avgValue === undefined);
   queue.forEach(r => r.loading = true);
   renderImbuingTable();
@@ -521,6 +631,7 @@ $('itemInput').addEventListener('keydown', e => { if (e.key === 'Enter') searchI
 $('weeklyBtn').addEventListener('click', () => { hideDataPanelsExcept(weeklyPanel); showWeeklyProfit(); });
 $('grizzlyBtn')?.addEventListener('click', showGrizzly);
 $('imbuingBtn')?.addEventListener('click', showImbuing);
+$('greenDjinnBtn')?.addEventListener('click', showGreenDjinn);
 $('clearBtn').addEventListener('click', () => { $('itemInput').value=''; summaryEl.classList.add('hidden'); sourcesPanel.classList.add('hidden'); setStatus('Cleared.'); });
 $('weeklyFilter').addEventListener('input', renderWeeklyTable);
 $('weeklySort').addEventListener('change', renderWeeklyTable);
@@ -532,6 +643,9 @@ $('loadImbuingPricesBtn')?.addEventListener('click', loadImbuingPrices);
 $('loadGoldTokenBtn')?.addEventListener('click', loadGoldTokenPrice);
 $('goldTokenPrice')?.addEventListener('input', renderImbuingCompareTable);
 $('imbuingCompareLevel')?.addEventListener('change', renderImbuingCompareTable);
+$('greenDjinnFilter')?.addEventListener('input', renderGreenDjinnTable);
+$('greenDjinnSort')?.addEventListener('change', renderGreenDjinnTable);
+$('loadGreenDjinnPricesBtn')?.addEventListener('click', loadGreenDjinnPrices);
 $('themeBtn').addEventListener('click', () => document.documentElement.classList.toggle('light'));
 $('loadWeeklyValuesBtn').addEventListener('click', enrichVisibleWeeklyRows);
 $('stopWeeklyValuesBtn').addEventListener('click', () => { state.stopEnrich = true; setStatus('Stopping after current requests finish…', 'warn'); });
@@ -540,11 +654,12 @@ $('exportWeeklyBtn').addEventListener('click', () => downloadCsv('tibia_weekly_i
 $('exportGrizzlyBtn')?.addEventListener('click', () => downloadCsv('tibia_grizzly_adams_tasks.csv', [['Level range','Task','Kills','Mobs counted','Valuable items'], ...getFilteredGrizzlyRows().map(r => [r.levelRange, r.task, r.count, (r.mobs||[]).join('; '), (r.valuables||[]).join('; ')])]));
 $('exportImbuingBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_items_prices.csv', [['Item','Used in','Required qty','Avg price gp','Manual price gp','Used unit price gp','Total max qty gp','Price URL','Wiki URL'], ...state.imbuingRows.map(r => [r.name, r.usedIn, r.maxQty ?? '', r.avgValue ?? '', getManualItemPrice(r) || 0, effectiveImbuingUnitPrice(r) ?? '', effectiveImbuingTotal(r) ?? '', r.priceUrl ?? '', wikiPageLink(r.name)])]));
 $('exportImbuingCompareBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_gold_token_comparison.csv', [['Level','Imbuing','Market materials total gp','Gold Tokens','Gold Token total gp','Better option','Difference gp'], ...state.imbuingCompareRows.map(r => [r.level, r.imbuing, r.marketTotal ?? '', r.tokenCount, r.tokenTotal ?? '', r.better, r.diff ?? ''])]));
+$('exportGreenDjinnBtn')?.addEventListener('click', () => downloadCsv('tibia_green_djinn_items_prices.csv', [['Item','NPC','NPC sell price gp','Buy offer gp','Sell offer gp','Market avg gp','Market price used gp','Profit vs NPC gp','Price URL','Wiki URL'], ...state.greenDjinnRows.map(r => [r.item, r.npc, r.npcPrice ?? '', r.buyOffer ?? '', r.sellOffer ?? '', r.marketAvg ?? '', getGreenDjinnMarketPrice(r) ?? '', getGreenDjinnProfit(r) ?? '', r.priceUrl ?? '', wikiPageLink(r.item)])]));
 
 
 const refreshQuickBtn = $('refreshQuickBtn');
 if (refreshQuickBtn) refreshQuickBtn.addEventListener('click', loadQuickPrices);
-if ($('worldInput')) $('worldInput').addEventListener('change', () => { loadQuickPrices(); renderWeeklyTable(); });
+if ($('worldInput')) $('worldInput').addEventListener('change', () => { loadQuickPrices(); renderWeeklyTable(); renderGreenDjinnTable(); });
 
 loadWeeklyItems().then(() => { setStatus('Ready. Type an item, for example Tarantula Egg.'); loadQuickPrices(); }).catch(e => setStatus(`Could not load weekly_items.json: ${escapeHtml(e.message)}. Run via py server.py.`, 'bad'));
 
@@ -563,8 +678,10 @@ async function downloadMarketTopPrices() {
         delete r.enriched; delete r.enrichWorld; delete r.avgValue; delete r.priceUrl; delete r.priceError; delete r.loading;
       });
       state.imbuingItems.forEach(r => { delete r.avgValue; delete r.priceUrl; delete r.priceWorld; delete r.priceError; });
+      state.greenDjinnItems.forEach(r => { delete r.buyOffer; delete r.sellOffer; delete r.marketAvg; delete r.priceUrl; delete r.priceWorld; delete r.priceError; });
       renderWeeklyTable();
       renderImbuingTable();
+      renderGreenDjinnTable();
     } else {
       setStatus(`Download failed: ${escapeHtml(res.error || res.message || 'Unknown error')}`, 'bad');
     }

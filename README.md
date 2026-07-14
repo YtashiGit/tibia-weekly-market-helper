@@ -129,7 +129,7 @@ Quick price cards were replaced by the Imbuingi tab. Imbuingi includes material 
 Shows all Grizzly Adams task rows split into Tibia level ranges: 6-49, 50-79, 80-129 and 130+. Each row lists counted mobs and a practical set of valuable loot items to watch. Click an item chip to search it in the main item lookup.
 
 ### Imbuingi
-Lists all imbuement material items from TibiaWiki's imbuing tables. Use **Load imbuing avg prices** to fetch average prices for the selected world: Bona, Celesta or Dia. The table can be filtered, sorted, and exported to CSV.
+Lists all imbuement material items from TibiaWiki's imbuing tables. Use **Download current prices + load imbuingi** to fetch average prices for the selected world: Bona, Celesta, Dia or Kalanta. The table can be filtered, sorted, and exported to CSV.
 
 ## Imbuingi: Gold Token comparison
 
@@ -169,3 +169,18 @@ W tabeli Imbuingi kolumna `Manual price` działa tak: `0` oznacza użyj ceny `Av
 
 ## Fix note
 Current buy/sell offers are downloaded from `https://api.tibiamarket.top/market_values?server=<WORLD>&limit=5000`. The app no longer uses TibiaPrices' stale `Last market check` card in the item summary.
+
+## Update: Green Djinn tab
+
+Added a **Green Djinn** tab with items bought by the green djinn NPCs **Alesar** and **Yaman**. The table shows:
+
+- item name,
+- NPC name,
+- NPC sell price,
+- current market buy offer,
+- current market sell offer,
+- market average,
+- market price used,
+- profit vs NPC price.
+
+Use **Download current prices + load Green Djinn** after selecting Bona, Celesta, Dia, or Kalanta.

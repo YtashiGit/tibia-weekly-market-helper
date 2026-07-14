@@ -10,7 +10,7 @@
   <header>
     <div>
       <h1>Tibia Item Market + Loot Finder</h1>
-      <p>Local Python version: weekly items, TibiaMarket.top buy/sell offers for Bona/Celesta/Dia, Grizzly Adams tasks, and imbuing material prices.</p>
+      <p>Local Python version: weekly items, TibiaMarket.top buy/sell offers for Bona/Celesta/Dia/Kalanta, Grizzly Adams tasks, imbuing material prices, and Green Djinn item prices.</p>
     </div>
     <button id="themeBtn" type="button">Toggle theme</button>
   </header>
@@ -30,6 +30,7 @@
             <option value="Bona" selected>Bona</option>
             <option value="Celesta">Celesta</option>
             <option value="Dia">Dia</option>
+            <option value="Kalanta">Kalanta</option>
           </select>
         </label>
       </div>
@@ -38,6 +39,7 @@
         <button id="weeklyBtn" type="button">Show weekly item table</button>
         <button id="grizzlyBtn" type="button">Grizzly Adams</button>
         <button id="imbuingBtn" type="button">Imbuingi</button>
+        <button id="greenDjinnBtn" type="button">Green Djinn</button>
         <button id="loadWeeklyValuesBtn" type="button">Load avg values + sources</button>
         <button id="downloadMarketTopBtn" type="button">Download current market prices</button>
         <button id="stopWeeklyValuesBtn" type="button" disabled>Stop loading</button>
@@ -154,11 +156,59 @@
       <p class="hint">Lista jest podzielona według przedziałów Grizzly Adams z TibiaWiki. “Valuable items” to praktyczna lista rzeczy, które warto sprawdzać/sprzedawać; ceny możesz sprawdzić w wyszukiwarce albo w zakładce Imbuingi, jeśli item jest imbuement materialem.</p>
     </section>
 
+
+
+    <section class="panel hidden" id="greenDjinnPanel">
+      <div class="sectionHead">
+        <h2>Green Djinn — itemy i ceny marketowe</h2>
+        <div class="actions compactActions">
+          <button id="loadGreenDjinnPricesBtn" type="button">Download current prices + load Green Djinn</button>
+          <button id="exportGreenDjinnBtn" type="button">Export Green Djinn CSV</button>
+        </div>
+      </div>
+      <div class="grid smallGrid">
+        <label>
+          Filter
+          <input id="greenDjinnFilter" placeholder="item or NPC, e.g. Giant Sword, Yaman..." />
+        </label>
+        <label>
+          Sort by
+          <select id="greenDjinnSort">
+            <option value="profit">Profit vs NPC, high to low</option>
+            <option value="marketPrice">Market price, high to low</option>
+            <option value="npcPrice">NPC price, high to low</option>
+            <option value="item">Item name</option>
+            <option value="npc">NPC</option>
+          </select>
+        </label>
+      </div>
+      <div class="tableWrap">
+        <table id="greenDjinnTable">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>NPC</th>
+              <th>NPC sell price</th>
+              <th>Buy offer</th>
+              <th>Sell offer</th>
+              <th>Market avg</th>
+              <th>Market price used</th>
+              <th>Profit vs NPC</th>
+              <th>Market</th>
+              <th>Wiki</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">Lista obejmuje itemy kupowane przez zielonych djinnów: <b>Alesar</b> oraz <b>Yaman</b>. Ceny marketowe są pobierane dla wybranego świata z TibiaMarket.top; jeśli brakuje aktualnego sell offera, appka użyje avg jako fallback. Profit pokazuje różnicę <b>NPC sell price - market price used</b>.</p>
+    </section>
+
     <section class="panel hidden" id="imbuingPanel">
       <div class="sectionHead">
         <h2>Imbuingi — materiały, Gold Token i porównanie</h2>
         <div class="actions compactActions">
-          <button id="loadImbuingPricesBtn" type="button">Load imbuing avg prices</button>
+          <button id="loadImbuingPricesBtn" type="button">Download current prices + load imbuingi</button>
           <button id="loadGoldTokenBtn" type="button">Load Gold Token price</button>
           <button id="exportImbuingBtn" type="button">Export imbuing CSV</button>
           <button id="exportImbuingCompareBtn" type="button">Export comparison CSV</button>
@@ -238,13 +288,13 @@
           <tbody></tbody>
         </table>
       </div>
-      <p class="hint">Ceny ładują się dla wybranego świata: Bona / Celesta / Dia. W kolumnie <b>Manual price</b> wpisz własną cenę: <b>0 = użyj Avg price</b>, a każda inna wartość nadpisze avg i przeliczy total oraz porównanie z Gold Token. Ręczne ceny zapisują się w przeglądarce.</p>
+      <p class="hint">Ceny ładują się dla wybranego świata: Bona / Celesta / Dia / Kalanta. W kolumnie <b>Manual price</b> wpisz własną cenę: <b>0 = użyj Avg price</b>, a każda inna wartość nadpisze avg i przeliczy total oraz porównanie z Gold Token. Ręczne ceny zapisują się w przeglądarce.</p>
     </section>
 
     <section class="panel">
       <h2>Notes</h2>
       <ul>
-        <li>Market prices are loaded by the local server. Click “Download current market prices” to cache current buy/sell offers from TibiaMarket.top; TibiaPrices is used as fallback when needed.</li>
+        <li>Market prices are loaded by the local server. Click “Download current market prices” to cache current buy/sell offers from TibiaMarket.top for the selected world; TibiaPrices is used as fallback when needed.</li>
         <li>Drop chances are community statistics from TibiaWiki/Fandom loot sample pages, so treat them as estimates.</li>
         <li>If an item drops from many monsters, this shows up to 6 sources with the lowest parsed HP first.</li>
         <li>If a page layout changes, the tool links the relevant source page instead of guessing.</li>
