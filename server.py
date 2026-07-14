@@ -17,7 +17,7 @@ CACHE = ROOT / ".cache"
 CACHE.mkdir(exist_ok=True)
 PORT = int(os.environ.get("PORT", "8000"))
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) TibiaItemLocalServer/1.2"
-ALLOWED_WORLDS = ["Bona", "Celesta", "Dia"]
+ALLOWED_WORLDS = ["Bona", "Celesta", "Dia", "Kalanta"]
 DEFAULT_WORLD = "Bona"
 TIBIA_MARKET_TOP_API = "https://api.tibiamarket.top"
 MARKET_TOP_CACHE = CACHE / "tibiamarket_top_prices.json"
@@ -90,7 +90,7 @@ def deep_iter_records(obj):
     elif isinstance(obj, dict):
         # If this dict itself looks like a market/metadata record, yield it.
         keys = {str(k).lower() for k in obj.keys()}
-        if keys & {"name", "item", "item_name", "itemid", "item_id", "world", "server", "buy_offer", "sell_offer", "month_sell_offer", "month_average_sell"}:
+        if keys & {"name", "item", "item_name", "itemid", "item_id", "world", "server", "buy_offer", "sell_offer", "month_sell_offer", "month_average_sell", "buy_price", "sell_price", "buyPrice", "sellPrice"}:
             yield obj
         # Also inspect common containers.
         for k in ("data", "results", "items", "values", "market_values", "marketValues"):
@@ -112,6 +112,8 @@ def first_str_field(d: dict, names):
     for name in names:
         for k, v in d.items():
             if str(k).lower() == name.lower() and v is not None:
+                if isinstance(v, (dict, list)):
+                    continue
                 val = str(v).strip()
                 if val:
                     return val
@@ -135,20 +137,50 @@ def tmt_entry_world(rec: dict) -> str:
 
 
 def tmt_entry_name(rec: dict, id_to_name: dict) -> str:
-    name = first_str_field(rec, ["name", "item", "item_name", "itemName", "market_name"])
+    # Common shapes:
+    # {"item_name":"Lizard Tail", ...}
+    # {"name":"Lizard Tail", ...}
+    # {"item":{"name":"Lizard Tail", "id":123}, ...}
+    item_obj = rec.get("item") if isinstance(rec, dict) else None
+    if isinstance(item_obj, dict):
+        nested = first_str_field(item_obj, ["name", "item_name", "itemName", "market_name"])
+        if nested:
+            return nested
+    name = first_str_field(rec, ["name", "item_name", "itemName", "market_name", "item"])
     if name:
         return name
     item_id = first_str_field(rec, ["item_id", "itemId", "itemid", "id"])
+    if not item_id and isinstance(item_obj, dict):
+        item_id = first_str_field(item_obj, ["item_id", "itemId", "itemid", "id"])
     return id_to_name.get(str(item_id), "") if item_id else ""
 
 
 def tmt_normalize_price_record(rec: dict, id_to_name: dict, requested_world: str, requested_item: str) -> dict:
     name = tmt_entry_name(rec, id_to_name) or requested_item
     world = tmt_entry_world(rec) or requested_world
-    buy_offer = first_int_field(rec, ["buy_offer", "buyOffer", "current_buy_offer", "currentBuyOffer", "highest_buy_offer", "highestBuyOffer", "highest_buy", "highestBuy", "month_buy_offer", "monthBuyOffer"])
-    sell_offer = first_int_field(rec, ["sell_offer", "sellOffer", "current_sell_offer", "currentSellOffer", "lowest_sell_offer", "lowestSellOffer", "lowest_sell", "lowestSell", "month_sell_offer", "monthSellOffer"])
-    month_avg_sell = first_int_field(rec, ["month_average_sell", "monthAverageSell", "month_avg_sell", "monthAvgSell", "avg_sell", "average_sell", "averageSell", "day_average_sell", "dayAverageSell"])
-    month_avg_buy = first_int_field(rec, ["month_average_buy", "monthAverageBuy", "month_avg_buy", "monthAvgBuy", "avg_buy", "average_buy", "averageBuy", "day_average_buy", "dayAverageBuy"])
+    buy_offer = first_int_field(rec, [
+        # TibiaMarket.top labels these as Buy Price / Sell Price in the UI and
+        # often returns API fields as buy_price / sell_price, not *_offer.
+        "buy_price", "buyPrice", "Buy Price", "buy",
+        "buy_offer", "buyOffer", "current_buy_offer", "currentBuyOffer",
+        "highest_buy_offer", "highestBuyOffer", "highest_buy", "highestBuy",
+        "month_buy_offer", "monthBuyOffer"
+    ])
+    sell_offer = first_int_field(rec, [
+        "sell_price", "sellPrice", "Sell Price", "sell",
+        "sell_offer", "sellOffer", "current_sell_offer", "currentSellOffer",
+        "lowest_sell_offer", "lowestSellOffer", "lowest_sell", "lowestSell",
+        "month_sell_offer", "monthSellOffer"
+    ])
+    month_avg_sell = first_int_field(rec, [
+        "market_avg", "marketAvg", "avg", "average", "average_price", "averagePrice",
+        "month_average_sell", "monthAverageSell", "month_avg_sell", "monthAvgSell",
+        "avg_sell", "average_sell", "averageSell", "day_average_sell", "dayAverageSell"
+    ])
+    month_avg_buy = first_int_field(rec, [
+        "month_average_buy", "monthAverageBuy", "month_avg_buy", "monthAvgBuy",
+        "avg_buy", "average_buy", "averageBuy", "day_average_buy", "dayAverageBuy"
+    ])
     sold = first_int_field(rec, ["month_sold", "monthSold", "sold", "day_sold", "daySold"])
     bought = first_int_field(rec, ["month_bought", "monthBought", "bought", "day_bought", "dayBought"])
     timestamp = first_str_field(rec, ["time", "timestamp", "date", "last_update", "lastUpdate", "last_seen", "lastSeen"])

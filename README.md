@@ -184,3 +184,7 @@ Added a **Green Djinn** tab with items bought by the green djinn NPCs **Alesar**
 - profit vs NPC price.
 
 Use **Download current prices + load Green Djinn** after selecting Bona, Celesta, Dia, or Kalanta.
+
+
+## Fix: TibiaMarket.top prices
+This version parses TibiaMarket.top API fields named `buy_price` and `sell_price` as Buy offer and Sell offer. Use **Clear cache**, then **Download current prices**, then load Green Djinn/Imbuingi again.
