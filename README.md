@@ -188,3 +188,8 @@ Use **Download current prices + load Green Djinn** after selecting Bona, Celesta
 
 ## Fix: TibiaMarket.top prices
 This version parses TibiaMarket.top API fields named `buy_price` and `sell_price` as Buy offer and Sell offer. Use **Clear cache**, then **Download current prices**, then load Green Djinn/Imbuingi again.
+
+
+## Delivery source data
+
+Weekly Delivery rows now prefer Tibiopedia item pages (`https://tibiopedia.pl/items/...`) for `Wypada z` / drop-source data. If Tibiopedia cannot be reached or a page layout changes, the server falls back to the previous TibiaWiki/Fandom source parser and bundled `weekly_items.json`.

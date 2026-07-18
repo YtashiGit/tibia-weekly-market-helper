@@ -47,6 +47,107 @@ def wiki_url(title: str) -> str:
     return "https://tibia.fandom.com/wiki/" + quote(wiki_title(title), safe=":_")
 
 
+def tibiopedia_item_url(name: str) -> str:
+    return "https://tibiopedia.pl/items/" + quote(wiki_title(name), safe="_") + "?layout=mobile"
+
+
+def tibiopedia_monster_url(name: str) -> str:
+    return "https://tibiopedia.pl/monsters/" + quote(wiki_title(name), safe="_") + "?layout=mobile"
+
+
+def fetch_tibiopedia_item_page(item: str) -> str:
+    """Fetch the mobile Tibiopedia item page. Tibiopedia has a very useful
+    Delivery view with Wypada z / drop-source information, so delivery
+    rows prefer this over the older bundled source strings.
+    """
+    title = wiki_title(item)
+    urls = [
+        "https://tibiopedia.pl/items/" + quote(title, safe="_") + "?layout=mobile",
+        "https://www.tibiopedia.pl/items/" + quote(title, safe="_") + "?layout=mobile",
+        "https://ns1.tibiopedia.pl/items/" + quote(title, safe="_") + "?layout=mobile",
+    ]
+    last = None
+    for u in urls:
+        try:
+            txt = fetch_text(u, cache_key="tibiopedia_item_v1_" + slugify_item(item) + "_" + slugify_item(u) + ".html", max_age=7*24*3600)
+            flat = strip_tags(txt[:4000]).lower()
+            if "page not found" in flat or "nie znaleziono" in flat or "setup" == flat.strip()[:5]:
+                last = "not a usable item page"
+                continue
+            return txt
+        except Exception as e:
+            last = str(e)
+    raise RuntimeError(last or "Could not load Tibiopedia item page")
+
+
+def tibiopedia_extract_monster_links(snippet: str):
+    out, seen = [], set()
+    for m in re.finditer(r'<a\b[^>]*href=["\']([^"\']*?/monsters/[^"\']+)["\'][^>]*>([\s\S]*?)</a>', snippet, flags=re.I):
+        href, inner = m.group(1), m.group(2)
+        name = strip_tags(inner)
+        if not name:
+            # Fallback to the URL part.
+            name = href.split('/monsters/', 1)[-1].split('?',1)[0].replace('_',' ')
+        name = html.unescape(re.sub(r"\s+", " ", name)).strip()
+        key = re.sub(r"[^a-z0-9]+", " ", name.lower()).strip()
+        if not key or key in seen or len(name) > 80:
+            continue
+        seen.add(key)
+        out.append(name)
+    return out
+
+
+def extract_tibiopedia_delivery_sources(item: str):
+    """Return [{source, chance}] parsed from Tibiopedia's item page.
+    The page text exposes Wypada z: / show-chances for delivery items; when
+    percentages are present in the HTML we attach them, otherwise we keep only
+    the monster names and let TibiaWiki loot statistics fill chance later.
+    """
+    try:
+        h = fetch_tibiopedia_item_page(item)
+    except Exception:
+        return []
+
+    # Capture a bounded block beginning at Wypada z / Drops from and ending
+    # before NPC sell/buy sections. Works on Tibiopedia mobile pages and table rows.
+    low = h.lower()
+    starts = [low.find(x) for x in ["wypada", "drops from", "dropped by"] if low.find(x) >= 0]
+    if not starts:
+        return []
+    start = min(starts)
+    end = len(h)
+    for marker in ["sprzeda", "kupno", "dodane", "sell", "buy", "class=", "<h2", "<h3"]:
+        pos = low.find(marker, start + 80)
+        if pos >= 0:
+            end = min(end, pos)
+    block = h[start:min(end, start+6000)]
+
+    if re.search(r"nie wypada z żadnego potwora|does not drop from", strip_tags(block), re.I):
+        return []
+
+    links = tibiopedia_extract_monster_links(block)
+    if not links:
+        # Text fallback. This is less exact, but better than returning no data.
+        text = strip_tags(block)
+        text = re.sub(r"Wypada\s*z:?|Drops\s*from:?|Dropped\s*by:?|pokaż\s*szanse|show\s*chances", " ", text, flags=re.I)
+        # Stop at typical next labels.
+        text = re.split(r"Sprzedaż|Kupno|Dodane|Sell|Buy", text, flags=re.I)[0]
+        # Split on separators first; if absent, leave to Fandom fallback by returning [].
+        parts = [x.strip() for x in re.split(r"[,;\n]+", text) if x.strip()]
+        links = [x for x in parts if 2 <= len(x) <= 80]
+
+    rows = []
+    for i, name in enumerate(links):
+        # Look between this monster link and the next one for a percentage.
+        chance = ""
+        esc = re.escape(name)
+        m = re.search(esc + r"[\s\S]{0,180}?(\d+(?:[.,]\d+)?\s*%)", strip_tags(block), flags=re.I)
+        if m:
+            chance = m.group(1).replace(',', '.').replace(' ', '')
+        rows.append({"source": name, "chance": chance, "url": tibiopedia_monster_url(name)})
+    return rows
+
+
 def cache_get(key: str, max_age=6*3600):
     p = CACHE / re.sub(r"[^a-zA-Z0-9_.-]+", "_", key)
     if p.exists() and time.time() - p.stat().st_mtime < max_age:
@@ -494,10 +595,20 @@ def load_weekly_sources(item: str):
 
 
 def extract_drop_sources(item: str) -> list:
-    sources = []
+    # Prefer Tibiopedia for Delivery items because its Delivery category/item
+    # pages are built around “Wypada z” source information and show-chance data.
+    tibiopedia_rows = extract_tibiopedia_delivery_sources(item)
+    sources = [r.get("source", "") for r in tibiopedia_rows if r.get("source")]
+    if sources:
+        pass
+    else:
+        sources = []
     try:
         h = fandom_parse(item)
         labels = ["Dropped By", "Dropped from", "Dropped From", "Loot from", "Loot From"]
+
+        if sources:
+            raise StopIteration
 
         # Best case: capture only the table row that contains the label. The old
         # parser grabbed a large slice after "Dropped By", which sometimes swept
@@ -526,6 +637,8 @@ def extract_drop_sources(item: str) -> list:
             sec = re.search(r"<span[^>]*id=\"(?:Dropped_By|Dropped_from|Loot_from)[^\"]*\"[\s\S]{0,3000}", h, flags=re.I)
             if sec:
                 sources.extend(extract_links(sec.group(0)))
+    except StopIteration:
+        pass
     except Exception:
         pass
 
@@ -695,9 +808,11 @@ def looks_non_monster_source(name: str) -> bool:
     return any(w in key for w in non_monster_words)
 
 def get_loot_sources(item: str) -> list:
+    tibiopedia_rows = extract_tibiopedia_delivery_sources(item)
+    tibiopedia_chance_by_source = {re.sub(r"[^a-z0-9]+", " ", r.get("source", "").lower()).strip(): r for r in tibiopedia_rows}
     sources = [s for s in extract_drop_sources(item) if not looks_non_monster_source(s)]
     if not sources:
-        return [{"source":"No monster source parsed", "hp":None, "hpText":"—", "chance":"—", "chancePercent":None, "average":"—", "sample":"—", "url":wiki_url(item), "note":"Open item page manually"}]
+        return [{"source":"No monster source parsed", "hp":None, "hpText":"—", "chance":"—", "chancePercent":None, "average":"—", "sample":"—", "url":tibiopedia_item_url(item), "note":"Open Tibiopedia item page manually"}]
 
     with_hp = []
     for s in sources:
@@ -707,7 +822,7 @@ def get_loot_sources(item: str) -> list:
             with_hp.append({"source":s, "hp":hpv, "hpText": f"{hpv:,}"})
 
     if not with_hp:
-        return [{"source":"No monster source with HP parsed", "hp":None, "hpText":"—", "chance":"—", "chancePercent":None, "average":"—", "sample":"—", "url":wiki_url(item), "note":"NPCs/non-monsters ignored"}]
+        return [{"source":"No monster source with HP parsed", "hp":None, "hpText":"—", "chance":"—", "chancePercent":None, "average":"—", "sample":"—", "url":tibiopedia_item_url(item), "note":"NPCs/non-monsters ignored"}]
 
     with_hp.sort(key=lambda r: (r["hp"], r["source"].lower()))
     easiest = with_hp[:6]
@@ -720,7 +835,9 @@ def get_loot_sources(item: str) -> list:
             parsed = parse_loot_stats(stats_html, item)
         except Exception:
             parsed = None
-        chance_text = (parsed or {}).get("chance") or "Not found on statistics page"
+        src_key = re.sub(r"[^a-z0-9]+", " ", r["source"].lower()).strip()
+        tp_chance = (tibiopedia_chance_by_source.get(src_key) or {}).get("chance")
+        chance_text = (parsed or {}).get("chance") or tp_chance or "Not found on statistics page"
         rows.append({
             "source": r["source"],
             "hp": r["hp"],
@@ -730,6 +847,7 @@ def get_loot_sources(item: str) -> list:
             "average": (parsed or {}).get("average") or "—",
             "sample": (parsed or {}).get("sample") or "—",
             "url": wiki_url(stats_title),
+            "tibiopediaUrl": tibiopedia_monster_url(r["source"]),
             "creatureUrl": wiki_url(r["source"]),
             "totalParsedSources": len(sources)
         })
@@ -741,7 +859,7 @@ def get_weekly_row(world: str, item: str) -> dict:
     # (price page + item page + creature page + loot statistics page). The first
     # run can still take time, but repeats become near-instant.
     requested_world = normalize_world(world)
-    cache_key = "weeklyrow_v5_twosources_no_bosses_no_eff_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
+    cache_key = "weeklyrow_v6_tibiopedia_delivery_sources_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
     cached = cache_get(cache_key, max_age=12*3600)
     if cached:
         try:
@@ -776,8 +894,8 @@ def get_weekly_row(world: str, item: str) -> dict:
         "lowestHp": best.get("hp") if best and best.get("hp") else None,
         "dropChanceText": "; ".join(chance_labels),
         "dropChancePercent": chance_pct,
-        "sourceUrl": best.get("url") or wiki_url(item),
-        "wikiUrl": wiki_url(item),
+        "sourceUrl": best.get("url") or tibiopedia_item_url(item),
+        "wikiUrl": tibiopedia_item_url(item),
         "fromCache": False,
     }
     try:
