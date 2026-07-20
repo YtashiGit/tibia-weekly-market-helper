@@ -17,7 +17,7 @@ CACHE = ROOT / ".cache"
 CACHE.mkdir(exist_ok=True)
 PORT = int(os.environ.get("PORT", "8000"))
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) TibiaItemLocalServer/1.2"
-ALLOWED_WORLDS = ["Bona", "Celesta", "Dia", "Kalanta"]
+ALLOWED_WORLDS = ["Bona", "Celesta", "Dia", "Kalanta", "Nevia"]
 DEFAULT_WORLD = "Bona"
 TIBIA_MARKET_TOP_API = "https://api.tibiamarket.top"
 MARKET_TOP_CACHE = CACHE / "tibiamarket_top_prices.json"
@@ -859,7 +859,7 @@ def get_weekly_row(world: str, item: str) -> dict:
     # (price page + item page + creature page + loot statistics page). The first
     # run can still take time, but repeats become near-instant.
     requested_world = normalize_world(world)
-    cache_key = "weeklyrow_v6_tibiopedia_delivery_sources_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
+    cache_key = "weeklyrow_v7_nevia_split_nohp_" + slugify_item(requested_world) + "_" + slugify_item(item) + ".json"
     cached = cache_get(cache_key, max_age=12*3600)
     if cached:
         try:

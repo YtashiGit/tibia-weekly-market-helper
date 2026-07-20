@@ -1,4 +1,4 @@
-const state = { weeklyItems: [], weeklyRows: [], sourceRows: [], grizzlyTasks: [], imbuingItems: [], imbuingRows: [], imbuingCompareRows: [], greenDjinnItems: [], greenDjinnRows: [], enriching: false, stopEnrich: false, loadingImbuing: false, loadingGreenDjinn: false };
+const state = { weeklyItems: [], weeklyRows: [], weeklyNoHpRows: [], sourceRows: [], grizzlyTasks: [], imbuingItems: [], imbuingRows: [], imbuingCompareRows: [], greenDjinnItems: [], greenDjinnRows: [], enriching: false, stopEnrich: false, loadingImbuing: false, loadingGreenDjinn: false };
 const QUICK_ITEMS = [];
 const TOKEN_COUNTS = { Basic: 2, Intricate: 4, Powerful: 6 };
 const $ = (id) => document.getElementById(id);
@@ -11,6 +11,8 @@ const imbuingPanel = $('imbuingPanel');
 const greenDjinnPanel = $('greenDjinnPanel');
 const sourcesBody = document.querySelector('#sourcesTable tbody');
 const weeklyBody = document.querySelector('#weeklyTable tbody');
+const weeklyNoHpBody = document.querySelector('#weeklyNoHpTable tbody');
+const weeklyNoHpBlock = $('weeklyNoHpBlock');
 const grizzlyBody = document.querySelector('#grizzlyTable tbody');
 const imbuingBody = document.querySelector('#imbuingTable tbody');
 const imbuingCompareBody = document.querySelector('#imbuingCompareTable tbody');
@@ -161,10 +163,13 @@ function getFilteredWeeklyRows() {
   return rows;
 }
 
-function renderWeeklyTable() {
-  const rows = getFilteredWeeklyRows();
-  state.weeklyRows = rows;
-  weeklyBody.innerHTML = rows.map(r => `<tr>
+function hasValidWeeklyHp(r) {
+  const hp = Number(r.lowestHp);
+  return Number.isFinite(hp) && hp > 0;
+}
+
+function weeklyRowHtml(r) {
+  return `<tr>
     <td>${escapeHtml(r.name)}</td>
     <td>${escapeHtml(r.category)}</td>
     <td data-num="${r.avgValue ?? ''}">${r.loading ? 'Loading…' : fmtGp(r.avgValue)}</td>
@@ -172,9 +177,22 @@ function renderWeeklyTable() {
     <td>${escapeHtml(r.monsterSourcesText || r.lowestSource || '—')}</td>
     <td>${r.priceUrl ? `<a href="${escapeHtml(r.priceUrl)}" target="_blank" rel="noopener">Price</a>` : '—'}</td>
     <td><a href="${escapeHtml(r.wikiUrl || wikiPageLink(r.name))}" target="_blank" rel="noopener">Tibiopedia</a></td>
-  </tr>`).join('');
+  </tr>`;
 }
-function showWeeklyProfit() { weeklyPanel.classList.remove('hidden'); renderWeeklyTable(); setStatus(`Loaded ${state.weeklyItems.length} weekly items. Click “Load avg values + sources” to fill price, drop %, and 2 lowest-HP non-boss monster sources.`, 'ok'); }
+
+function renderWeeklyTable() {
+  const rows = getFilteredWeeklyRows();
+  const mainRows = rows.filter(r => !r.enriched || hasValidWeeklyHp(r));
+  const noHpRows = rows.filter(r => r.enriched && !hasValidWeeklyHp(r));
+  state.weeklyRows = mainRows;
+  state.weeklyNoHpRows = noHpRows;
+  weeklyBody.innerHTML = mainRows.map(weeklyRowHtml).join('');
+  if (weeklyNoHpBody && weeklyNoHpBlock) {
+    weeklyNoHpBody.innerHTML = noHpRows.map(weeklyRowHtml).join('');
+    weeklyNoHpBlock.classList.toggle('hidden', noHpRows.length === 0);
+  }
+}
+function showWeeklyProfit() { weeklyPanel.classList.remove('hidden'); renderWeeklyTable(); setStatus(`Loaded ${state.weeklyItems.length} weekly items. Click “Load avg values + sources” to fill price, drop %, and 2 lowest-HP non-boss monster sources. Rows without parsed mob HP will move to the bottom table.`, 'ok'); }
 
 async function enrichVisibleWeeklyRows() {
   if (state.enriching) return;
@@ -184,7 +202,7 @@ async function enrichVisibleWeeklyRows() {
   let done = 0, failed = 0;
   $('loadWeeklyValuesBtn').disabled = true;
   $('stopWeeklyValuesBtn').disabled = false;
-  setStatus(`Loading avg value, drop %, and 2 lowest-HP monster sources for ${total} visible weekly row(s)… Using 8 workers + local cache; worlds limited to Bona/Celesta/Dia/Kalanta`, 'warn');
+  setStatus(`Loading avg value, drop %, and 2 lowest-HP monster sources for ${total} visible weekly row(s)… Using 8 workers + local cache; worlds limited to Bona/Celesta/Dia/Kalanta/Nevia`, 'warn');
 
   const queue = rows.filter(r => !r.enriched || r.enrichWorld !== ($('worldInput').value.trim() || 'Bona'));
   queue.forEach(r => { r.loading = true; });
@@ -214,7 +232,7 @@ async function enrichVisibleWeeklyRows() {
   $('stopWeeklyValuesBtn').disabled = true;
   queue.forEach(r => { r.loading = false; });
   renderWeeklyTable();
-  setStatus(state.stopEnrich ? `Stopped after ${done}/${total} rows.` : `Finished weekly enrichment: ${done}/${total} rows. Sort by avg value, drop chance, or monster HP now.`, state.stopEnrich ? 'warn' : 'ok');
+  setStatus(state.stopEnrich ? `Stopped after ${done}/${total} rows.` : `Finished weekly enrichment: ${done}/${total} rows. Rows with valid monster HP are sorted first; rows without HP are in the bottom table.`, state.stopEnrich ? 'warn' : 'ok');
 }
 
 
@@ -650,7 +668,7 @@ $('themeBtn').addEventListener('click', () => document.documentElement.classList
 $('loadWeeklyValuesBtn').addEventListener('click', enrichVisibleWeeklyRows);
 $('stopWeeklyValuesBtn').addEventListener('click', () => { state.stopEnrich = true; setStatus('Stopping after current requests finish…', 'warn'); });
 $('exportSourcesBtn').addEventListener('click', () => downloadCsv('tibia_item_sources.csv', [['Creature / source','HP','Drop chance','Drop chance %','Avg / kill','Sample count','Source URL'], ...state.sourceRows.map(r => [r.source, r.hp ?? '', r.chance, r.chancePercent ?? '', r.average, r.sample, r.url])]))
-$('exportWeeklyBtn').addEventListener('click', () => downloadCsv('tibia_weekly_items_enriched.csv', [['Item','Category','Avg value gp','Drop chance %','Drop chance text','Monster sources','Price URL','Tibiopedia URL'], ...state.weeklyRows.map(r => [r.name, r.category, r.avgValue ?? '', r.dropChancePercent ?? '', r.dropChanceText ?? '', r.monsterSourcesText || r.lowestSource || '', r.priceUrl ?? '', r.wikiUrl ?? wikiPageLink(r.name)])]));
+$('exportWeeklyBtn').addEventListener('click', () => downloadCsv('tibia_weekly_items_enriched.csv', [['Item','Category','Avg value gp','Drop chance %','Drop chance text','Monster sources','Price URL','Tibiopedia URL','Table'], ...state.weeklyRows.map(r => [r.name, r.category, r.avgValue ?? '', r.dropChancePercent ?? '', r.dropChanceText ?? '', r.monsterSourcesText || r.lowestSource || '', r.priceUrl ?? '', r.wikiUrl ?? wikiPageLink(r.name), 'main']), ...state.weeklyNoHpRows.map(r => [r.name, r.category, r.avgValue ?? '', r.dropChancePercent ?? '', r.dropChanceText ?? '', r.monsterSourcesText || r.lowestSource || '', r.priceUrl ?? '', r.wikiUrl ?? wikiPageLink(r.name), 'no_hp'])]));
 $('exportGrizzlyBtn')?.addEventListener('click', () => downloadCsv('tibia_grizzly_adams_tasks.csv', [['Level range','Task','Kills','Mobs counted','Valuable items'], ...getFilteredGrizzlyRows().map(r => [r.levelRange, r.task, r.count, (r.mobs||[]).join('; '), (r.valuables||[]).join('; ')])]));
 $('exportImbuingBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_items_prices.csv', [['Item','Used in','Required qty','Avg price gp','Manual price gp','Used unit price gp','Total max qty gp','Price URL','Tibiopedia URL'], ...state.imbuingRows.map(r => [r.name, r.usedIn, r.maxQty ?? '', r.avgValue ?? '', getManualItemPrice(r) || 0, effectiveImbuingUnitPrice(r) ?? '', effectiveImbuingTotal(r) ?? '', r.priceUrl ?? '', wikiPageLink(r.name)])]));
 $('exportImbuingCompareBtn')?.addEventListener('click', () => downloadCsv('tibia_imbuing_gold_token_comparison.csv', [['Level','Imbuing','Market materials total gp','Gold Tokens','Gold Token total gp','Better option','Difference gp'], ...state.imbuingCompareRows.map(r => [r.level, r.imbuing, r.marketTotal ?? '', r.tokenCount, r.tokenTotal ?? '', r.better, r.diff ?? ''])]));

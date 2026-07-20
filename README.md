@@ -110,7 +110,7 @@ This build ignores NPC/non-monster pages when calculating the lowest-HP non-boss
 
 ## Notes in this build
 
-- The world selector is limited to **Bona**, **Celesta**, and **Dia**.
+- The world selector is limited to **Bona**, **Celesta**, **Dia**, **Kalanta**, and **Nevia**.
 - Price lookups only try those three worlds, which cuts useless fallback requests and should make failures finish faster.
 - The loot-source parser is stricter: it only reads the actual Dropped By row/section and rejects NPC/spell/rune/boss pages.
 - Weekly source rows use a new cache key so older cached bad rows are not reused.
@@ -129,7 +129,7 @@ Quick price cards were replaced by the Imbuingi tab. Imbuingi includes material 
 Shows all Grizzly Adams task rows split into Tibia level ranges: 6-49, 50-79, 80-129 and 130+. Each row lists counted mobs and a practical set of valuable loot items to watch. Click an item chip to search it in the main item lookup.
 
 ### Imbuingi
-Lists all imbuement material items from TibiaWiki's imbuing tables. Use **Download current prices + load imbuingi** to fetch average prices for the selected world: Bona, Celesta, Dia or Kalanta. The table can be filtered, sorted, and exported to CSV.
+Lists all imbuement material items from TibiaWiki's imbuing tables. Use **Download current prices + load imbuingi** to fetch average prices for the selected world: Bona, Celesta, Dia, Kalanta or Nevia. The table can be filtered, sorted, and exported to CSV.
 
 ## Imbuingi: Gold Token comparison
 
@@ -183,7 +183,7 @@ Added a **Green Djinn** tab with items bought by the green djinn NPCs **Alesar**
 - market price used,
 - profit vs NPC price.
 
-Use **Download current prices + load Green Djinn** after selecting Bona, Celesta, Dia, or Kalanta.
+Use **Download current prices + load Green Djinn** after selecting Bona, Celesta, Dia, Kalanta, or Nevia.
 
 
 ## Fix: TibiaMarket.top prices
@@ -193,3 +193,12 @@ This version parses TibiaMarket.top API fields named `buy_price` and `sell_price
 ## Delivery source data
 
 Weekly Delivery rows now prefer Tibiopedia item pages (`https://tibiopedia.pl/items/...`) for `Wypada z` / drop-source data. If Tibiopedia cannot be reached or a page layout changes, the server falls back to the previous TibiaWiki/Fandom source parser and bundled `weekly_items.json`.
+
+
+## Update: Nevia + weekly HP split
+
+- Added **Nevia** to the world/server selector.
+- Weekly table now sorts by **lowest monster HP** by default.
+- Weekly rows with no parsed normal monster HP are hidden from the main table and moved to a separate table at the bottom.
+- Export CSV includes a `Table` column showing whether a row came from the main table or the no-HP table.
+- Cache key changed for weekly enrichment, so use **Clear cache** once after installing this update.

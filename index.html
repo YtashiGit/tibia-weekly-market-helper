@@ -10,7 +10,7 @@
   <header>
     <div>
       <h1>Tibia Item Market + Loot Finder</h1>
-      <p>Local Python version: weekly items, TibiaMarket.top buy/sell offers for Bona/Celesta/Dia/Kalanta, Grizzly Adams tasks, imbuing material prices, and Green Djinn item prices.</p>
+      <p>Local Python version: weekly items, TibiaMarket.top buy/sell offers for Bona/Celesta/Dia/Kalanta/Nevia, Grizzly Adams tasks, imbuing material prices, and Green Djinn item prices.</p>
     </div>
     <button id="themeBtn" type="button">Toggle theme</button>
   </header>
@@ -31,6 +31,7 @@
             <option value="Celesta">Celesta</option>
             <option value="Dia">Dia</option>
             <option value="Kalanta">Kalanta</option>
+            <option value="Nevia">Nevia</option>
           </select>
         </label>
       </div>
@@ -88,9 +89,9 @@
         <label>
           Sort by
           <select id="weeklySort">
+            <option value="lowestHp" selected>Lowest source HP, low to high</option>
             <option value="avgValue">Avg value, high to low</option>
             <option value="dropChancePercent">Drop chance %, high to low</option>
-            <option value="lowestHp">Lowest source HP, low to high</option>
             <option value="name">Name</option>
             <option value="category">Category</option>
           </select>
@@ -112,7 +113,28 @@
           <tbody></tbody>
         </table>
       </div>
-      <p class="hint">Set your world, then click <b>Load avg values + sources</b>. The table adds avg value, drop chance %, and two lowest-HP non-boss monster sources in the format Mob(HP). NPCs, bosses, and non-monsters are ignored. If HP values look wrong after an update, click Clear cache once. Loading all 477 rows may take several minutes the first time; cached repeats are faster.</p>
+
+      <div id="weeklyNoHpBlock" class="hidden subTableBlock">
+        <h3>Weekly items without parsed monster HP</h3>
+        <p class="hint">Te rekordy są ukryte z głównej tabeli, bo parser nie znalazł poprawnego HP zwykłego moba. Mogą mieć tylko NPC/bossa, nietypowe źródło albo brak danych na stronie.</p>
+        <div class="tableWrap">
+          <table id="weeklyNoHpTable">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Avg value</th>
+                <th>Drop chance</th>
+                <th>Parsed source</th>
+                <th>Market</th>
+                <th>Tibiopedia</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <p class="hint">Set your world, then click <b>Load avg values + sources</b>. Main table is sorted by lowest monster HP by default. It shows two lowest-HP non-boss monster sources in the format Mob(HP). Rows without parsed monster HP are moved to the separate table at the bottom. If HP values look wrong after an update, click Clear cache once. Loading all 477 rows may take several minutes the first time; cached repeats are faster.</p>
     </section>
 
 
@@ -288,7 +310,7 @@
           <tbody></tbody>
         </table>
       </div>
-      <p class="hint">Ceny ładują się dla wybranego świata: Bona / Celesta / Dia / Kalanta. W kolumnie <b>Manual price</b> wpisz własną cenę: <b>0 = użyj Avg price</b>, a każda inna wartość nadpisze avg i przeliczy total oraz porównanie z Gold Token. Ręczne ceny zapisują się w przeglądarce.</p>
+      <p class="hint">Ceny ładują się dla wybranego świata: Bona / Celesta / Dia / Kalanta / Nevia. W kolumnie <b>Manual price</b> wpisz własną cenę: <b>0 = użyj Avg price</b>, a każda inna wartość nadpisze avg i przeliczy total oraz porównanie z Gold Token. Ręczne ceny zapisują się w przeglądarce.</p>
     </section>
 
     <section class="panel">
